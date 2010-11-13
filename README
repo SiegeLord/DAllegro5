@@ -1,0 +1,24 @@
+Should work fine with Allegro 4.9.23 (SVN)
+
+Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit
+
+Installation:
+
+If you have LDC:
+
+./build_lib_ldc.sh
+./build_example_ldc.sh
+
+If you have DMD:
+
+./build_lib_dmd.sh
+./build_example_dmd.sh
+
+Try the example by running:
+./example
+
+It should run and not crash
+
+Feel free to copy the resulting libdallegro5.a and the imports into your preferred location for D imports.
+
+-SiegeLord
