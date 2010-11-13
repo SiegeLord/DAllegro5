@@ -1,3 +1,4 @@
 .objs/*
-example*
+example
+example.o
 libdallegro5*
