@@ -7,13 +7,13 @@ else {
 	import std.math;
 }
 
-const int ALLEGRO_VERSION      = 4;
-const int ALLEGRO_SUB_VERSION	 = 9;
-const int ALLEGRO_WIP_VERSION	 = 23;
+const int ALLEGRO_VERSION      = 5;
+const int ALLEGRO_SUB_VERSION	 = 0;
+const int ALLEGRO_WIP_VERSION	 = 0;
 const int ALLEGRO_RELEASE_NUMBER = 0;
-const char[] ALLEGRO_VERSION_STR = "4.9.23 (SVN)";
+const char[] ALLEGRO_VERSION_STR = "5.0.0 (RC1)";
 const char[] ALLEGRO_DATE_STR	 = "2010";
-const int ALLEGRO_DATE         =  20100926;  /* yyyymmdd */
+const int ALLEGRO_DATE         =  20101114;  /* yyyymmdd */
 
 extern (C)
 {

@@ -1,6 +1,6 @@
 This is a D1.0 binding to the Allegro 5 library: http://liballeg.org/
 
-Should work fine with Allegro 4.9.23 (SVN)
+Should work fine with Allegro 5.0.0 (RC1)
 
 Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit
 
