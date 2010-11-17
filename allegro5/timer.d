@@ -8,7 +8,7 @@ extern (C)
 	struct ALLEGRO_TIMER;
 
 	ALLEGRO_TIMER* al_create_timer(double speed_secs);
-	void al_uninstall_timer(ALLEGRO_TIMER* timer);
+	void al_destroy_timer(ALLEGRO_TIMER* timer);
 	void al_start_timer(ALLEGRO_TIMER* timer);
 	void al_stop_timer(ALLEGRO_TIMER* timer);
 	bool al_timer_is_started(in ALLEGRO_TIMER* timer);

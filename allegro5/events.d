@@ -164,7 +164,7 @@ extern (C)
 	void al_unregister_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
 	void al_set_event_source_data(ALLEGRO_EVENT_SOURCE*, intptr_t data);
 	intptr_t al_get_event_source_data(in ALLEGRO_EVENT_SOURCE*);
-	bool al_event_queue_is_empty(ALLEGRO_EVENT_QUEUE*);
+	bool al_is_event_queue_empty(ALLEGRO_EVENT_QUEUE*);
 	bool al_get_next_event(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT* ret_event);
 	bool al_peek_next_event(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT* ret_event);
 	bool al_drop_next_event(ALLEGRO_EVENT_QUEUE*);
