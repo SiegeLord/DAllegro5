@@ -64,6 +64,8 @@ extern (C)
 	/*
 	* Primary Functions
 	*/
+	bool al_init_primitives_addon();
+	void al_shutdown_primitives_addon();
 	int al_draw_prim(in void* vtxs, in ALLEGRO_VERTEX_DECL* decl, ALLEGRO_BITMAP* texture, int start, int end, int type);
 	int al_draw_indexed_prim(in void* vtxs, in ALLEGRO_VERTEX_DECL* decl, ALLEGRO_BITMAP* texture, in int* indices, int num_vtx, int type);
 
