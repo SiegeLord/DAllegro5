@@ -41,28 +41,38 @@ extern (C)
 	/*
 	 * Bitmap flags
 	 */
-	const int ALLEGRO_VIDEO_BITMAP        = 0x0000;
-
-	const int ALLEGRO_MEMORY_BITMAP       = 0x0001;
-	const int ALLEGRO_KEEP_BITMAP_FORMAT  = 0x0002;
-	const int ALLEGRO_FORCE_LOCKING       = 0x0004;
-	const int ALLEGRO_NO_PRESERVE_TEXTURE = 0x0008;
-	const int ALLEGRO_ALPHA_TEST          = 0x0010;
-	const int ALLEGRO_MIN_LINEAR          = 0x0040;
-	const int ALLEGRO_MAG_LINEAR          = 0x0080;
-	const int ALLEGRO_MIPMAP              = 0x0100;
+	enum : int
+	{
+		ALLEGRO_MEMORY_BITMAP            = 0x0001,
+		ALLEGRO_KEEP_BITMAP_FORMAT       = 0x0002,
+		ALLEGRO_FORCE_LOCKING            = 0x0004,
+		ALLEGRO_NO_PRESERVE_TEXTURE      = 0x0008,
+		ALLEGRO_ALPHA_TEST               = 0x0010,
+		_ALLEGRO_INTERNAL_OPENGL         = 0x0020,
+		ALLEGRO_MIN_LINEAR               = 0x0040,
+		ALLEGRO_MAG_LINEAR               = 0x0080,
+		ALLEGRO_MIPMAP                   = 0x0100,
+		ALLEGRO_NO_PREMULTIPLIED_ALPHA   = 0x0200,
+		ALLEGRO_VIDEO_BITMAP             = 0x0400
+	}
 
 	/* Flags for the blitting functions */
-	const int ALLEGRO_FLIP_HORIZONTAL     = 0x00001;
-	const int ALLEGRO_FLIP_VERTICAL       = 0x00002;
+	enum : int
+	{
+		ALLEGRO_FLIP_HORIZONTAL = 0x00001,
+		ALLEGRO_FLIP_VERTICAL   = 0x00002
+	}
 
 
 	/*
 	 * Locking flags
 	 */
-	const int ALLEGRO_LOCK_READWRITE = 0;
-	const int ALLEGRO_LOCK_READONLY  = 1;
-	const int ALLEGRO_LOCK_WRITEONLY = 2;
+	enum : int
+	{
+		ALLEGRO_LOCK_READWRITE  = 0,
+		ALLEGRO_LOCK_READONLY   = 1,
+		ALLEGRO_LOCK_WRITEONLY  = 2
+	}
 	
 	enum ALLEGRO_BLEND_MODE
 	{

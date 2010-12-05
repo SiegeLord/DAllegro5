@@ -17,7 +17,7 @@ extern (C)
 
 	bool al_install_system(int vers, int function(void function()) atexit_ptr);
 	void al_uninstall_system();
-	ALLEGRO_SYSTEM* al_get_system_driver();
+	bool al_is_system_installed();
 	ALLEGRO_CONFIG* al_get_system_config();
 
 	bool al_init()
