@@ -21,7 +21,7 @@ extern (C)
 		ALLEGRO_EVENT_JOYSTICK_CONFIGURATION      =  4,
 
 		ALLEGRO_EVENT_KEY_DOWN                    = 10,
-		ALLEGRO_EVENT_KEY_REPEAT                  = 11,
+		ALLEGRO_EVENT_KEY_CHAR                    = 11,
 		ALLEGRO_EVENT_KEY_UP                      = 12,
 
 		ALLEGRO_EVENT_MOUSE_AXES                  = 20,
@@ -94,8 +94,9 @@ extern (C)
 		mixin(_AL_EVENT_HEADER!("ALLEGRO_KEYBOARD"));
 		ALLEGRO_DISPLAY* display;  /* the window the key was pressed in */
 		int keycode;               /* the physical key pressed */
-		uint unichar;              /* unicode character */
+		int unichar;               /* unicode character or negative */
 		uint modifiers;            /* bitfield */
+		bool repeat;               /* auto-repeated or not */
 	}
 
 	struct ALLEGRO_MOUSE_EVENT
