@@ -33,6 +33,7 @@ int main (char[][] args)
 	al_init_image_addon();
 	al_init_font_addon();
 	al_init_ttf_addon();
+	al_init_primitives_addon();
 
 	al_register_event_source(queue, al_get_display_event_source(display));
 	al_register_event_source(queue, al_get_keyboard_event_source());
