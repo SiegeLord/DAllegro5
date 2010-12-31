@@ -1,6 +1,7 @@
 This is a D1.0 binding to the Allegro 5 library: http://liballeg.org/
 
-Should work fine with Allegro 5.0.0 (RC2)
+Should work fine with Allegro 5.0.0 (RC4). Pretty much all of the cross-platform functions are bound.
+Non cross-platform functions are absent, but they will be added eventually.
 
 Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit
 
@@ -22,5 +23,6 @@ Try the example by running:
 It should run and not crash
 
 Feel free to copy the resulting libdallegro5.a and the imports into your preferred location for D imports.
+Obviously, you also can skip the library building step and simply include these imports in your project.
 
 -SiegeLord
