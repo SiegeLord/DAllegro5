@@ -1,19 +1,22 @@
 module allegro5.base;
 
-version (Tango) {
+version (Tango)
+{
 	import tango.math.Math;
 }
-else {
+else
+{
 	import std.math;
 }
 
-const int ALLEGRO_VERSION      = 5;
+const int ALLEGRO_VERSION        = 5;
 const int ALLEGRO_SUB_VERSION	 = 0;
 const int ALLEGRO_WIP_VERSION	 = 0;
 const int ALLEGRO_RELEASE_NUMBER = 0;
-const char[] ALLEGRO_VERSION_STR = "5.0.0 (RC3)";
+
+const char[] ALLEGRO_VERSION_STR = "5.0.0 (RC4)";
 const char[] ALLEGRO_DATE_STR	 = "2010";
-const int ALLEGRO_DATE         =  20101219;  /* yyyymmdd */
+const int ALLEGRO_DATE         =  20101231;  /* yyyymmdd */
 
 extern (C)
 {

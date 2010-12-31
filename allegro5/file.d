@@ -30,7 +30,7 @@ extern (C)
 {
 	struct ALLEGRO_FILE_INTERFACE
 	{
-		ALLEGRO_FILE* (*fi_fopen)(in char* path, in char* mode);
+		void*   (*fi_fopen)(in char* path, in char* mode);
 		void    (*fi_fclose)(ALLEGRO_FILE* handle);
 		size_t  (*fi_fread)(ALLEGRO_FILE* f, void* ptr, size_t size);
 		size_t  (*fi_fwrite)(ALLEGRO_FILE* f, in void* ptr, size_t size);
@@ -45,7 +45,6 @@ extern (C)
 	
 	struct ALLEGRO_FILE
 	{
-		const ALLEGRO_FILE_INTERFACE* vtable;
 	}
 	
 	enum ALLEGRO_SEEK
@@ -58,6 +57,8 @@ extern (C)
 
 	/* The basic operations. */
 	ALLEGRO_FILE* al_fopen(in char* path, in char* mode);
+	ALLEGRO_FILE* al_fopen_interface(in ALLEGRO_FILE_INTERFACE* vt, in char* path, in char* mode);
+	ALLEGRO_FILE* al_create_file_handle(in ALLEGRO_FILE_INTERFACE* vt, void* userdata);
 	void al_fclose(ALLEGRO_FILE* f);
 	size_t al_fread(ALLEGRO_FILE* f, void* ptr, size_t size);
 	size_t al_fwrite(ALLEGRO_FILE* f, in void* ptr, size_t size);
@@ -92,5 +93,5 @@ extern (C)
 	ALLEGRO_FILE_INTERFACE* al_get_new_file_interface();
 	void al_set_new_file_interface(in ALLEGRO_FILE_INTERFACE* file_interface);
 	void al_set_standard_file_interface();
-
+	void* al_get_file_userdata(ALLEGRO_FILE *f);
 }

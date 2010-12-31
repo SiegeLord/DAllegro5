@@ -61,8 +61,8 @@ extern (C)
 	bool al_set_mouse_axis      (int axis, int value);
 	bool al_set_mouse_range     (int x1, int y1, int x2, int y2);
 	void al_get_mouse_state     (ALLEGRO_MOUSE_STATE* ret_state);
-	bool al_mouse_button_down   (ALLEGRO_MOUSE_STATE* state, int button);
-	int  al_get_mouse_state_axis(ALLEGRO_MOUSE_STATE* state, int axis);
+	bool al_mouse_button_down   (in ALLEGRO_MOUSE_STATE* state, int button);
+	int  al_get_mouse_state_axis(in ALLEGRO_MOUSE_STATE* state, int axis);
 
 	ALLEGRO_EVENT_SOURCE* al_get_mouse_event_source();
 

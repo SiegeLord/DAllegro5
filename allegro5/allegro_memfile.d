@@ -4,6 +4,6 @@ import allegro5.allegro;
 
 extern (C)
 {
-	ALLEGRO_FILE* al_open_memfile(long size, void* mem);
+	ALLEGRO_FILE* al_open_memfile(void* mem, long size, in char* mode);
 	uint al_get_allegro_memfile_version();
 }
