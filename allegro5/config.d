@@ -15,8 +15,8 @@ extern (C)
 	char* al_get_config_value(in ALLEGRO_CONFIG* config, in char* section, in char* key);
 	ALLEGRO_CONFIG* al_load_config_file(in char* filename);
 	ALLEGRO_CONFIG* al_load_config_file_f(ALLEGRO_FILE* filename);
-	bool al_save_config_file(in ALLEGRO_CONFIG* config, in char* filename);
-	bool al_save_config_file_f(in ALLEGRO_CONFIG* config, ALLEGRO_FILE* filename);
+	bool al_save_config_file(in char* filename, in ALLEGRO_CONFIG* config);
+	bool al_save_config_file_f(ALLEGRO_FILE* file, in ALLEGRO_CONFIG* config);
 	void al_merge_config_into(ALLEGRO_CONFIG* master, in ALLEGRO_CONFIG* add);
 	ALLEGRO_CONFIG* al_merge_config(in ALLEGRO_CONFIG* cfg1, in ALLEGRO_CONFIG* cfg2);
 	void al_destroy_config(ALLEGRO_CONFIG* config);
