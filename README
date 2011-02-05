@@ -1,4 +1,4 @@
-This is a D1.0 binding to the Allegro 5 library: http://liballeg.org/
+This is a D1.0 and D2 binding to the Allegro 5 library: http://liballeg.org/
 
 Should work fine with Allegro 5.0.0 (RC5). Pretty much all of the cross-platform functions are bound.
 Non cross-platform functions are absent, but they will be added eventually.

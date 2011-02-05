@@ -4,12 +4,20 @@ import allegro5.error;
 
 version (Tango)
 {
-   import tango.stdc.errno;
+	import tango.stdc.errno;
 }
-else {
-   import std.c.stdlib;
-   // Phobos doesn't define EDOM
-   enum { EDOM = 33 }
+else 
+{
+	version(D_Version2)
+	{
+		import core.stdc.errno;
+	}
+	else
+	{
+		import std.c.stdlib;
+		// Phobos doesn't define EDOM
+		enum { EDOM = 33 }
+	}
 }
 
 extern (C)
@@ -116,7 +124,7 @@ extern (C)
 		}
 		else
 		{
-			int res = lres >> 16;
+			int res = cast(int)(lres >> 16);
 			return cast(al_fixed)res;
 		}
 	}

@@ -30,17 +30,17 @@ extern (C)
 {
 	struct ALLEGRO_FILE_INTERFACE
 	{
-		void*   (*fi_fopen)(in char* path, in char* mode);
-		void    (*fi_fclose)(ALLEGRO_FILE* handle);
-		size_t  (*fi_fread)(ALLEGRO_FILE* f, void* ptr, size_t size);
-		size_t  (*fi_fwrite)(ALLEGRO_FILE* f, in void* ptr, size_t size);
-		bool    (*fi_fflush)(ALLEGRO_FILE* f);
-		long    (*fi_ftell)(ALLEGRO_FILE* f);
-		bool    (*fi_fseek)(ALLEGRO_FILE* f, long offset, int whence);
-		bool    (*fi_feof)(ALLEGRO_FILE* f);
-		bool    (*fi_ferror)(ALLEGRO_FILE* f);
-		int     (*fi_fungetc)(ALLEGRO_FILE* f, int c);
-		off_t   (*fi_fsize)(ALLEGRO_FILE* f);
+		void*   function(in char* path, in char* mode) fi_fopen;
+		void    function(ALLEGRO_FILE* handle) fi_fclose;
+		size_t  function(ALLEGRO_FILE* f, void* ptr, size_t size) fi_fread;
+		size_t  function(ALLEGRO_FILE* f, in void* ptr, size_t size) fi_fwrite;
+		bool    function(ALLEGRO_FILE* f) fi_fflush;
+		long    function(ALLEGRO_FILE* f) fi_ftell;
+		bool    function(ALLEGRO_FILE* f, long offset, int whence) fi_fseek;
+		bool    function(ALLEGRO_FILE* f) fi_feof;
+		bool    function(ALLEGRO_FILE* f) fi_ferror;
+		int     function(ALLEGRO_FILE* f, int c) fi_fungetc;
+		off_t   function(ALLEGRO_FILE* f) fi_fsize;
 	}
 	
 	struct ALLEGRO_FILE

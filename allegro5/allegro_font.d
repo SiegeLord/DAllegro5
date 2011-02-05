@@ -19,9 +19,9 @@ extern (C)
 		int function(in ALLEGRO_FONT* f, int ch, int x, int y) render_char;
 		int function(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text, int x, int y) render;
 		void function(ALLEGRO_FONT* f) destroy;
-		void (*get_text_dimensions)(in ALLEGRO_FONT* f,
+		void function(in ALLEGRO_FONT* f,
 		  in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw,
-		  int* bbh, int* ascent, int* descent);
+		  int* bbh, int* ascent, int* descent) get_text_dimensions;
 	}
 
 	enum

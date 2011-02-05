@@ -4,10 +4,10 @@ extern (C)
 {
 	struct ALLEGRO_MEMORY_INTERFACE
 	{
-		void *(*mi_malloc)(size_t n, int line, in char* file, in char* func);
-		void (*mi_free)(void* ptr, int line, in char* file, in char* func);
-		void *(*mi_realloc)(void* ptr, size_t n, int line, in char* file, in char* func);
-		void *(*mi_calloc)(size_t count, size_t n, int line, in char* file, in char* func);
+		void* function(size_t n, int line, in char* file, in char* func) mi_malloc;
+		void function(void* ptr, int line, in char* file, in char* func) mi_free;
+		void* function(void* ptr, size_t n, int line, in char* file, in char* func) mi_realloc;
+		void* function(size_t count, size_t n, int line, in char* file, in char* func) mi_calloc;
 	}
 
 	void al_set_memory_interface(ALLEGRO_MEMORY_INTERFACE* iface);
