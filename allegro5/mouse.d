@@ -55,11 +55,9 @@ extern (C)
 	uint al_get_mouse_num_buttons();
 	uint al_get_mouse_num_axes();
 	bool al_set_mouse_xy(int x, int y);
-
 	bool al_set_mouse_z         (int z);
 	bool al_set_mouse_w         (int w);
 	bool al_set_mouse_axis      (int axis, int value);
-	bool al_set_mouse_range     (int x1, int y1, int x2, int y2);
 	void al_get_mouse_state     (ALLEGRO_MOUSE_STATE* ret_state);
 	bool al_mouse_button_down   (in ALLEGRO_MOUSE_STATE* state, int button);
 	int  al_get_mouse_state_axis(in ALLEGRO_MOUSE_STATE* state, int axis);
@@ -68,9 +66,11 @@ extern (C)
 
 	ALLEGRO_MOUSE_CURSOR* al_create_mouse_cursor(ALLEGRO_BITMAP* sprite, int xfocus, int yfocus);
 	void al_destroy_mouse_cursor(ALLEGRO_MOUSE_CURSOR* cursor);
-	bool al_set_mouse_cursor(ALLEGRO_MOUSE_CURSOR* cursor);
+	bool al_set_mouse_cursor(ALLEGRO_DISPLAY* display, ALLEGRO_MOUSE_CURSOR* cursor);
 	bool al_set_system_mouse_cursor(ALLEGRO_SYSTEM_MOUSE_CURSOR cursor_id);
-	bool al_show_mouse_cursor();
-	bool al_hide_mouse_cursor();
+	bool al_show_mouse_cursor(ALLEGRO_DISPLAY* display);
+	bool al_hide_mouse_cursor(ALLEGRO_DISPLAY* display);
 	bool al_get_mouse_cursor_position(int* ret_x, int* ret_y);
+	bool al_grab_mouse(ALLEGRO_DISPLAY* display);
+	bool al_ungrab_mouse();
 }

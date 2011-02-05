@@ -11,12 +11,15 @@ else
 
 extern (C)
 {
-	struct ALLEGRO_USTR;
-
-	struct ALLEGRO_USTR_INFO 
+	struct _al_tagbstring
 	{
-		int __pad[4];
+		int mlen;
+		int slen;
+		char* data;
 	}
+	
+	alias _al_tagbstring ALLEGRO_USTR;
+	alias _al_tagbstring ALLEGRO_USTR_INFO;
 	
 	ALLEGRO_USTR* al_ustr_new(in char* s);
 	ALLEGRO_USTR* al_ustr_new_from_buffer(in char* s, size_t size);

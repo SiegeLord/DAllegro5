@@ -14,9 +14,9 @@ const int ALLEGRO_SUB_VERSION	 = 0;
 const int ALLEGRO_WIP_VERSION	 = 0;
 const int ALLEGRO_RELEASE_NUMBER = 0;
 
-const char[] ALLEGRO_VERSION_STR = "5.0.0 (RC4)";
-const char[] ALLEGRO_DATE_STR	 = "2010";
-const int ALLEGRO_DATE         =  20101231;  /* yyyymmdd */
+const char[] ALLEGRO_VERSION_STR = "5.0.0 (RC5)";
+const char[] ALLEGRO_DATE_STR	 = "2011";
+const int ALLEGRO_DATE         =  20110203;  /* yyyymmdd */
 
 extern (C)
 {

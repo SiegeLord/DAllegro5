@@ -78,6 +78,11 @@ extern (C)
 		int y2;
 	}
 
+	enum
+	{
+		ALLEGRO_DEFAULT_DISPLAY_ADAPTER = -1
+	}
+
 	void al_set_new_display_refresh_rate(int refresh_rate);
 	void al_set_new_display_flags(int flags);
 	int  al_get_new_display_refresh_rate();
@@ -92,7 +97,6 @@ extern (C)
 
 	ALLEGRO_DISPLAY* al_create_display(int w, int h);
 	void al_destroy_display(ALLEGRO_DISPLAY* display);
-	bool al_set_current_display(ALLEGRO_DISPLAY* display);
 	ALLEGRO_DISPLAY* al_get_current_display();
 	void al_set_target_bitmap(ALLEGRO_BITMAP* bitmap);
 	void al_set_target_backbuffer(ALLEGRO_DISPLAY* display);
@@ -120,14 +124,13 @@ extern (C)
 
 	/* Stuff for multihead/window management */
 	int al_get_num_video_adapters();
-	void al_get_monitor_info(int adapter, ALLEGRO_MONITOR_INFO* info);
-	int al_get_current_video_adapter();
-	void al_set_current_video_adapter(int adapter);
+	bool al_get_monitor_info(int adapter, ALLEGRO_MONITOR_INFO* info);
+	int al_get_new_display_adapter();
+	void al_set_new_display_adapter(int adapter);
 	void al_set_new_window_position(int x, int y);
 	void al_get_new_window_position(int* x, int* y);
 	void al_set_window_position(ALLEGRO_DISPLAY* display, int x, int y);
 	void al_get_window_position(ALLEGRO_DISPLAY* display, int* x, int* y);
-	void al_toggle_window_frame(ALLEGRO_DISPLAY* display, bool onoff);
 
 	void al_set_window_title(in char* title);
 
@@ -135,12 +138,7 @@ extern (C)
 	void al_set_new_display_option(int option, int value, int importance);
 	int al_get_new_display_option(int option, int* importance);
 	void al_reset_new_display_options();
-	int al_get_display_option(int option);
-
-	/* Display formats. */
-	int al_get_num_display_formats();
-	int al_get_display_format_option(int i, int option);
-	void al_set_new_display_format(int i);
+	int al_get_display_option(ALLEGRO_DISPLAY* display, int option);
 	
 	/*Deferred drawing*/
 	void al_hold_bitmap_drawing(bool hold);
