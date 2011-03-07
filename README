@@ -3,9 +3,11 @@ This is a D1.0 and D2 binding to the Allegro 5 library: http://liballeg.org/
 Should work fine with Allegro 5.0.0. Pretty much all of the cross-platform functions are bound.
 Non cross-platform functions are absent, but they will be added eventually.
 
-Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit
+Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit and DMD/Tango on Windows 32 bit (XP).
 
-Installation:
+== Installation ==
+
+== Linux ==
 
 If you have LDC:
 
@@ -22,7 +24,28 @@ Try the example by running:
 
 It should run and not crash
 
+== Windows ==
+
+build_lib_dmd.bat
+
 Feel free to copy the resulting libdallegro5.a and the imports into your preferred location for D imports.
 Obviously, you also can skip the library building step and simply include these imports in your project.
 
--SiegeLord
+== Notes ==
+
+On Windows, you will need to generate the import libraries for Allegro's dll files using implib.exe that you can download here: http://ftp.digitalmars.com/bup.zip
+
+Use it like this:
+
+implib /s allegro_monolith-5.0.0-md.lib allegro_monolith-5.0.0-md.dll
+
+To remove the console window that spawns whenever you run an Allegro program create a file with a .def extension with these contents:
+
+EXETYPE NT
+SUBSYSTEM WINDOWS
+
+Then pass it to dmd when compiling like this:
+
+dmd <your usual stuff goes here> file.def
+
+On some systems Allegro windows will spawn without window borders. I don't know why this happens yet.
