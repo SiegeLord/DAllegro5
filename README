@@ -5,9 +5,13 @@ Non cross-platform functions are absent, but they will be added eventually.
 
 Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit and DMD/Tango on Windows 32 bit (XP).
 
-== Installation ==
+Installation
+============
 
-== Linux ==
+You have two options here. You can copy all the modules into your project, and just use them like that.
+Alternatively, you can compile the binding into a static library for convenience:
+
+Linux:
 
 If you have LDC:
 
@@ -19,19 +23,31 @@ If you have DMD:
 ./build_lib_dmd.sh
 ./build_example_dmd.sh
 
+Windows:
+
+build_lib_dmd.bat
+
+Compiling the example
+=====================
+
+On Linux you can also compile the example:
+
+If you have LDC:
+
+./build_example_ldc.sh
+
+If you have DMD:
+
+./build_example_dmd.sh
+
 Try the example by running:
+
 ./example
 
 It should run and not crash
 
-== Windows ==
-
-build_lib_dmd.bat
-
-Feel free to copy the resulting libdallegro5.a and the imports into your preferred location for D imports.
-Obviously, you also can skip the library building step and simply include these imports in your project.
-
-== Notes ==
+Notes
+=====
 
 On Windows, you will need to generate the import libraries for Allegro's dll files using implib.exe that you can download here: http://ftp.digitalmars.com/bup.zip
 
