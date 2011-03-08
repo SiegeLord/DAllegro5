@@ -120,7 +120,7 @@ extern (C)
 	void al_clear_to_color(ALLEGRO_COLOR color);
 	void al_draw_pixel(float x, float y, ALLEGRO_COLOR color);
 
-	void al_set_display_icon(ALLEGRO_BITMAP* icon);
+	void al_set_display_icon(ALLEGRO_DISPLAY* display, ALLEGRO_BITMAP* icon);
 
 	/* Stuff for multihead/window management */
 	int al_get_num_video_adapters();
