@@ -64,4 +64,9 @@ Then pass it to dmd when compiling like this:
 
 dmd <your usual stuff goes here> file.def
 
-On some systems Allegro windows will spawn without window borders. I don't know why this happens yet.
+Bugs
+====
+
+On Windows Allegro windows will spawn without window borders (seems to happen only on XP). I don't know why this happens yet.
+
+Any function that returns ALLEGRO_COLOR will not work if you use the MinGW produced DLL (even if you built it yourself). I don't know if this happens with MSVC produced binaries. As a workabout, you can use the struct literal syntax in D to create new ALLEGRO_COLOR instances (ALLEGRO_COLOR is a quadruplet of floats). This is not possible for some functions (e.g. al_get_pixel), so avoid using them, sorry. This is a GCC/MinGW bug (feature) and I'll be trying to find a workaround, but for now this is how it is.
