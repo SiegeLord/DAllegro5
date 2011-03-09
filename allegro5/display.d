@@ -132,7 +132,7 @@ extern (C)
 	void al_set_window_position(ALLEGRO_DISPLAY* display, int x, int y);
 	void al_get_window_position(ALLEGRO_DISPLAY* display, int* x, int* y);
 
-	void al_set_window_title(in char* title);
+	void al_set_window_title(ALLEGRO_DISPLAY* display, in char* title);
 
 	/* Defined in display_settings.c */
 	void al_set_new_display_option(int option, int value, int importance);
