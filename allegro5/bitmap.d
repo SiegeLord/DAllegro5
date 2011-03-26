@@ -132,14 +132,9 @@ extern (C)
 
 	void al_put_pixel(int x, int y, ALLEGRO_COLOR color);
 	void al_put_blended_pixel(int x, int y, ALLEGRO_COLOR color);
-	ALLEGRO_COLOR al_get_pixel(ALLEGRO_BITMAP* bitmap, int x, int y);
 	int al_get_pixel_size(int format);
 
-	/* Pixel mapping */
-	ALLEGRO_COLOR al_map_rgb(char r, ubyte g, ubyte b);
-	ALLEGRO_COLOR al_map_rgba(ubyte r, ubyte g, ubyte b, ubyte a);
-	ALLEGRO_COLOR al_map_rgb_f(float r, float g, float b);
-	ALLEGRO_COLOR al_map_rgba_f(float r, float g, float b, float a);
+	/* Functions that return colors are below */
 
 	/* Pixel unmapping */
 	void al_unmap_rgb(ALLEGRO_COLOR color, ubyte* r, ubyte* g, ubyte* b);
@@ -170,4 +165,87 @@ extern (C)
 	void al_get_separate_blender(int* op,int* source, int* dest, int* alpha_src, int* alpha_dest);
 
 	void _al_put_pixel(ALLEGRO_BITMAP* bitmap, int x, int y, ALLEGRO_COLOR color);
+}
+
+/*
+ * MinGW 4.5 and below has a bizzare calling convention when returning
+ * structs. These wrappers take care of the differences in calling convention.
+ * 
+ * This issue does not exist in MSVC and maybe MinGW 4.6.
+ */
+
+static import allegro5.color_ret;
+
+version(Windows)
+{
+	version(ALLEGRO_MSVC) {}
+	else
+	{
+		version = ALLEGRO_SUB;
+	}
+}
+
+ALLEGRO_COLOR al_map_rgb(ubyte r, ubyte g, ubyte b)
+{
+	auto ret = allegro5.color_ret.al_map_rgb(r, g, b);
+	version(ALLEGRO_SUB)
+	{
+		asm
+		{
+			sub ESP, 4;
+		}
+	}
+	return ret;
+}
+
+ALLEGRO_COLOR al_map_rgba(ubyte r, ubyte g, ubyte b, ubyte a)
+{
+	auto ret = allegro5.color_ret.al_map_rgba(r, g, b, a);
+	version(ALLEGRO_SUB)
+	{
+		asm
+		{
+			sub ESP, 4;
+		}
+	}
+	return ret;
+}
+
+ALLEGRO_COLOR al_map_rgb_f(float r, float g, float b)
+{
+	auto ret = allegro5.color_ret.al_map_rgb_f(r, g, b);
+	version(ALLEGRO_SUB)
+	{
+		asm
+		{
+			sub ESP, 4;
+		}
+	}
+	return ret;
+}
+
+ALLEGRO_COLOR al_map_rgba_f(float r, float g, float b, float a)
+{
+	auto ret = allegro5.color_ret.al_map_rgba_f(r, g, b, a);
+	version(ALLEGRO_SUB)
+	{
+		asm
+		{
+			sub ESP, 4;
+		}
+	}
+	return ret;
+}
+
+ALLEGRO_COLOR al_get_pixel(ALLEGRO_BITMAP* bitmap, int x, int y)
+{
+	auto ret = allegro5.color_ret.al_get_pixel(bitmap, x, y);
+	version(ALLEGRO_SUB)
+	{
+		asm
+		{
+			sub ESP, 4;
+		}
+	}
+	return ret;
 }

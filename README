@@ -25,7 +25,13 @@ If you have DMD:
 
 Windows:
 
+If you have MinGW compiled libraries (< 4.6):
+
 build_lib_dmd.bat
+
+If you have MSVC/DMC compiled DLLs:
+
+build_lib_dmd.bat -version=ALLEGRO_MSVC
 
 Compiling the example
 =====================
@@ -49,13 +55,15 @@ It should run and not crash
 Notes
 =====
 
-On Windows, you will need to generate the import libraries for Allegro's dll files using implib.exe that you can download here: http://ftp.digitalmars.com/bup.zip
+* On Windows, you will need to generate the import libraries for Allegro's dll files using implib.exe that you can download here: http://ftp.digitalmars.com/bup.zip
 
 Use it like this:
 
 implib /s allegro_monolith-5.0.0-md.lib allegro_monolith-5.0.0-md.dll
 
-To remove the console window that spawns whenever you run an Allegro program create a file with a .def extension with these contents:
+* Note that if you are using MSVC or DMC compiled DLLs you will need to set the version to ALLEGRO_MSVC when compiling your own programs as well as when building the library.
+
+* To remove the console window that spawns whenever you run an Allegro program create a file with a .def extension with these contents:
 
 EXETYPE NT
 SUBSYSTEM WINDOWS
@@ -68,5 +76,3 @@ Bugs
 ====
 
 On Windows Allegro windows will spawn without window borders (seems to happen only on XP). I don't know why this happens yet.
-
-Any function that returns ALLEGRO_COLOR will not work if you use the MinGW produced DLL (even if you built it yourself). I don't know if this happens with MSVC produced binaries. As a workabout, you can use the struct literal syntax in D to create new ALLEGRO_COLOR instances (ALLEGRO_COLOR is a quadruplet of floats). This is not possible for some functions (e.g. al_get_pixel), so avoid using them, sorry. This is a GCC/MinGW bug (feature) and I'll be trying to find a workaround, but for now this is how it is.
