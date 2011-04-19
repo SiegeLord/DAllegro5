@@ -30,7 +30,7 @@ extern (C)
 	bool al_join_paths(ALLEGRO_PATH* path, in ALLEGRO_PATH* tail);
 	bool al_rebase_path(in ALLEGRO_PATH* head, ALLEGRO_PATH* tail);
 	char* al_path_cstr(in ALLEGRO_PATH* path, char delim);
-	void al_free_path(ALLEGRO_PATH* path);
+	void al_destroy_path(ALLEGRO_PATH* path);
 
 	void al_set_path_drive(ALLEGRO_PATH* path, in char* drive);
 	char* al_get_path_drive(in ALLEGRO_PATH* path);
