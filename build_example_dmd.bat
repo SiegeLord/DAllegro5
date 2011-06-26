@@ -1,3 +1,3 @@
 @echo off
 
-dmd example.d example.def
+dmd example.d example.def %*
