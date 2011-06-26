@@ -1,5 +1,11 @@
 module allegro5.allegro_memfile;
 
+version(ALLEGRO_NO_PRAGMA_LIB) {}
+else
+{
+	pragma(lib, "allegro_memfile");
+}
+
 import allegro5.allegro;
 
 extern (C)

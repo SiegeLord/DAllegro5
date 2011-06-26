@@ -1,5 +1,11 @@
 module allegro5.allegro_image;
 
+version(ALLEGRO_NO_PRAGMA_LIB) {}
+else
+{
+	pragma(lib, "allegro_image");
+}
+
 import allegro5.allegro;
 
 extern (C)

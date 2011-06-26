@@ -1,5 +1,16 @@
 module a5test;
 
+pragma(lib, "libdallegro5");
+
+version(D_Version1)
+{
+	pragma(lib, "allegro");
+	pragma(lib, "allegro_primitives");
+	pragma(lib, "allegro_image");
+	pragma(lib, "allegro_font");
+	pragma(lib, "allegro_ttf");
+}
+
 version(Tango)
 {
 	import tango.io.Stdout;

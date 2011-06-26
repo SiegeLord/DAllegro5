@@ -1,5 +1,11 @@
 module allegro5.allegro_ttf;
 
+version(ALLEGRO_NO_PRAGMA_LIB) {}
+else
+{
+	pragma(lib, "allegro_ttf");
+}
+
 import allegro5.allegro;
 import allegro5.allegro_font;
 

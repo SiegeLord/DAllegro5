@@ -1,5 +1,11 @@
 module allegro5.allegro_font;
 
+version(ALLEGRO_NO_PRAGMA_LIB) {}
+else
+{
+	pragma(lib, "allegro_font");
+}
+
 import allegro5.allegro;
 
 extern (C)

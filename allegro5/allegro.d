@@ -1,5 +1,11 @@
 module allegro5.allegro;
 
+version(ALLEGRO_NO_PRAGMA_LIB) {}
+else
+{
+	pragma(lib, "allegro");
+}
+
 public {
 	import allegro5.internal.da5;
 	import allegro5.al_time;

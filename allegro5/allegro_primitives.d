@@ -1,5 +1,11 @@
 module allegro5.allegro_primitives;
 
+version(ALLEGRO_NO_PRAGMA_LIB) {}
+else
+{
+	pragma(lib, "allegro_primitives");
+}
+
 version (Tango) {
    import tango.stdc.stdint;
 }

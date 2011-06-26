@@ -1,5 +1,11 @@
 module allegro5.allegro_color;
 
+version(ALLEGRO_NO_PRAGMA_LIB) {}
+else
+{
+	pragma(lib, "allegro_color");
+}
+
 import allegro5.allegro;
 
 extern (C)

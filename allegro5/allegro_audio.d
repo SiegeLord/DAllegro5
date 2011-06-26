@@ -1,5 +1,11 @@
 module allegro5.allegro_audio;
 
+version(ALLEGRO_NO_PRAGMA_LIB) {}
+else
+{
+	pragma(lib, "allegro_audio");
+}
+
 import allegro5.allegro;
 import allegro5.internal.da5;
 
