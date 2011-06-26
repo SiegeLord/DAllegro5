@@ -1,8 +1,12 @@
 module a5test;
 
-pragma(lib, "libdallegro5");
+pragma(lib, "dallegro5");
 
-version(D_Version1)
+version(D_Version2)
+{
+
+}
+else
 {
 	pragma(lib, "allegro");
 	pragma(lib, "allegro_primitives");
