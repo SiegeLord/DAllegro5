@@ -68,17 +68,15 @@ int main (char[][] args)
 		al_set_blender(ALLEGRO_BLEND_OPERATIONS.ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
 	}
 
-	//auto color1 = al_color_hsl(0.5, 0.5, 0.5);
+	auto color1 = al_color_hsl(0, 0, 0);
 	auto color2 = al_map_rgba_f(0.5, 0.25, 0.125, 1);
 	version(Tango)
 	{
-		//Stdout.formatln("{}, {}, {}, {}", color1.r, color1.g, color1.b, color1.a);
-		Stdout.formatln("{}, {}, {}, {}", color2.r, color2.g, color2.b, color2.a);
+		Stdout.formatln("{}, {}, {}, {}", color1.r, color1.g, color2.b, color2.a);
 	}
 	else
 	{
-		//writefln("%s, %s, %s, %s", color1.r, color1.g, color1.b, color1.a);
-		writefln("%s, %s, %s, %s", color2.r, color2.g, color2.b, color2.a);
+		writefln("%s, %s, %s, %s", color1.r, color1.g, color2.b, color2.a);
 	}
 
 
