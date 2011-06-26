@@ -1,6 +1,7 @@
 module allegro5.bitmap;
 
 import allegro5.color;
+import allegro5.internal.da5;
 
 extern (C)
 {
@@ -185,67 +186,8 @@ version(Windows)
 	}
 }
 
-ALLEGRO_COLOR al_map_rgb(ubyte r, ubyte g, ubyte b)
-{
-	auto ret = allegro5.color_ret.al_map_rgb(r, g, b);
-	version(ALLEGRO_SUB)
-	{
-		asm
-		{
-			sub ESP, 4;
-		}
-	}
-	return ret;
-}
-
-ALLEGRO_COLOR al_map_rgba(ubyte r, ubyte g, ubyte b, ubyte a)
-{
-	auto ret = allegro5.color_ret.al_map_rgba(r, g, b, a);
-	version(ALLEGRO_SUB)
-	{
-		asm
-		{
-			sub ESP, 4;
-		}
-	}
-	return ret;
-}
-
-ALLEGRO_COLOR al_map_rgb_f(float r, float g, float b)
-{
-	auto ret = allegro5.color_ret.al_map_rgb_f(r, g, b);
-	version(ALLEGRO_SUB)
-	{
-		asm
-		{
-			sub ESP, 4;
-		}
-	}
-	return ret;
-}
-
-ALLEGRO_COLOR al_map_rgba_f(float r, float g, float b, float a)
-{
-	auto ret = allegro5.color_ret.al_map_rgba_f(r, g, b, a);
-	version(ALLEGRO_SUB)
-	{
-		asm
-		{
-			sub ESP, 4;
-		}
-	}
-	return ret;
-}
-
-ALLEGRO_COLOR al_get_pixel(ALLEGRO_BITMAP* bitmap, int x, int y)
-{
-	auto ret = allegro5.color_ret.al_get_pixel(bitmap, x, y);
-	version(ALLEGRO_SUB)
-	{
-		asm
-		{
-			sub ESP, 4;
-		}
-	}
-	return ret;
-}
+mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgb", "ubyte r, ubyte g, ubyte b", "r, g, b"));
+mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgba", "ubyte r, ubyte g, ubyte b, ubyte a", "r, g, b, a"));
+mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgb_f", "float r, float g, float b", "r, g, b"));
+mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgba_f", "float r, float g, float b, float a", "r, g, b, a"));
+mixin(ColorWrapper("allegro5.color_ret.", "al_get_pixel", "ALLEGRO_BITMAP* bitmap, int x, int y", "bitmap, x, y"));
