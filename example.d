@@ -9,6 +9,7 @@ version(D_Version1)
 	pragma(lib, "allegro_image");
 	pragma(lib, "allegro_font");
 	pragma(lib, "allegro_ttf");
+	pragma(lib, "allegro_color");
 }
 
 version(Tango)
@@ -17,12 +18,17 @@ version(Tango)
 	import tango.stdc.posix.stdlib;
 	import tango.stdc.stringz;
 }
+else
+{
+	import std.stdio;
+}
 
 import allegro5.allegro;
 import allegro5.allegro_primitives;
 import allegro5.allegro_image;
 import allegro5.allegro_font;
 import allegro5.allegro_ttf;
+import allegro5.allegro_color;
 
 int main (char[][] args)
 {
@@ -58,11 +64,17 @@ int main (char[][] args)
 		al_set_blender(ALLEGRO_BLEND_OPERATIONS.ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
 	}
 
-	//ALLEGRO_COLOR* color2 = _al_get_blend_color();
+	//auto color1 = al_color_hsl(0.5, 0.5, 0.5);
 	auto color2 = al_map_rgba_f(0.5, 0.25, 0.125, 1);
 	version(Tango)
 	{
+		//Stdout.formatln("{}, {}, {}, {}", color1.r, color1.g, color1.b, color1.a);
 		Stdout.formatln("{}, {}, {}, {}", color2.r, color2.g, color2.b, color2.a);
+	}
+	else
+	{
+		//writefln("%s, %s, %s, %s", color1.r, color1.g, color1.b, color1.a);
+		writefln("%s, %s, %s, %s", color2.r, color2.g, color2.b, color2.a);
 	}
 
 
