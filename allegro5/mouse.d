@@ -54,7 +54,7 @@ extern (C)
 	void al_uninstall_mouse();
 	uint al_get_mouse_num_buttons();
 	uint al_get_mouse_num_axes();
-	bool al_set_mouse_xy(int x, int y);
+	bool al_set_mouse_xy        (ALLEGRO_DISPLAY* display, int x, int y);
 	bool al_set_mouse_z         (int z);
 	bool al_set_mouse_w         (int w);
 	bool al_set_mouse_axis      (int axis, int value);
