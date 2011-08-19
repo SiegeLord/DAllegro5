@@ -11,12 +11,12 @@ else
 
 const int ALLEGRO_VERSION        = 5;
 const int ALLEGRO_SUB_VERSION	 = 0;
-const int ALLEGRO_WIP_VERSION	 = 3;
+const int ALLEGRO_WIP_VERSION	 = 4;
 const int ALLEGRO_RELEASE_NUMBER = 1;
 
-const char[] ALLEGRO_VERSION_STR = "5.0.3";
+const char[] ALLEGRO_VERSION_STR = "5.0.4";
 const char[] ALLEGRO_DATE_STR	 = "2011";
-const int ALLEGRO_DATE         =  20110522;  /* yyyymmdd */
+const int ALLEGRO_DATE         =  20110814;  /* yyyymmdd */
 
 extern (C)
 {
