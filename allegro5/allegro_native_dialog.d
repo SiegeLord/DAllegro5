@@ -14,12 +14,12 @@ extern (C)
 	struct ALLEGRO_TEXTLOG;
 
 	ALLEGRO_FILECHOOSER* al_create_native_file_dialog(in ALLEGRO_PATH* initial_path, in char* title, in char* patterns, int mode);
-	void al_show_native_file_dialog(ALLEGRO_FILECHOOSER* dialog);
+	void al_show_native_file_dialog(ALLEGRO_DISPLAY* display, ALLEGRO_FILECHOOSER* dialog);
 	int al_get_native_file_dialog_count(in ALLEGRO_FILECHOOSER* dialog);
 	ALLEGRO_PATH* al_get_native_file_dialog_path(in ALLEGRO_FILECHOOSER* dialog, size_t index);
 	void al_destroy_native_dialog(ALLEGRO_FILECHOOSER* dialog);
 	
-	int al_show_native_message_box(in char* title, in char* heading, in char* text, in char* buttons, int flags);
+	int al_show_native_message_box(ALLEGRO_DISPLAY* display, in char* title, in char* heading, in char* text, in char* buttons, int flags);
 
 	ALLEGRO_TEXTLOG* al_open_native_text_log(in char* title, int flags);
 	void al_close_native_text_log(ALLEGRO_TEXTLOG* textlog);
