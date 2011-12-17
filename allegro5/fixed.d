@@ -22,7 +22,7 @@ else
 
 extern (C)
 {
-	typedef int al_fixed;
+	alias int al_fixed;
 	
 	const al_fixed al_fixtorad_r = cast(al_fixed)1608;
 	const al_fixed al_radtofix_r = cast(al_fixed)2670177;
