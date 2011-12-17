@@ -18,6 +18,11 @@ If you have LDC:
 ./build_lib_ldc.sh
 ./build_example_ldc.sh
 
+If you have LDC2:
+
+./build_lib_ldc2.sh
+./build_example_ldc2.sh
+
 If you have DMD:
 
 ./build_lib_dmd.sh
