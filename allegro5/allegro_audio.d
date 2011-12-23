@@ -164,7 +164,7 @@ extern (C)
 	ALLEGRO_MIXER* al_create_mixer(uint freq,
 	ALLEGRO_AUDIO_DEPTH depth, ALLEGRO_CHANNEL_CONF chan_conf);
 	void al_destroy_mixer(ALLEGRO_MIXER* mixer);
-	bool al_attach_sample_to_mixer(ALLEGRO_SAMPLE_INSTANCE* stream, ALLEGRO_MIXER* mixer);
+	bool al_attach_sample_instance_to_mixer(ALLEGRO_SAMPLE_INSTANCE* stream, ALLEGRO_MIXER* mixer);
 	bool al_attach_audio_stream_to_mixer(ALLEGRO_AUDIO_STREAM* stream, ALLEGRO_MIXER* mixer);
 	bool al_attach_mixer_to_mixer(ALLEGRO_MIXER* stream, ALLEGRO_MIXER* mixer);
 	bool al_set_mixer_postprocess_callback(ALLEGRO_MIXER* mixer, void function(void* buf, uint samples, void* data) cb, void* data);
