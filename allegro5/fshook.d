@@ -98,7 +98,7 @@ extern (C)
 
 	bool                 al_filename_exists(in char* path);
 	bool                 al_remove_filename(in char* path);
-	ALLEGRO_PATH*        al_get_current_directory();
+	char*                al_get_current_directory();
 	bool                 al_change_directory(in char* path);
 	bool                 al_make_directory(in char* path);
 	
