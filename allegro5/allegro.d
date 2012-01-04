@@ -7,7 +7,6 @@ else
 }
 
 public {
-	import allegro5.internal.da5;
 	import allegro5.al_time;
 	import allegro5.base;
 	import allegro5.system;
