@@ -1,5 +1,7 @@
 module allegro5.utf8;
 
+import allegro5.internal.da5;
+
 version (Tango)
 {
 	import tango.core.Vararg : va_list;
@@ -25,7 +27,7 @@ extern (C)
 	ALLEGRO_USTR* al_ustr_new_from_buffer(in char* s, size_t size);
 	ALLEGRO_USTR* al_ustr_newf(in char* fmt, ...);
 	void al_ustr_free(ALLEGRO_USTR* us);
-	char* al_cstr(in ALLEGRO_USTR* us);
+	const_char* al_cstr(in ALLEGRO_USTR* us);
 	void al_ustr_to_buffer(in ALLEGRO_USTR* us, char* buffer, int size);
 	char* al_cstr_dup(in ALLEGRO_USTR* us);
 	ALLEGRO_USTR* al_ustr_dup(in ALLEGRO_USTR* us);

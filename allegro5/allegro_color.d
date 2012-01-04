@@ -18,7 +18,7 @@ extern (C)
 	void al_color_rgb_to_hsv(float red, float green, float blue, float* hue, float* saturation, float* value);
 	void al_color_hsl_to_rgb(float hue, float saturation, float lightness, float* red, float* green, float* blue);
 	int al_color_name_to_rgb(in char* name, float* r, float* g, float* b);
-	char* al_color_rgb_to_name(float r, float g, float b);
+	const_char* al_color_rgb_to_name(float r, float g, float b);
 	void al_color_cmyk_to_rgb(float cyan, float magenta, float yellow,  float key, float* red, float* green, float* blue);
 	void al_color_rgb_to_cmyk(float red, float green, float blue, float* cyan, float* magenta, float* yellow, float* key);
 	void al_color_yuv_to_rgb(float y, float u, float v,  float* red, float* green, float* blue);

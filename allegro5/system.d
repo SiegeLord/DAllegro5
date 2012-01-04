@@ -1,6 +1,7 @@
 module allegro5.system;
 
 import allegro5.allegro;
+import allegro5.internal.da5;
 
 version(Tango)
 {
@@ -41,8 +42,8 @@ extern (C)
 
 	void al_set_orgname(in char* orgname);
 	void al_set_appname(in char* appname);
-	char* al_get_orgname();
-	char* al_get_appname();
+	const_char* al_get_orgname();
+	const_char* al_get_appname();
 
 	bool al_inhibit_screensaver(bool inhibit);
 }

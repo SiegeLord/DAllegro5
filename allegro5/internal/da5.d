@@ -16,3 +16,12 @@ char[] ColorWrapper(in char[] prefix, in char[] func, in char[] arg_decls, in ch
 		return ret;
 	}`;
 }
+
+version(D_Version2)
+{
+	mixin(`alias const(char) const_char;`);
+}
+else
+{
+	alias char const_char;
+}

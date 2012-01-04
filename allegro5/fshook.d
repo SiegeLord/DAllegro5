@@ -1,6 +1,7 @@
 module allegro5.fshook;
 
 import allegro5.allegro;
+import allegro5.internal.da5;
 
 version(Windows)
 {
