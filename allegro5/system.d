@@ -40,10 +40,10 @@ extern (C)
 
 	ALLEGRO_PATH* get_standard_path(int id);
 
-	void al_set_orgname(in char* orgname);
-	void al_set_appname(in char* appname);
-	const_char* al_get_orgname();
-	const_char* al_get_appname();
+	void al_set_org_name(in char* orgname);
+	void al_set_app_name(in char* appname);
+	const_char* al_get_org_name();
+	const_char* al_get_app_name();
 
 	bool al_inhibit_screensaver(bool inhibit);
 }
