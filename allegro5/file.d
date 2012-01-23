@@ -40,6 +40,7 @@ extern (C)
 		bool    function(ALLEGRO_FILE* f, long offset, int whence) fi_fseek;
 		bool    function(ALLEGRO_FILE* f) fi_feof;
 		bool    function(ALLEGRO_FILE* f) fi_ferror;
+		void    function(ALLEGRO_FILE* f) fi_fclearerr;
 		int     function(ALLEGRO_FILE* f, int c) fi_fungetc;
 		off_t   function(ALLEGRO_FILE* f) fi_fsize;
 	}
@@ -78,8 +79,8 @@ extern (C)
 	short al_fread16be(ALLEGRO_FILE* f);
 	size_t al_fwrite16le(ALLEGRO_FILE* f, short w);
 	size_t al_fwrite16be(ALLEGRO_FILE* f, short w);
-	int al_fread32le(ALLEGRO_FILE* f, bool* ret_success);
-	int al_fread32be(ALLEGRO_FILE* f, bool* ret_success);
+	int al_fread32le(ALLEGRO_FILE* f);
+	int al_fread32be(ALLEGRO_FILE* f);
 	size_t al_fwrite32le(ALLEGRO_FILE* f, int l);
 	size_t al_fwrite32be(ALLEGRO_FILE* f, int l);
 	char* al_fgets(ALLEGRO_FILE* f, in char* p, size_t max);
