@@ -5,34 +5,34 @@ import allegro5.internal.da5;
 
 version(Windows)
 {
-	alias long off_t;
+	private alias long off_t;
 }
 else
 {
 	version(Tango)
 	{
-		import tango.stdc.posix.sys.types : off_t;
+		private import tango.stdc.posix.sys.types : off_t;
 	}
 	else
 	{
 		version(linux)
 		{
-			import std.c.linux.linux : off_t;
+			private import std.c.linux.linux : off_t;
 		}
 		else
 		{
-			import std.c.freebsd.freebsd : off_t;
+			private import std.c.freebsd.freebsd : off_t;
 		}
 	}
 }
 
 version (Tango)
 {
-	import tango.stdc.time : time_t;
+	private import tango.stdc.time : time_t;
 }
 else
 {
-	import std.c.time : time_t;
+	private import std.c.time : time_t;
 }
 
 extern (C)
