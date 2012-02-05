@@ -56,7 +56,7 @@ extern (C)
 
 	const float ALLEGRO_AUDIO_PAN_NONE = -1000.0f;
 
-	struct ALLEGRO_SAMPLE;
+	struct ALLEGRO_SAMPLE {};
 
 	struct ALLEGRO_SAMPLE_ID
 	{
@@ -64,13 +64,13 @@ extern (C)
 		int _id;
 	}
 
-	struct ALLEGRO_SAMPLE_INSTANCE;
+	struct ALLEGRO_SAMPLE_INSTANCE {};
 	
-	struct ALLEGRO_AUDIO_STREAM;
+	struct ALLEGRO_AUDIO_STREAM {};
 	
-	struct ALLEGRO_MIXER;
+	struct ALLEGRO_MIXER {};
 
-	struct ALLEGRO_VOICE;
+	struct ALLEGRO_VOICE {};
 
 	ALLEGRO_SAMPLE* al_create_sample(void* buf, uint samples, uint freq, ALLEGRO_AUDIO_DEPTH depth, ALLEGRO_CHANNEL_CONF chan_conf, bool free_buf);
 	void al_destroy_sample(ALLEGRO_SAMPLE* spl);

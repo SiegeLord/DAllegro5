@@ -10,8 +10,8 @@ import allegro5.allegro;
 
 extern (C)
 {
-	struct ALLEGRO_FILECHOOSER;
-	struct ALLEGRO_TEXTLOG;
+	struct ALLEGRO_FILECHOOSER {};
+	struct ALLEGRO_TEXTLOG {};
 
 	ALLEGRO_FILECHOOSER* al_create_native_file_dialog(in ALLEGRO_PATH* initial_path, in char* title, in char* patterns, int mode);
 	void al_show_native_file_dialog(ALLEGRO_DISPLAY* display, ALLEGRO_FILECHOOSER* dialog);

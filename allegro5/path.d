@@ -15,7 +15,7 @@ extern (C)
 		const char ALLEGRO_NATIVE_DRIVE_SEP = '\0';
 	}
 	
-	struct ALLEGRO_PATH;
+	struct ALLEGRO_PATH {};
 
 	ALLEGRO_PATH* al_create_path(in char* str);
 	ALLEGRO_PATH* al_create_path_for_directory(in char* str);

@@ -4,9 +4,9 @@ import allegro5.allegro;
 
 extern (C)
 {
-	struct ALLEGRO_THREAD;
-	struct ALLEGRO_MUTEX;
-	struct ALLEGRO_COND;
+	struct ALLEGRO_THREAD {};
+	struct ALLEGRO_MUTEX {};
+	struct ALLEGRO_COND {};
 
 	ALLEGRO_THREAD* al_create_thread(void *function(ALLEGRO_THREAD* thread, void* arg) proc, void* arg);
 	void al_start_thread(ALLEGRO_THREAD* outer);

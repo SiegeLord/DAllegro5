@@ -9,7 +9,7 @@ extern (C)
 	private const int  _AL_MAX_JOYSTICK_STICKS = 8;
 	private const int  _AL_MAX_JOYSTICK_BUTTONS = 32;
 	
-	struct ALLEGRO_JOYSTICK;
+	struct ALLEGRO_JOYSTICK {};
 
 	struct ALLEGRO_JOYSTICK_STATE
 	{

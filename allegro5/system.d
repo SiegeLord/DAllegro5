@@ -14,7 +14,7 @@ else
 
 extern (C)
 {
-	struct ALLEGRO_SYSTEM;
+	struct ALLEGRO_SYSTEM {};
 
 	bool al_install_system(int vers, int function(void function()) atexit_ptr);
 	void al_uninstall_system();

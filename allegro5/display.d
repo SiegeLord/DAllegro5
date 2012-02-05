@@ -60,7 +60,7 @@ extern (C)
 		ALLEGRO_SUGGEST
 	}
 
-	struct ALLEGRO_DISPLAY;
+	struct ALLEGRO_DISPLAY {};
 
 	struct ALLEGRO_DISPLAY_MODE
 	{

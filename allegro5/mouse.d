@@ -8,7 +8,7 @@ extern (C)
 {
 	const int ALLEGRO_MOUSE_MAX_EXTRA_AXES = 4;
 
-	struct ALLEGRO_MOUSE;
+	struct ALLEGRO_MOUSE {};
 
 	struct ALLEGRO_MOUSE_STATE
 	{
@@ -22,7 +22,7 @@ extern (C)
 		ALLEGRO_DISPLAY* display;
 	}
 
-	struct ALLEGRO_MOUSE_CURSOR;
+	struct ALLEGRO_MOUSE_CURSOR {};
 
 	enum ALLEGRO_SYSTEM_MOUSE_CURSOR
 	{

@@ -5,7 +5,7 @@ import allegro5.internal.da5;
 
 extern (C)
 {
-	struct ALLEGRO_TIMER;
+	struct ALLEGRO_TIMER {};
 
 	ALLEGRO_TIMER* al_create_timer(double speed_secs);
 	void al_destroy_timer(ALLEGRO_TIMER* timer);

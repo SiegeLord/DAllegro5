@@ -7,7 +7,7 @@ import allegro5.internal.da5;
 
 extern (C)
 {
-	struct ALLEGRO_KEYBOARD;
+	struct ALLEGRO_KEYBOARD {};
 
 	struct ALLEGRO_KEYBOARD_STATE
 	{

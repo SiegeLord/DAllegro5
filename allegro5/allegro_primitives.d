@@ -56,7 +56,7 @@ extern (C)
 		int offset;
 	}
 
-	struct ALLEGRO_VERTEX_DECL;
+	struct ALLEGRO_VERTEX_DECL {};
 
 	struct ALLEGRO_VERTEX
 	{

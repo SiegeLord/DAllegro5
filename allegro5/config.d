@@ -5,9 +5,9 @@ import allegro5.internal.da5;
 
 extern (C)
 {
-	struct ALLEGRO_CONFIG;
-	struct ALLEGRO_CONFIG_SECTION;
-	struct ALLEGRO_CONFIG_ENTRY;
+	struct ALLEGRO_CONFIG {};
+	struct ALLEGRO_CONFIG_SECTION {};
+	struct ALLEGRO_CONFIG_ENTRY {};
 	
 	ALLEGRO_CONFIG* al_create_config();
 	void al_add_config_section(ALLEGRO_CONFIG* config, in char* name);
