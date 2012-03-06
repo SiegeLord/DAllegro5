@@ -173,10 +173,12 @@ extern (C)
 	ALLEGRO_CHANNEL_CONF al_get_mixer_channels(in ALLEGRO_MIXER* mixer);
 	ALLEGRO_AUDIO_DEPTH al_get_mixer_depth(in ALLEGRO_MIXER* mixer);
 	ALLEGRO_MIXER_QUALITY al_get_mixer_quality(in ALLEGRO_MIXER* mixer);
+	float al_get_mixer_gain(in ALLEGRO_MIXER *mixer);
 	bool al_get_mixer_playing(in ALLEGRO_MIXER* mixer);
 	bool al_get_mixer_attached(in ALLEGRO_MIXER* mixer);
 	bool al_set_mixer_frequency(ALLEGRO_MIXER* mixer, uint val);
 	bool al_set_mixer_quality(ALLEGRO_MIXER* mixer, ALLEGRO_MIXER_QUALITY val);
+	bool al_set_mixer_gain(ALLEGRO_MIXER *mixer, float gain);
 	bool al_set_mixer_playing(ALLEGRO_MIXER* mixer, bool val);
 	bool al_detach_mixer(ALLEGRO_MIXER* mixer);
 

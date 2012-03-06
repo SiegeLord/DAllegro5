@@ -39,6 +39,7 @@ extern (C)
 	}
 
 	ALLEGRO_PATH* get_standard_path(int id);
+	void al_set_exe_name(in char* path);
 
 	void al_set_org_name(in char* orgname);
 	void al_set_app_name(in char* appname);

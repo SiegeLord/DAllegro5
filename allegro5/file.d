@@ -90,6 +90,9 @@ extern (C)
 	/* Specific to stdio backend. */
 	ALLEGRO_FILE* al_fopen_fd(int fd, in char* mode);
 	ALLEGRO_FILE* al_make_temp_file(in char* tmpl,	ALLEGRO_PATH **ret_path);
+	
+	/* Specific to slices. */
+	ALLEGRO_FILE* al_fopen_slice(ALLEGRO_FILE* fp, size_t initial_size, in char *mode);
 
 	/* Thread-local state. */
 	ALLEGRO_FILE_INTERFACE* al_get_new_file_interface();

@@ -103,6 +103,8 @@ extern (C)
 	void al_draw_circle(float cx, float cy, float r, ALLEGRO_COLOR color, float thickness);
 	void al_draw_ellipse(float cx, float cy, float rx, float ry, ALLEGRO_COLOR color, float thickness);
 	void al_draw_arc(float cx, float cy, float r, float start_theta, float delta_theta, ALLEGRO_COLOR color, float thickness);
+	void al_draw_elliptical_arc(float cx, float cy, float rx, float ry, float start_theta, float delta_theta, ALLEGRO_COLOR color, float thickness);
+	void al_draw_pieslice(float cx, float cy, float r, float start_theta, float delta_theta, ALLEGRO_COLOR color, float thickness);
 
 	void al_calculate_spline(float* dest, int stride, float points[8], float thickness, int num_segments);
 	void al_draw_spline(float points[8], ALLEGRO_COLOR color, float thickness);
@@ -114,5 +116,6 @@ extern (C)
 	void al_draw_filled_rectangle(float x1, float y1, float x2, float y2, ALLEGRO_COLOR color);
 	void al_draw_filled_ellipse(float cx, float cy, float rx, float ry, ALLEGRO_COLOR color);
 	void al_draw_filled_circle(float cx, float cy, float r, ALLEGRO_COLOR color);
+	void al_draw_filled_pieslice(float cx, float cy, float r, float start_theta, float delta_theta, ALLEGRO_COLOR color);
 	void al_draw_filled_rounded_rectangle(float x1, float y1, float x2, float y2, float rx, float ry, ALLEGRO_COLOR color);
 }

@@ -126,6 +126,7 @@ extern (C)
 	void al_draw_tinted_scaled_bitmap(ALLEGRO_BITMAP *bitmap, ALLEGRO_COLOR tint, float sx, float sy, float sw, float sh, float dx, float dy, float dw, float dh, int flags);
 	void al_draw_tinted_rotated_bitmap(ALLEGRO_BITMAP *bitmap, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float angle, int flags);
 	void al_draw_tinted_scaled_rotated_bitmap(ALLEGRO_BITMAP *bitmap, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
+	void al_draw_tinted_scaled_rotated_bitmap_region(ALLEGRO_BITMAP *bitmap, float sx, float sy, float sw, float sh, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
 
 	ALLEGRO_LOCKED_REGION* al_lock_bitmap(ALLEGRO_BITMAP* bitmap, int format, int flags);
 	ALLEGRO_LOCKED_REGION* al_lock_bitmap_region(ALLEGRO_BITMAP* bitmap, int x, int y, int width, int height, int format, int flags);
@@ -149,11 +150,13 @@ extern (C)
 
 	/* Clipping */
 	void al_set_clipping_rectangle(int x, int y, int width, int height);
+	void al_reset_clipping_rectangle();
 	void al_get_clipping_rectangle(int* x, int* y, int* w, int* h);
 
 	/* Sub bitmaps */
 	ALLEGRO_BITMAP * al_create_sub_bitmap(ALLEGRO_BITMAP* parent, int x, int y, int w, int h);
 	bool al_is_sub_bitmap(ALLEGRO_BITMAP* bitmap);
+	ALLEGRO_BITMAP * al_get_parent_bitmap(ALLEGRO_BITMAP* bitmap);
 
 	/* Miscellaneous */
 	ALLEGRO_BITMAP * al_clone_bitmap(ALLEGRO_BITMAP* bitmap);
