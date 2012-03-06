@@ -2,7 +2,7 @@ module a5test;
 
 pragma(lib, "dallegro5");
 
-version(D_Version2)
+version(none)
 {
 
 }
