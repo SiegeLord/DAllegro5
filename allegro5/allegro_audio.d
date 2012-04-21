@@ -11,6 +11,9 @@ import allegro5.internal.da5;
 
 extern (C)
 {
+	const ALLEGRO_EVENT_AUDIO_STREAM_FRAGMENT = 513;
+	const ALLEGRO_EVENT_AUDIO_STREAM_FINISHED = 514;
+	
 	enum ALLEGRO_AUDIO_DEPTH
 	{
 		ALLEGRO_AUDIO_DEPTH_INT8      = 0x00,
