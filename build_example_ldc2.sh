@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ldc2 -release -ofexample example.d -L-L. $@
+ldc2 -w -release -ofexample example.d -L-L. $@
