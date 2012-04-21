@@ -7,12 +7,22 @@ else
 }
 
 import allegro5.allegro;
+import allegro5.events;
 import allegro5.internal.da5;
 
 extern (C)
 {
-	const ALLEGRO_EVENT_AUDIO_STREAM_FRAGMENT = 513;
-	const ALLEGRO_EVENT_AUDIO_STREAM_FINISHED = 514;
+	const ALLEGRO_EVENT_AUDIO_STREAM_FRAGMENT   = 513;
+	const ALLEGRO_EVENT_AUDIO_STREAM_FINISHED   = 514;
+	const ALLEGRO_EVENT_AUDIO_RECORDER_FRAGMENT = 515;
+	
+	struct ALLEGRO_AUDIO_RECORDER_EVENT
+	{
+		mixin(_AL_EVENT_HEADER!("ALLEGRO_AUDIO_RECORDER".dup));
+		ALLEGRO_USER_EVENT_DESCRIPTOR* __internal__descr;
+		void* buffer;
+		uint samples;
+	};
 	
 	enum ALLEGRO_AUDIO_DEPTH
 	{
@@ -58,6 +68,13 @@ extern (C)
 	}
 
 	const float ALLEGRO_AUDIO_PAN_NONE = -1000.0f;
+	
+	enum ALLEGRO_AUDIO_EVENT_TYPE
+	{
+		ALLEGRO_EVENT_AUDIO_ROUTE_CHANGE       = 520,
+		ALLEGRO_EVENT_AUDIO_INTERRUPTION       = 521,
+		ALLEGRO_EVENT_AUDIO_END_INTERRUPTION   = 522
+	}
 
 	struct ALLEGRO_SAMPLE {};
 
@@ -74,6 +91,8 @@ extern (C)
 	struct ALLEGRO_MIXER {};
 
 	struct ALLEGRO_VOICE {};
+	
+	struct ALLEGRO_AUDIO_RECORDER {};
 
 	ALLEGRO_SAMPLE* al_create_sample(void* buf, uint samples, uint freq, ALLEGRO_AUDIO_DEPTH depth, ALLEGRO_CHANNEL_CONF chan_conf, bool free_buf);
 	void al_destroy_sample(ALLEGRO_SAMPLE* spl);
@@ -248,4 +267,15 @@ extern (C)
 	bool al_save_wav_f(ALLEGRO_FILE* pf, ALLEGRO_SAMPLE* spl);
 	ALLEGRO_AUDIO_STREAM* al_load_wav_audio_stream(in char* filename, size_t buffer_count, uint samples);
 	ALLEGRO_AUDIO_STREAM* al_load_wav_audio_stream_f(ALLEGRO_FILE* pf, size_t buffer_count, uint samples);
+	
+	ALLEGRO_EVENT_SOURCE* al_get_audio_event_source();
+
+	/* Recording functions */
+	ALLEGRO_AUDIO_RECORDER* al_create_audio_recorder(size_t fragment_count, uint samples, uint freq, ALLEGRO_AUDIO_DEPTH depth, ALLEGRO_CHANNEL_CONF chan_conf);
+	bool al_start_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
+	void al_stop_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
+	bool al_is_audio_recorder_recording(ALLEGRO_AUDIO_RECORDER* r);
+	ALLEGRO_EVENT_SOURCE* al_get_audio_recorder_event_source(ALLEGRO_AUDIO_RECORDER* r);
+	ALLEGRO_AUDIO_RECORDER_EVENT* al_get_audio_recorder_event(ALLEGRO_EVENT* event);
+	void al_destroy_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
 }

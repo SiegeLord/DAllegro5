@@ -1,5 +1,8 @@
 module allegro5.transformations;
 
+import allegro5.display;
+import allegro5.internal.da5;
+
 extern (C)
 {
 	struct ALLEGRO_TRANSFORM
@@ -18,6 +21,10 @@ extern (C)
 	void al_transform_coordinates(in ALLEGRO_TRANSFORM* trans, float* x, float* y);
 	void al_compose_transform(in ALLEGRO_TRANSFORM* trans, ALLEGRO_TRANSFORM* trans2);
 	ALLEGRO_TRANSFORM* al_get_current_transform();
+	const_ALLEGRO_TRANSFORM* al_get_current_inverse_transform();
 	void al_invert_transform(ALLEGRO_TRANSFORM* trans);
 	int  al_check_inverse(in ALLEGRO_TRANSFORM* trans, float tol);
+	void al_ortho_transform(ALLEGRO_TRANSFORM* trans, float left, float right, float top, float bottom, float n, float f);
+	ALLEGRO_TRANSFORM* al_get_projection_transform(ALLEGRO_DISPLAY* display);
+	void al_set_projection_transform(ALLEGRO_DISPLAY* display, ALLEGRO_TRANSFORM* t);
 }

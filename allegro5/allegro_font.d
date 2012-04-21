@@ -34,11 +34,13 @@ extern (C)
 	{
 		ALLEGRO_ALIGN_LEFT   = 0,
 		ALLEGRO_ALIGN_CENTRE = 1,
+		ALLEGRO_ALIGN_CENTER = 1,
 		ALLEGRO_ALIGN_RIGHT  = 2
 	}
 
 	bool al_register_font_loader(in char* ext, ALLEGRO_FONT* function(in char* filename, int size, int flags) load);
 	ALLEGRO_FONT* al_load_bitmap_font(in char* filename);
+	ALLEGRO_FONT* al_load_bitmap_font_flags(in char* filename, int flags);
 	ALLEGRO_FONT* al_load_font(in char* filename, int size, int flags);
 
 	ALLEGRO_FONT* al_grab_font_from_bitmap(ALLEGRO_BITMAP* bmp, int n, int ranges[]);

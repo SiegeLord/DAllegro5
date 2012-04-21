@@ -32,4 +32,5 @@ public {
 	import allegro5.fshook;
 	import allegro5.threads;
 	import allegro5.tls;
+	import allegro5.touch_input;
 }

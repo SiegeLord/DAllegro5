@@ -42,7 +42,25 @@ extern (C)
 	{
 		ALLEGRO_PRIM_FLOAT_2,
 		ALLEGRO_PRIM_FLOAT_3,
-		ALLEGRO_PRIM_SHORT_2,
+		ALLEGRO_PRIM_SHORT_2
+	}
+	
+	enum ALLEGRO_LINE_JOIN
+	{
+	   ALLEGRO_LINE_JOIN_NONE,
+	   ALLEGRO_LINE_JOIN_BEVEL,
+	   ALLEGRO_LINE_JOIN_ROUND,
+	   ALLEGRO_LINE_JOIN_MITER,
+	   ALLEGRO_LINE_JOIN_MITRE = ALLEGRO_LINE_JOIN_MITER
+	}
+
+	enum ALLEGRO_LINE_CAP
+	{
+	   ALLEGRO_LINE_CAP_NONE,
+	   ALLEGRO_LINE_CAP_SQUARE,
+	   ALLEGRO_LINE_CAP_ROUND,
+	   ALLEGRO_LINE_CAP_TRIANGLE,
+	   ALLEGRO_LINE_CAP_CLOSED
 	}
 
 	const int ALLEGRO_VERTEX_CACHE_SIZE = 256;
@@ -77,6 +95,11 @@ extern (C)
 
 	ALLEGRO_VERTEX_DECL* al_create_vertex_decl(in ALLEGRO_VERTEX_ELEMENT* elements, int stride);
 	void al_destroy_vertex_decl(ALLEGRO_VERTEX_DECL* decl);
+	
+	/*
+	* Utilities for high level primitives.
+	*/
+	bool al_triangulate_polygon(in float* vertices, size_t vertex_stride, size_t vertex_count, in int* splits, size_t split_stride, size_t split_count, void function(int, int, int, void*) emit_triangle, void* userdata);
 
 	/*
 	* Custom primitives
@@ -118,4 +141,12 @@ extern (C)
 	void al_draw_filled_circle(float cx, float cy, float r, ALLEGRO_COLOR color);
 	void al_draw_filled_pieslice(float cx, float cy, float r, float start_theta, float delta_theta, ALLEGRO_COLOR color);
 	void al_draw_filled_rounded_rectangle(float x1, float y1, float x2, float y2, float rx, float ry, ALLEGRO_COLOR color);
+	
+	void al_draw_polyline(in float* vertices, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_LINE_CAP cap_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
+	void al_draw_polyline_ex(in float* vertices, int vertex_stride, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_LINE_CAP cap_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
+
+	void al_draw_polygon(in float* vertices, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
+	void al_draw_polygon_with_holes(in float* vertices, int vertex_count, in int* holes, int hole_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
+	void al_draw_filled_polygon(in float* vertices, int vertex_count, ALLEGRO_COLOR color);
+	void al_draw_filled_polygon_with_holes(in float* vertices, int vertex_count, in int* holes, int hole_count, ALLEGRO_COLOR color);
 }

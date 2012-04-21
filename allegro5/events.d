@@ -40,7 +40,17 @@ extern (C)
 		ALLEGRO_EVENT_DISPLAY_FOUND               = 44,
 		ALLEGRO_EVENT_DISPLAY_SWITCH_IN           = 45,
 		ALLEGRO_EVENT_DISPLAY_SWITCH_OUT          = 46,
-		ALLEGRO_EVENT_DISPLAY_ORIENTATION         = 47
+		ALLEGRO_EVENT_DISPLAY_ORIENTATION         = 47,
+		ALLEGRO_EVENT_DISPLAY_HALT_DRAWING        = 48,
+		ALLEGRO_EVENT_DISPLAY_RESUME_DRAWING      = 49,
+
+		ALLEGRO_EVENT_TOUCH_BEGIN                 = 50,
+		ALLEGRO_EVENT_TOUCH_END                   = 51,
+		ALLEGRO_EVENT_TOUCH_MOVE                  = 52,
+		ALLEGRO_EVENT_TOUCH_CANCEL                = 53,
+
+		ALLEGRO_EVENT_DISPLAY_CONNECTED           = 60,
+		ALLEGRO_EVENT_DISPLAY_DISCONNECTED        = 61
 	}
 }
 
@@ -120,6 +130,21 @@ extern (C)
 		double error;
 	}
 	
+	struct ALLEGRO_TOUCH_EVENT
+	{
+	   mixin(_AL_EVENT_HEADER!("ALLEGRO_TOUCH_INPUT".dup));
+	   ALLEGRO_DISPLAY* display;
+	   /* (id) Identifier of the event, always positive number.
+		* (x, y) Touch position on the screen in 1:1 resolution.
+		* (dx, dy) Relative touch position.
+		* (primary) True, if touch is a primary one (usually first one).
+		*/
+	   int id;
+	   float x, y;
+	   float dx, dy;
+	   bool primary;
+	}
+	
 	private struct ALLEGRO_USER_EVENT_DESCRIPTOR;
 
 	struct ALLEGRO_USER_EVENT
@@ -143,6 +168,7 @@ extern (C)
 		ALLEGRO_KEYBOARD_EVENT keyboard;
 		ALLEGRO_MOUSE_EVENT    mouse;
 		ALLEGRO_TIMER_EVENT    timer;
+		ALLEGRO_TOUCH_EVENT    touch;
 		ALLEGRO_USER_EVENT     user;
 	}
 	
@@ -165,6 +191,8 @@ extern (C)
 	void al_destroy_event_queue(ALLEGRO_EVENT_QUEUE*);
 	void al_register_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
 	void al_unregister_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
+	void al_pause_event_queue(ALLEGRO_EVENT_QUEUE*, bool);
+	bool al_is_event_queue_paused(in ALLEGRO_EVENT_QUEUE*);
 	bool al_is_event_queue_empty(ALLEGRO_EVENT_QUEUE*);
 	bool al_get_next_event(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT* ret_event);
 	bool al_peek_next_event(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT* ret_event);

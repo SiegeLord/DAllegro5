@@ -13,12 +13,14 @@ extern (C)
 		ALLEGRO_OPENGL                      = 1 << 2,
 		ALLEGRO_DIRECT3D_INTERNAL           = 1 << 3,
 		ALLEGRO_RESIZABLE                   = 1 << 4,
-		ALLEGRO_NOFRAME                     = 1 << 5,
+		ALLEGRO_FRAMELESS                   = 1 << 5,
+		ALLEGRO_NOFRAME                     = ALLEGRO_FRAMELESS, /* older synonym */
 		ALLEGRO_GENERATE_EXPOSE_EVENTS      = 1 << 6,
 		ALLEGRO_OPENGL_3_0                  = 1 << 7,
 		ALLEGRO_OPENGL_FORWARD_COMPATIBLE   = 1 << 8,
 		ALLEGRO_FULLSCREEN_WINDOW           = 1 << 9,
-		ALLEGRO_MINIMIZED                   = 1 << 10
+		ALLEGRO_MINIMIZED                   = 1 << 10,
+		ALLEGRO_USE_PROGRAMMABLE_PIPELINE   = 1 << 11
 	}
 
 	enum ALLEGRO_DISPLAY_OPTIONS
@@ -50,6 +52,8 @@ extern (C)
 		ALLEGRO_COMPATIBLE_DISPLAY,
 		ALLEGRO_UPDATE_DISPLAY_REGION,
 		ALLEGRO_VSYNC,
+		ALLEGRO_AUTO_CONVERT_BITMAPS,
+		ALLEGRO_SUPPORTED_ORIENTATIONS,
 		ALLEGRO_DISPLAY_OPTIONS_COUNT
 	}
 
@@ -58,6 +62,20 @@ extern (C)
 		ALLEGRO_DONTCARE,
 		ALLEGRO_REQUIRE,
 		ALLEGRO_SUGGEST
+	}
+	
+	enum ALLEGRO_DISPLAY_ORIENTATION
+	{
+		ALLEGRO_DISPLAY_ORIENTATION_UNKNOWN = 0,
+		ALLEGRO_DISPLAY_ORIENTATION_0_DEGREES = 1,
+		ALLEGRO_DISPLAY_ORIENTATION_90_DEGREES = 2,
+		ALLEGRO_DISPLAY_ORIENTATION_180_DEGREES = 4,
+		ALLEGRO_DISPLAY_ORIENTATION_270_DEGREES = 8,
+		ALLEGRO_DISPLAY_ORIENTATION_PORTRAIT = 5,
+		ALLEGRO_DISPLAY_ORIENTATION_LANDSCAPE = 10,
+		ALLEGRO_DISPLAY_ORIENTATION_ALL = 15,
+		ALLEGRO_DISPLAY_ORIENTATION_FACE_UP = 16,
+		ALLEGRO_DISPLAY_ORIENTATION_FACE_DOWN = 32
 	}
 
 	struct ALLEGRO_DISPLAY {};
@@ -93,7 +111,8 @@ extern (C)
 	int al_get_display_format(ALLEGRO_DISPLAY* display);
 	int al_get_display_refresh_rate(ALLEGRO_DISPLAY* display);
 	int al_get_display_flags(ALLEGRO_DISPLAY* display);
-	bool al_toggle_display_flag(ALLEGRO_DISPLAY* display, int flag, bool onoff);
+	int al_get_display_orientation(ALLEGRO_DISPLAY* display);
+	bool al_set_display_flag(ALLEGRO_DISPLAY* display, int flag, bool onoff);
 
 	ALLEGRO_DISPLAY* al_create_display(int w, int h);
 	void al_destroy_display(ALLEGRO_DISPLAY* display);
@@ -131,6 +150,8 @@ extern (C)
 	void al_get_new_window_position(int* x, int* y);
 	void al_set_window_position(ALLEGRO_DISPLAY* display, int x, int y);
 	void al_get_window_position(ALLEGRO_DISPLAY* display, int* x, int* y);
+	bool al_set_window_constraints(ALLEGRO_DISPLAY* display, int min_w, int min_h, int max_w, int max_h);
+	bool al_get_window_constraints(ALLEGRO_DISPLAY* display, int* min_w, int* min_h, int* max_w, int* max_h);
 
 	void al_set_window_title(ALLEGRO_DISPLAY* display, in char* title);
 
@@ -138,9 +159,13 @@ extern (C)
 	void al_set_new_display_option(int option, int value, int importance);
 	int al_get_new_display_option(int option, int* importance);
 	void al_reset_new_display_options();
+	void al_change_display_option(ALLEGRO_DISPLAY* display, int option, int value);
 	int al_get_display_option(ALLEGRO_DISPLAY* display, int option);
 	
 	/*Deferred drawing*/
 	void al_hold_bitmap_drawing(bool hold);
 	bool al_is_bitmap_drawing_held();
+	
+	void al_acknowledge_drawing_halt(ALLEGRO_DISPLAY* display);
+	void al_acknowledge_drawing_resume(ALLEGRO_DISPLAY* display);
 }

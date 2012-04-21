@@ -23,9 +23,11 @@ version(D_Version2)
 {
 	mixin(`alias const(char) const_char;`);
 	mixin(`alias const(ALLEGRO_USTR) const_ALLEGRO_USTR;`);
+	mixin(`alias const(ALLEGRO_TRANSFORM) const_ALLEGRO_TRANSFORM;`);
 }
 else
 {
 	alias char const_char;
 	alias ALLEGRO_USTR const_ALLEGRO_USTR;
+	alias ALLEGRO_TRANSFORM const_ALLEGRO_TRANSFORM;
 }

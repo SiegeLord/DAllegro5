@@ -36,16 +36,17 @@ extern (C)
 		ALLEGRO_PIXEL_FORMAT_ABGR_F32,
 		ALLEGRO_PIXEL_FORMAT_ABGR_8888_LE,
 		ALLEGRO_PIXEL_FORMAT_RGBA_4444,
+		ALLEGRO_PIXEL_FORMAT_LUMINANCE_8,
 		ALLEGRO_NUM_PIXEL_FORMATS
 	}
 	
 	/*
 	 * Bitmap flags
 	 */
-	enum : int
+	enum
 	{
 		ALLEGRO_MEMORY_BITMAP            = 0x0001,
-		ALLEGRO_KEEP_BITMAP_FORMAT       = 0x0002,
+		_ALLEGRO_KEEP_BITMAP_FORMAT      = 0x0002,	/* now a bitmap loader flag */
 		ALLEGRO_FORCE_LOCKING            = 0x0004,
 		ALLEGRO_NO_PRESERVE_TEXTURE      = 0x0008,
 		ALLEGRO_ALPHA_TEST               = 0x0010,
@@ -53,8 +54,9 @@ extern (C)
 		ALLEGRO_MIN_LINEAR               = 0x0040,
 		ALLEGRO_MAG_LINEAR               = 0x0080,
 		ALLEGRO_MIPMAP                   = 0x0100,
-		ALLEGRO_NO_PREMULTIPLIED_ALPHA   = 0x0200,
-		ALLEGRO_VIDEO_BITMAP             = 0x0400
+		_ALLEGRO_NO_PREMULTIPLIED_ALPHA  = 0x0200,	/* now a bitmap loader flag */
+		ALLEGRO_VIDEO_BITMAP             = 0x0400,
+		ALLEGRO_CONVERT_BITMAP           = 0x1000
 	}
 
 	/* Flags for the blitting functions */
@@ -80,7 +82,11 @@ extern (C)
 		ALLEGRO_ZERO = 0,
 		ALLEGRO_ONE = 1,
 		ALLEGRO_ALPHA = 2,
-		ALLEGRO_INVERSE_ALPHA = 3
+		ALLEGRO_INVERSE_ALPHA = 3,
+		ALLEGRO_SRC_COLOR = 4,
+		ALLEGRO_DST_COLOR = 5,
+		ALLEGRO_INVERSE_SRC_COLOR = 6,
+		ALLEGRO_INVERSE_DST_COLOR = 7
 	}
 	
 	enum ALLEGRO_BLEND_OPERATIONS
@@ -154,12 +160,14 @@ extern (C)
 	void al_get_clipping_rectangle(int* x, int* y, int* w, int* h);
 
 	/* Sub bitmaps */
-	ALLEGRO_BITMAP * al_create_sub_bitmap(ALLEGRO_BITMAP* parent, int x, int y, int w, int h);
+	ALLEGRO_BITMAP* al_create_sub_bitmap(ALLEGRO_BITMAP* parent, int x, int y, int w, int h);
 	bool al_is_sub_bitmap(ALLEGRO_BITMAP* bitmap);
-	ALLEGRO_BITMAP * al_get_parent_bitmap(ALLEGRO_BITMAP* bitmap);
+	ALLEGRO_BITMAP* al_get_parent_bitmap(ALLEGRO_BITMAP* bitmap);
 
 	/* Miscellaneous */
-	ALLEGRO_BITMAP * al_clone_bitmap(ALLEGRO_BITMAP* bitmap);
+	ALLEGRO_BITMAP* al_clone_bitmap(ALLEGRO_BITMAP* bitmap);
+	void al_convert_bitmap(ALLEGRO_BITMAP* bitmap);
+	void al_convert_bitmaps();
 	bool al_is_bitmap_locked(ALLEGRO_BITMAP* bitmap);
 
 	/* Blending */

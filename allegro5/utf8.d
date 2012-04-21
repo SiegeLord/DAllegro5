@@ -37,9 +37,9 @@ extern (C)
 	ALLEGRO_USTR* al_ustr_empty_string();
 
 	/* Reference strings */
-	ALLEGRO_USTR* al_ref_cstr(ALLEGRO_USTR_INFO* info, in char* s);
-	ALLEGRO_USTR* al_ref_buffer(ALLEGRO_USTR_INFO* info, in char* s, size_t size);
-	ALLEGRO_USTR* al_ref_ustr(ALLEGRO_USTR_INFO* info, in ALLEGRO_USTR* us, int start_pos, int end_pos);
+	const_ALLEGRO_USTR* al_ref_cstr(ALLEGRO_USTR_INFO* info, in char* s);
+	const_ALLEGRO_USTR* al_ref_buffer(ALLEGRO_USTR_INFO* info, in char* s, size_t size);
+	const_ALLEGRO_USTR* al_ref_ustr(ALLEGRO_USTR_INFO* info, in ALLEGRO_USTR* us, int start_pos, int end_pos);
 
 	/* Sizes and offsets */
 	size_t al_ustr_size(in ALLEGRO_USTR* us);
