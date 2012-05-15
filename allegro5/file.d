@@ -1,8 +1,8 @@
 module allegro5.file;
 
+import allegro5.internal.da5;
 import allegro5.path;
 import allegro5.utf8;
-import allegro5.internal.da5;
 
 version(Windows)
 {

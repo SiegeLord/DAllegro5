@@ -1,7 +1,7 @@
 module allegro5.config;
 
-import allegro5.allegro;
 import allegro5.internal.da5;
+import allegro5.file;
 
 extern (C)
 {

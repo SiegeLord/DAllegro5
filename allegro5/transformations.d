@@ -1,7 +1,6 @@
 module allegro5.transformations;
 
 import allegro5.display;
-import allegro5.internal.da5;
 
 extern (C)
 {
@@ -9,6 +8,11 @@ extern (C)
 	{
 		float[4][4] m;
 	}
+	
+	version(D_Version2)
+		mixin(`alias const(ALLEGRO_TRANSFORM) const_ALLEGRO_TRANSFORM;`);
+	else
+		alias ALLEGRO_TRANSFORM const_ALLEGRO_TRANSFORM;
 
 	/* Transformations*/
 	void al_use_transform(in ALLEGRO_TRANSFORM* trans);
