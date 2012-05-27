@@ -36,7 +36,7 @@ extern (C)
 		ALLEGRO_PIXEL_FORMAT_ABGR_F32,
 		ALLEGRO_PIXEL_FORMAT_ABGR_8888_LE,
 		ALLEGRO_PIXEL_FORMAT_RGBA_4444,
-		ALLEGRO_PIXEL_FORMAT_LUMINANCE_8,
+		ALLEGRO_PIXEL_FORMAT_SINGLE_CHANNEL_8,
 		ALLEGRO_NUM_PIXEL_FORMATS
 	}
 	
@@ -49,7 +49,7 @@ extern (C)
 		_ALLEGRO_KEEP_BITMAP_FORMAT      = 0x0002,	/* now a bitmap loader flag */
 		ALLEGRO_FORCE_LOCKING            = 0x0004,
 		ALLEGRO_NO_PRESERVE_TEXTURE      = 0x0008,
-		ALLEGRO_ALPHA_TEST               = 0x0010,
+		_ALLEGRO_ALPHA_TEST              = 0x0010,  /* now a render state flag */
 		_ALLEGRO_INTERNAL_OPENGL         = 0x0020,
 		ALLEGRO_MIN_LINEAR               = 0x0040,
 		ALLEGRO_MAG_LINEAR               = 0x0080,
@@ -117,6 +117,7 @@ extern (C)
 	int al_get_bitmap_flags(ALLEGRO_BITMAP* bitmap);
 
 	ALLEGRO_BITMAP* al_create_bitmap(int w, int h);
+	ALLEGRO_BITMAP* al_create_custom_bitmap(int w, int h, bool function(ALLEGRO_BITMAP* bitmap, void* data) upload, void* data);
 	void al_destroy_bitmap(ALLEGRO_BITMAP* bitmap);
 
 	/* Blitting */

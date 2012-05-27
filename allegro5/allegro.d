@@ -17,6 +17,7 @@ public {
 	import allegro5.transformations;
 	import allegro5.color;
 	import allegro5.bitmap;
+	import allegro5.render_state;
 	import allegro5.bitmap_io;
 	import allegro5.events;
 	import allegro5.timer;

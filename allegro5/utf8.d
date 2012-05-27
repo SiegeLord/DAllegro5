@@ -34,7 +34,7 @@ extern (C)
 	ALLEGRO_USTR* al_ustr_dup_substr(in ALLEGRO_USTR* us, int start_pos, int end_pos);
 	
 	/* Predefined string */
-	ALLEGRO_USTR* al_ustr_empty_string();
+	const_ALLEGRO_USTR* al_ustr_empty_string();
 
 	/* Reference strings */
 	const_ALLEGRO_USTR* al_ref_cstr(ALLEGRO_USTR_INFO* info, in char* s);

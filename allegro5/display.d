@@ -138,6 +138,7 @@ extern (C)
 	/* Primitives */
 	void al_clear_to_color(ALLEGRO_COLOR color);
 	void al_draw_pixel(float x, float y, ALLEGRO_COLOR color);
+	void al_clear_depth_buffer(float x);
 
 	void al_set_display_icon(ALLEGRO_DISPLAY* display, ALLEGRO_BITMAP* icon);
 
