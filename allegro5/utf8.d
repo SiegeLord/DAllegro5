@@ -23,6 +23,11 @@ extern (C)
 	alias _al_tagbstring ALLEGRO_USTR;
 	alias _al_tagbstring ALLEGRO_USTR_INFO;
 	
+	version(D_Version2)
+		mixin(`alias const(ALLEGRO_USTR) const_ALLEGRO_USTR;`);
+	else
+		alias ALLEGRO_USTR const_ALLEGRO_USTR;
+	
 	ALLEGRO_USTR* al_ustr_new(in char* s);
 	ALLEGRO_USTR* al_ustr_new_from_buffer(in char* s, size_t size);
 	ALLEGRO_USTR* al_ustr_newf(in char* fmt, ...);
