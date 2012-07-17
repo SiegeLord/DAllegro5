@@ -64,7 +64,7 @@ ALLEGRO_EVENT_TYPE ALLEGRO_GET_EVENT_TYPE(char a, char b, char c, char d)
 	return AL_ID(a, b, c, d);
 }
 
-private char[] _AL_EVENT_HEADER(in char[] src_type)
+package char[] _AL_EVENT_HEADER(in char[] src_type)
 {
 	return "ALLEGRO_EVENT_TYPE type;" ~ src_type ~ "* source; double timestamp;";
 }
