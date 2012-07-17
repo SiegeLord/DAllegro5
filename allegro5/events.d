@@ -132,7 +132,7 @@ extern (C)
 	
 	struct ALLEGRO_TOUCH_EVENT
 	{
-	   mixin(_AL_EVENT_HEADER!("ALLEGRO_TOUCH_INPUT".dup));
+	   mixin(_AL_EVENT_HEADER("ALLEGRO_TOUCH_INPUT"));
 	   ALLEGRO_DISPLAY* display;
 	   /* (id) Identifier of the event, always positive number.
 		* (x, y) Touch position on the screen in 1:1 resolution.
