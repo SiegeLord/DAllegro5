@@ -18,7 +18,7 @@ extern (C)
 	
 	struct ALLEGRO_AUDIO_RECORDER_EVENT
 	{
-		mixin(_AL_EVENT_HEADER!("ALLEGRO_AUDIO_RECORDER".dup));
+		mixin(_AL_EVENT_HEADER("ALLEGRO_AUDIO_RECORDER"));
 		ALLEGRO_USER_EVENT_DESCRIPTOR* __internal__descr;
 		void* buffer;
 		uint samples;
