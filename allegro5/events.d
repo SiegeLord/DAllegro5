@@ -54,9 +54,9 @@ ALLEGRO_EVENT_TYPE ALLEGRO_GET_EVENT_TYPE(char a, char b, char c, char d)
 	return AL_ID(a, b, c, d);
 }
 
-private template _AL_EVENT_HEADER(char[] src_type)
+private char[] _AL_EVENT_HEADER(in char[] src_type)
 {
-	const char[] _AL_EVENT_HEADER = "ALLEGRO_EVENT_TYPE type;".dup ~ src_type ~ "* source; double timestamp;".dup;
+	return "ALLEGRO_EVENT_TYPE type;" ~ src_type ~ "* source; double timestamp;";
 }
 
 extern (C)
@@ -68,12 +68,12 @@ extern (C)
 	
 	struct ALLEGRO_ANY_EVENT
 	{
-		mixin(_AL_EVENT_HEADER!("ALLEGRO_EVENT_SOURCE".dup));
+		mixin(_AL_EVENT_HEADER("ALLEGRO_EVENT_SOURCE"));
 	}
 	
 	struct ALLEGRO_DISPLAY_EVENT
 	{
-		mixin(_AL_EVENT_HEADER!("ALLEGRO_DISPLAY".dup));
+		mixin(_AL_EVENT_HEADER("ALLEGRO_DISPLAY"));
 		int x, y;
 		int width, height;
 		int orientation;
@@ -81,7 +81,7 @@ extern (C)
 
 	struct ALLEGRO_JOYSTICK_EVENT
 	{
-		mixin(_AL_EVENT_HEADER!("ALLEGRO_JOYSTICK".dup));
+		mixin(_AL_EVENT_HEADER("ALLEGRO_JOYSTICK"));
 		ALLEGRO_JOYSTICK* id;
 		int stick;
 		int axis;
@@ -91,7 +91,7 @@ extern (C)
 
 	struct ALLEGRO_KEYBOARD_EVENT
 	{
-		mixin(_AL_EVENT_HEADER!("ALLEGRO_KEYBOARD".dup));
+		mixin(_AL_EVENT_HEADER("ALLEGRO_KEYBOARD"));
 		ALLEGRO_DISPLAY* display;  /* the window the key was pressed in */
 		int keycode;               /* the physical key pressed */
 		int unichar;               /* unicode character or negative */
@@ -101,7 +101,7 @@ extern (C)
 
 	struct ALLEGRO_MOUSE_EVENT
 	{
-		mixin(_AL_EVENT_HEADER!("ALLEGRO_MOUSE".dup));
+		mixin(_AL_EVENT_HEADER("ALLEGRO_MOUSE"));
 		ALLEGRO_DISPLAY* display;
 		/* (display) Window the event originate from */
 		/* (x, y) Primary mouse position */
@@ -115,7 +115,7 @@ extern (C)
 
 	struct ALLEGRO_TIMER_EVENT
 	{
-		mixin(_AL_EVENT_HEADER!("ALLEGRO_TIMER".dup));
+		mixin(_AL_EVENT_HEADER("ALLEGRO_TIMER"));
 		long count;
 		double error;
 	}
@@ -124,7 +124,7 @@ extern (C)
 
 	struct ALLEGRO_USER_EVENT
 	{
-		mixin(_AL_EVENT_HEADER!("ALLEGRO_EVENT_SOURCE".dup));
+		mixin(_AL_EVENT_HEADER("ALLEGRO_EVENT_SOURCE"));
 		ALLEGRO_USER_EVENT_DESCRIPTOR* __internal__descr;
 		intptr_t data1;
 		intptr_t data2;
