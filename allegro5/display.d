@@ -13,7 +13,8 @@ extern (C)
 		ALLEGRO_OPENGL                      = 1 << 2,
 		ALLEGRO_DIRECT3D_INTERNAL           = 1 << 3,
 		ALLEGRO_RESIZABLE                   = 1 << 4,
-		ALLEGRO_NOFRAME                     = 1 << 5,
+		ALLEGRO_FRAMELESS                   = 1 << 5,
+		ALLEGRO_NOFRAME                     = ALLEGRO_FRAMELESS, /* older synonym */
 		ALLEGRO_GENERATE_EXPOSE_EVENTS      = 1 << 6,
 		ALLEGRO_OPENGL_3_0                  = 1 << 7,
 		ALLEGRO_OPENGL_FORWARD_COMPATIBLE   = 1 << 8,
@@ -103,6 +104,7 @@ extern (C)
 	int al_get_display_format(ALLEGRO_DISPLAY* display);
 	int al_get_display_refresh_rate(ALLEGRO_DISPLAY* display);
 	int al_get_display_flags(ALLEGRO_DISPLAY* display);
+	bool al_set_display_flag(ALLEGRO_DISPLAY* display, int flag, bool onoff);
 	bool al_toggle_display_flag(ALLEGRO_DISPLAY* display, int flag, bool onoff);
 
 	ALLEGRO_DISPLAY* al_create_display(int w, int h);

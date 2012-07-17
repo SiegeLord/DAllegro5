@@ -1,6 +1,6 @@
 This is a D1.0 and D2 binding to the Allegro 5 library: http://liballeg.org/
 
-Should work fine with Allegro 5.0.6. Pretty much all of the cross-platform functions are bound.
+Should work fine with Allegro 5.0.7. Pretty much all of the cross-platform functions are bound.
 Non cross-platform functions are absent, but they will be added eventually.
 
 If you want to use the unstable version of Allegro, you can look in the 5.1 branch of this project.
