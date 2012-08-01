@@ -63,6 +63,16 @@ extern (C)
 	   ALLEGRO_LINE_CAP_CLOSED
 	}
 
+	enum ALLEGRO_BUFFER_USAGE_HINTS
+	{
+		ALLEGRO_BUFFER_STREAM  = 0x01,
+		ALLEGRO_BUFFER_STATIC  = 0x02,
+		ALLEGRO_BUFFER_DYNAMIC = 0x04,
+		ALLEGRO_BUFFER_DRAW    = 0x08,
+		ALLEGRO_BUFFER_READ    = 0x10,
+		ALLEGRO_BUFFER_COPY    = 0x20
+	}
+
 	const int ALLEGRO_VERTEX_CACHE_SIZE = 256;
 
 	const int ALLEGRO_PRIM_QUALITY = 10;
@@ -83,6 +93,8 @@ extern (C)
 		ALLEGRO_COLOR color;
 	}
 
+	struct ALLEGRO_VERTEX_BUFFER {};
+
 	uint al_get_allegro_primitives_version();
 
 	/*
@@ -96,6 +108,15 @@ extern (C)
 	ALLEGRO_VERTEX_DECL* al_create_vertex_decl(in ALLEGRO_VERTEX_ELEMENT* elements, int stride);
 	void al_destroy_vertex_decl(ALLEGRO_VERTEX_DECL* decl);
 	
+	/*
+	* Vertex buffers
+	*/
+	ALLEGRO_VERTEX_BUFFER* al_create_vertex_buffer(ALLEGRO_VERTEX_DECL* decl, in void* initial_data, size_t num_vertices, bool write_only, int usage_hints);
+	void al_destroy_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer);
+	void* al_lock_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer, size_t offset, size_t length, int flags);
+	void al_unlock_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer);
+	int al_draw_vertex_buffer(ALLEGRO_VERTEX_BUFFER* vertex_buffer, ALLEGRO_BITMAP* texture, int start, int end, int type);
+
 	/*
 	* Utilities for high level primitives.
 	*/

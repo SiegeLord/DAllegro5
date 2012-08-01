@@ -168,5 +168,5 @@ extern (C)
 	bool al_is_bitmap_drawing_held();
 	
 	void al_acknowledge_drawing_halt(ALLEGRO_DISPLAY* display);
-	void al_acknowledge_drawing_resume(ALLEGRO_DISPLAY* display);
+	void al_acknowledge_drawing_resume(ALLEGRO_DISPLAY *display, void function() user_reload);
 }
