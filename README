@@ -91,20 +91,14 @@ Running the script will produce these import libraries:
 allegro.lib
 allegro_primitives.lib
 
+If you're using dmd then when compiling you must pass the following linker flags to it for things to work properly:
+
+-L/SUBSYSTEM:WINDOWS:4.0
+
+If you want console output (this will also spawn the console whenever you run the program outside the command prompt) then use these flags:
+
+-L/SUBSYSTEM:CONSOLE:4.0
+
 * Note that if you are using MSVC or DMC compiled DLLs you will need to set the version to ALLEGRO_MSVC when compiling your own programs as well as when building the library.
 
 * You can obtain pre-built libraries at http://www.allegro.cc/files/
-
-* To remove the console window that spawns whenever you run an Allegro program create a file with a .def extension with these contents:
-
-EXETYPE NT
-SUBSYSTEM WINDOWS
-
-Then pass it to dmd when compiling like this:
-
-dmd <your usual stuff goes here> file.def
-
-Bugs
-====
-
-On Windows Allegro windows will spawn without window borders (seems to happen only on XP). I don't know why this happens yet.
