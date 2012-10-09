@@ -174,8 +174,8 @@ extern (C)
 	/* Blending */
 	void al_set_blender(int op, int source, int dest);
 	void al_get_blender(int* op, int* source, int* dest);
-	void al_set_separate_blender(int op, int source, int dest, int alpha_source, int alpha_dest);
-	void al_get_separate_blender(int* op,int* source, int* dest, int* alpha_src, int* alpha_dest);
+	void al_set_separate_blender(int op, int source, int dest, int alpha_op, int alpha_source, int alpha_dest);
+	void al_get_separate_blender(int* op, int* source, int* dest, int *alpha_op, int* alpha_src, int* alpha_dest);
 
 	void _al_put_pixel(ALLEGRO_BITMAP* bitmap, int x, int y, ALLEGRO_COLOR color);
 }
