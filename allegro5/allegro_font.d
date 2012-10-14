@@ -28,14 +28,16 @@ extern (C)
 		void function(in ALLEGRO_FONT* f,
 		  in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw,
 		  int* bbh, int* ascent, int* descent) get_text_dimensions;
+		int function (ALLEGRO_FONT* font, int ranges_count, int* ranges) get_font_ranges;
 	}
 
 	enum
 	{
-		ALLEGRO_ALIGN_LEFT   = 0,
-		ALLEGRO_ALIGN_CENTRE = 1,
-		ALLEGRO_ALIGN_CENTER = 1,
-		ALLEGRO_ALIGN_RIGHT  = 2
+		ALLEGRO_ALIGN_LEFT       = 0,
+		ALLEGRO_ALIGN_CENTRE     = 1,
+		ALLEGRO_ALIGN_CENTER     = 1,
+		ALLEGRO_ALIGN_RIGHT      = 2,
+		ALLEGRO_ALIGN_INTEGER    = 4
 	}
 
 	bool al_register_font_loader(in char* ext, ALLEGRO_FONT* function(in char* filename, int size, int flags) load);
@@ -63,4 +65,5 @@ extern (C)
 	void al_init_font_addon();
 	void al_shutdown_font_addon();
 	uint al_get_allegro_font_version();
+	int al_get_font_ranges(ALLEGRO_FONT *font, int ranges_count, int* ranges);
 }

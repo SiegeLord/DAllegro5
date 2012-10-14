@@ -1,6 +1,6 @@
 This is a D1.0 and D2 binding to the Allegro 5 library: http://liballeg.org/
 
-Should work fine with Allegro 5.1 (revision af3480f10c9a5dd08ba699bc40ebb4805a7bfdf6). Pretty much all of the cross-platform functions are bound.
+Should work fine with Allegro 5.1 (revision b6801101f566b972551757de1422375c90a1e88e). Pretty much all of the cross-platform functions are bound.
 Non cross-platform functions are absent, but they will be added eventually.
 
 Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit and DMD/Tango on Windows 32 bit (XP).
