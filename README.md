@@ -75,7 +75,7 @@ General Notes
 
 Using Allegro in a D program is a little bit different than using it in a C/C++ program. Specifically, you must run your code through the al_run_allegro function like so:
 
-```c
+```d
 import allegro5.allegro;
 
 void main()
