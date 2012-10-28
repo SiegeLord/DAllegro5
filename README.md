@@ -98,23 +98,23 @@ Windows Notes
 
 * You will need to generate the import libraries for Allegro's dll files using implib.exe that you can download here: http://ftp.digitalmars.com/bup.zip
 
-You can then use the create_import_libs.bat to create the import libraries. The script expects the Allegro DLLs to be in the same directory as the script. It also expects the implib to be callable from the command line (place it in PATH or into the directory alongside the script). E.g. if your directory had these DLL's in it:
-
-allegro-5.1.dll
-allegro_primitives-5.1.dll
-
-Running the script will produce these import libraries:
-
-allegro.lib
-allegro_primitives.lib
-
-If you're using dmd then when compiling you must pass the following linker flags to it for things to work properly:
-
--L/SUBSYSTEM:WINDOWS:4.0
-
-If you want console output (this will also spawn the console whenever you run the program outside the command prompt) then use these flags:
-
--L/SUBSYSTEM:CONSOLE:4.0
+    You can then use the create_import_libs.bat to create the import libraries. The script expects the Allegro DLLs to be in the same directory as the script. It also expects the implib to be callable from the command line (place it in PATH or into the directory alongside the script). E.g. if your directory had these DLL's in it:
+    
+    allegro-5.1.dll
+    allegro_primitives-5.1.dll
+    
+    Running the script will produce these import libraries:
+    
+    allegro.lib
+    allegro_primitives.lib
+    
+    If you're using dmd then when compiling you must pass the following linker flags to it for things to work properly:
+    
+    -L/SUBSYSTEM:WINDOWS:4.0
+    
+    If you want console output (this will also spawn the console whenever you run the program outside the command prompt) then use these flags:
+    
+    -L/SUBSYSTEM:CONSOLE:4.0
 
 * Note that if you are using MSVC or DMC compiled DLLs you will need to set the version to ALLEGRO_MSVC when compiling your own programs as well as when building the library.
 
