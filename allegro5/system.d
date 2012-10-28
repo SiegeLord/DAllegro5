@@ -7,18 +7,50 @@ import allegro5.base;
 
 version(Tango)
 {
+	import tango.core.Thread;
 	import tango.stdc.stdlib : atexit;
 }
 else
 {
 	version(D_Version2)
 	{
+		import core.thread;
 		import core.stdc.stdlib : atexit;
 	}
 	else
 	{
 		import std.c.stdlib : atexit;
+		import std.thread;
 	}
+}
+
+int al_run_allegro(scope int delegate() user_main)
+{
+	extern(C) static int main_runner(int argc, char** argv)
+	{
+		version(OSX)
+		{
+			version(D_Version2)
+				thread_attachThis();
+			else
+				Thread.thread_attach();
+		}
+		
+		auto main_ret = (*cast(int delegate()*)argv[0])();
+		
+		version(OSX)
+		{
+			version(D_Version2)
+				thread_detachThis();
+			else
+				Thread.thread_detach();
+		}
+		
+		return main_ret;
+	}
+
+	char* fake_arg = cast(char*)&user_main;
+	return al_run_main(0, &fake_arg, &main_runner);
 }
 
 extern (C)
@@ -29,7 +61,7 @@ extern (C)
 	void al_uninstall_system();
 	bool al_is_system_installed();
 	ALLEGRO_CONFIG* al_get_system_config();
-
+	
 	bool al_init()
 	{
 		return al_install_system(ALLEGRO_VERSION_INT, &atexit);
