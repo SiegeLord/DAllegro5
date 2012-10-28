@@ -11,7 +11,14 @@ version(Tango)
 }
 else
 {
-	import std.c.stdlib : atexit;
+	version(D_Version2)
+	{
+		import core.stdc.stdlib : atexit;
+	}
+	else
+	{
+		import std.c.stdlib : atexit;
+	}
 }
 
 extern (C)

@@ -11,28 +11,35 @@ else
 {
 	version(Tango)
 	{
-		private import tango.stdc.posix.sys.types : off_t;
+		import tango.stdc.posix.sys.types : off_t;
 	}
 	else
 	{
-		version(linux)
+		version(D_Version2)
 		{
-			private import std.c.linux.linux : off_t;
+			import core.sys.posix.sys.types : off_t;
 		}
 		else
 		{
-			private import std.c.freebsd.freebsd : off_t;
+			version(linux)
+			{
+				import std.c.linux.linux : off_t;
+			}
+			else
+			{
+				import std.c.freebsd.freebsd : off_t;
+			}
 		}
 	}
 }
 
 version (Tango)
 {
-	private import tango.stdc.time : time_t;
+	import tango.stdc.time : time_t;
 }
 else
 {
-	private import std.c.time : time_t;
+	import core.stdc.time : time_t;
 }
 
 extern (C)
