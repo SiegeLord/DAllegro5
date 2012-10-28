@@ -6,7 +6,7 @@ import allegro5.utf8;
 
 version(Windows)
 {
-	alias long off_t;
+	private alias long off_t;
 }
 else
 {
@@ -16,13 +16,20 @@ else
 	}
 	else
 	{
-		version(linux)
+		version(D_Version2)
 		{
-			import std.c.linux.linux : off_t;
+			import core.sys.posix.sys.types : off_t;
 		}
 		else
 		{
-			import std.c.freebsd.freebsd : off_t;
+			version(linux)
+			{
+				import std.c.linux.linux : off_t;
+			}
+			else
+			{
+				import std.c.freebsd.freebsd : off_t;
+			}
 		}
 	}
 }

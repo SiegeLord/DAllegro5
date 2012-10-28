@@ -8,7 +8,14 @@ version (Tango)
 }
 else
 {
-	import std.c.stdarg : va_list;
+	version(D_Version2)
+	{
+		import core.stdc.stdarg : va_list;
+	}
+	else
+	{
+		import std.c.stdarg : va_list;
+	}
 }
 
 extern (C)
