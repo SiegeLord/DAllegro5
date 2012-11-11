@@ -26,7 +26,7 @@ extern (C)
 	void al_scale_transform(ALLEGRO_TRANSFORM* trans, float sx, float sy);
 	void al_scale_transform_3d(ALLEGRO_TRANSFORM *trans, float sx, float sy, float sz);
 	void al_transform_coordinates(in ALLEGRO_TRANSFORM* trans, float* x, float* y);
-	void al_compose_transform(in ALLEGRO_TRANSFORM* trans, ALLEGRO_TRANSFORM* trans2);
+	void al_compose_transform(ALLEGRO_TRANSFORM* trans, in ALLEGRO_TRANSFORM* trans2);
 	ALLEGRO_TRANSFORM* al_get_current_transform();
 	const_ALLEGRO_TRANSFORM* al_get_current_inverse_transform();
 	void al_invert_transform(ALLEGRO_TRANSFORM* trans);
