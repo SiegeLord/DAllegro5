@@ -11,6 +11,13 @@ import allegro5.allegro_font;
 
 extern (C)
 {
+	enum
+	{
+		ALLEGRO_TTF_NO_KERNING   = 1,
+		ALLEGRO_TTF_MONOCHROME   = 2,
+		ALLEGRO_TTF_NO_AUTOHINT  = 4
+	}
+
 	ALLEGRO_FONT* al_load_ttf_font(in char* filename, int size, int flags);
 	ALLEGRO_FONT* al_load_ttf_font_entry(ALLEGRO_FILE* file, in char* filename, int size, int flags);
 	bool al_init_ttf_addon();
