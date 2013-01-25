@@ -67,7 +67,7 @@ extern (C)
 	ALLEGRO_MOUSE_CURSOR* al_create_mouse_cursor(ALLEGRO_BITMAP* sprite, int xfocus, int yfocus);
 	void al_destroy_mouse_cursor(ALLEGRO_MOUSE_CURSOR* cursor);
 	bool al_set_mouse_cursor(ALLEGRO_DISPLAY* display, ALLEGRO_MOUSE_CURSOR* cursor);
-	bool al_set_system_mouse_cursor(ALLEGRO_SYSTEM_MOUSE_CURSOR cursor_id);
+	bool al_set_system_mouse_cursor(ALLEGRO_DISPLAY* display, ALLEGRO_SYSTEM_MOUSE_CURSOR cursor_id);
 	bool al_show_mouse_cursor(ALLEGRO_DISPLAY* display);
 	bool al_hide_mouse_cursor(ALLEGRO_DISPLAY* display);
 	bool al_get_mouse_cursor_position(int* ret_x, int* ret_y);
