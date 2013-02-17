@@ -73,27 +73,6 @@ extern (C)
 
 	struct ALLEGRO_DISPLAY {};
 
-	struct ALLEGRO_DISPLAY_MODE
-	{
-		int width;
-		int height;
-		int format;
-		int refresh_rate;
-	}
-
-	struct ALLEGRO_MONITOR_INFO
-	{
-		int x1;
-		int y1;
-		int x2;
-		int y2;
-	}
-
-	enum
-	{
-		ALLEGRO_DEFAULT_DISPLAY_ADAPTER = -1
-	}
-
 	void al_set_new_display_refresh_rate(int refresh_rate);
 	void al_set_new_display_flags(int flags);
 	int  al_get_new_display_refresh_rate();
@@ -121,22 +100,14 @@ extern (C)
 	void al_update_display_region(int x, int y, int width, int height);
 	bool al_is_compatible_bitmap(ALLEGRO_BITMAP* bitmap);
 
-	int al_get_num_display_modes();
-	ALLEGRO_DISPLAY_MODE* al_get_display_mode(int index, ALLEGRO_DISPLAY_MODE* mode);
-
 	bool al_wait_for_vsync();
 
 	ALLEGRO_EVENT_SOURCE* al_get_display_event_source(ALLEGRO_DISPLAY* display);
 
-	/* Primitives */
-	void al_clear_to_color(ALLEGRO_COLOR color);
-	void al_draw_pixel(float x, float y, ALLEGRO_COLOR color);
-
 	void al_set_display_icon(ALLEGRO_DISPLAY* display, ALLEGRO_BITMAP* icon);
+	void al_set_display_icons(ALLEGRO_DISPLAY* display, int num_icons, ALLEGRO_BITMAP** icons);
 
 	/* Stuff for multihead/window management */
-	int al_get_num_video_adapters();
-	bool al_get_monitor_info(int adapter, ALLEGRO_MONITOR_INFO* info);
 	int al_get_new_display_adapter();
 	void al_set_new_display_adapter(int adapter);
 	void al_set_new_window_position(int x, int y);

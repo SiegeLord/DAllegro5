@@ -1,4 +1,4 @@
-module allegro5.al_time;
+module allegro5.altime;
 
 extern(C)
 {

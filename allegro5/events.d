@@ -1,6 +1,12 @@
 module allegro5.events;
 
-import allegro5.allegro;
+import allegro5.altime;
+import allegro5.display;
+import allegro5.joystick;
+import allegro5.keyboard;
+import allegro5.mouse;
+import allegro5.timer;
+import allegro5.base;
 
 version (Tango) {
 	import tango.stdc.stdint;
