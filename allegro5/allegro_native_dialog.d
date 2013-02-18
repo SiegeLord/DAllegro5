@@ -11,6 +11,8 @@ import allegro5.internal.da5;
 
 extern (C)
 {
+	alias ALLEGRO_GTK_TOPLEVEL_INTERNAL ALLEGRO_GTK_TOPLEVEL;
+
 	struct ALLEGRO_FILECHOOSER {};
 	struct ALLEGRO_TEXTLOG {};
 	struct ALLEGRO_MENU {};
@@ -39,6 +41,7 @@ extern (C)
 	}
 
 	bool al_init_native_dialog_addon();
+	void al_shutdown_native_dialog_addon();
 	ALLEGRO_FILECHOOSER* al_create_native_file_dialog(in ALLEGRO_PATH* initial_path, in char* title, in char* patterns, int mode);
 	void al_show_native_file_dialog(ALLEGRO_DISPLAY* display, ALLEGRO_FILECHOOSER* dialog);
 	int al_get_native_file_dialog_count(in ALLEGRO_FILECHOOSER* dialog);

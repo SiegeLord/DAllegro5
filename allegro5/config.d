@@ -21,6 +21,8 @@ extern (C)
 	void al_merge_config_into(ALLEGRO_CONFIG* master, in ALLEGRO_CONFIG* add);
 	ALLEGRO_CONFIG* al_merge_config(in ALLEGRO_CONFIG* cfg1, in ALLEGRO_CONFIG* cfg2);
 	void al_destroy_config(ALLEGRO_CONFIG* config);
+	bool al_remove_config_section(ALLEGRO_CONFIG* config, in char* section);
+	bool al_remove_config_key(ALLEGRO_CONFIG* config, in char* section, in char* key);
 
 	const_char* al_get_first_config_section(in ALLEGRO_CONFIG* config, ALLEGRO_CONFIG_SECTION** iterator);
 	const_char* al_get_next_config_section(ALLEGRO_CONFIG_SECTION** iterator);
