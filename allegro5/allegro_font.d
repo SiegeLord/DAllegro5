@@ -41,7 +41,7 @@ extern (C)
 	ALLEGRO_FONT* al_load_bitmap_font(in char* filename);
 	ALLEGRO_FONT* al_load_font(in char* filename, int size, int flags);
 
-	ALLEGRO_FONT* al_grab_font_from_bitmap(ALLEGRO_BITMAP* bmp, int n, int ranges[]);
+	ALLEGRO_FONT* al_grab_font_from_bitmap(ALLEGRO_BITMAP* bmp, int n, in int* ranges);
 	ALLEGRO_FONT* al_create_builtin_font();
 
 	void al_draw_ustr(in ALLEGRO_FONT* font, ALLEGRO_COLOR color, float x, float y, int flags, in ALLEGRO_USTR* ustr);
