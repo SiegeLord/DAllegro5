@@ -19,7 +19,10 @@ extern (C)
 	}
 
 	ALLEGRO_FONT* al_load_ttf_font(in char* filename, int size, int flags);
-	ALLEGRO_FONT* al_load_ttf_font_entry(ALLEGRO_FILE* file, in char* filename, int size, int flags);
+	ALLEGRO_FONT* al_load_ttf_font_f(ALLEGRO_FILE* file, in char* filename, int size, int flags);
+	ALLEGRO_FONT* al_load_ttf_font_stretch(in char* filename, int w, int h, int flags);
+	ALLEGRO_FONT* al_load_ttf_font_stretch_f(ALLEGRO_FILE *file, in char* filename, int w, int h, int flags);
+
 	bool al_init_ttf_addon();
 	void al_shutdown_ttf_addon();
 	uint al_get_allegro_ttf_version();
