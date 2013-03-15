@@ -1,0 +1,10 @@
+{
+    "name": "DAllegro5",
+    "description": "D binding to the Allegro5 game development library",
+    "authors": ["SiegeLord"],
+    "homepage": "https://github.com/SiegeLord/DAllegro5",
+    "license": "Zlib",
+    "targetType": "library",
+    "sourcePaths": ["allegro5"],
+    "targetName": "dallegro5"
+}

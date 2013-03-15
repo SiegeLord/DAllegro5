@@ -1,4 +1,6 @@
 .objs/*
+.dub/*
 example
 example.o
 libdallegro5*
+dub.selections.json
