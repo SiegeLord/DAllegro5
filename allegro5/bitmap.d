@@ -57,8 +57,6 @@ extern (C)
 
 	/* Miscellaneous */
 	ALLEGRO_BITMAP * al_clone_bitmap(ALLEGRO_BITMAP* bitmap);
-
-	void _al_put_pixel(ALLEGRO_BITMAP* bitmap, int x, int y, ALLEGRO_COLOR color);
 }
 
 /*
