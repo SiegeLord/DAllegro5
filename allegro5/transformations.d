@@ -35,4 +35,6 @@ extern (C)
 	void al_perspective_transform(ALLEGRO_TRANSFORM* trans, float left, float right, float top, float bottom, float n, float f);
 	ALLEGRO_TRANSFORM* al_get_projection_transform(ALLEGRO_DISPLAY* display);
 	void al_set_projection_transform(ALLEGRO_DISPLAY* display, ALLEGRO_TRANSFORM* t);
+	void al_horizontal_shear_transform(ALLEGRO_TRANSFORM* trans, float theta);
+	void al_vertical_shear_transform(ALLEGRO_TRANSFORM* trans, float theta);
 }

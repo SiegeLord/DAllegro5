@@ -35,6 +35,7 @@ public {
 	import allegro5.mouse_cursor;
 	import allegro5.path;
 	import allegro5.render_state;
+	import allegro5.shader;
 	import allegro5.system;
 	import allegro5.threads;
 	import allegro5.timer;

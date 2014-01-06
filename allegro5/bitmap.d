@@ -38,7 +38,6 @@ extern (C)
 	int al_get_bitmap_flags(ALLEGRO_BITMAP* bitmap);
 
 	ALLEGRO_BITMAP* al_create_bitmap(int w, int h);
-	ALLEGRO_BITMAP* al_create_custom_bitmap(int w, int h, bool function(ALLEGRO_BITMAP* bitmap, void* data) upload, void* data);
 	void al_destroy_bitmap(ALLEGRO_BITMAP* bitmap);
 
 	void al_put_pixel(int x, int y, ALLEGRO_COLOR color);
@@ -61,8 +60,6 @@ extern (C)
 	ALLEGRO_BITMAP* al_clone_bitmap(ALLEGRO_BITMAP* bitmap);
 	void al_convert_bitmap(ALLEGRO_BITMAP* bitmap);
 	void al_convert_bitmaps();
-
-	void _al_put_pixel(ALLEGRO_BITMAP* bitmap, int x, int y, ALLEGRO_COLOR color);
 }
 
 /*

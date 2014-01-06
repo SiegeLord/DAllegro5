@@ -20,7 +20,7 @@ extern (C)
 		ALLEGRO_OPENGL_FORWARD_COMPATIBLE   = 1 << 8,
 		ALLEGRO_FULLSCREEN_WINDOW           = 1 << 9,
 		ALLEGRO_MINIMIZED                   = 1 << 10,
-		ALLEGRO_USE_PROGRAMMABLE_PIPELINE   = 1 << 11,
+		ALLEGRO_PROGRAMMABLE_PIPELINE       = 1 << 11,
 		ALLEGRO_GTK_TOPLEVEL_INTERNAL       = 1 << 12
 	}
 
@@ -144,5 +144,5 @@ extern (C)
 	bool al_is_bitmap_drawing_held();
 	
 	void al_acknowledge_drawing_halt(ALLEGRO_DISPLAY* display);
-	void al_acknowledge_drawing_resume(ALLEGRO_DISPLAY *display, void function() user_reload);
+	void al_acknowledge_drawing_resume(ALLEGRO_DISPLAY *display);
 }
