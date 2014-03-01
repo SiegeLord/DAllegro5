@@ -20,14 +20,15 @@ extern (C)
 	struct ALLEGRO_FONT_VTABLE
 	{
 		int function(in ALLEGRO_FONT* f) font_height;
+		int function(in ALLEGRO_FONT* f) font_ascent;
+		int function(in ALLEGRO_FONT* f) font_descent;
 		int function(in ALLEGRO_FONT* f, int ch) char_length;
 		int function(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text) text_length;
-		int function(in ALLEGRO_FONT* f, int ch, int x, int y) render_char;
-		int function(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text, int x, int y) render;
+		int function(in ALLEGRO_FONT* f, ALLEGRO_COLOR color, int ch, float x, float y) render_char;
+		int function(in ALLEGRO_FONT* f, ALLEGRO_COLOR color, in ALLEGRO_USTR* text, float x, float y) render;
 		void function(ALLEGRO_FONT* f) destroy;
 		void function(in ALLEGRO_FONT* f,
-		  in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw,
-		  int* bbh, int* ascent, int* descent) get_text_dimensions;
+		  in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw, int* bbh) get_text_dimensions;
 		int function (ALLEGRO_FONT* font, int ranges_count, int* ranges) get_font_ranges;
 	}
 
@@ -60,9 +61,9 @@ extern (C)
 	int al_get_font_ascent(in ALLEGRO_FONT* f);
 	int al_get_font_descent(in ALLEGRO_FONT* f);
 	void al_destroy_font(ALLEGRO_FONT* f);
-	void al_get_ustr_dimensions(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw, int* bbh, int* ascent, int* descent);
-	void al_get_text_dimensions(in ALLEGRO_FONT* f,	in char* text, int* bbx, int* bby, int* bbw, int* bbh, int* ascent, int* descent);
-	void al_init_font_addon();
+	void al_get_ustr_dimensions(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw, int* bbh);
+	void al_get_text_dimensions(in ALLEGRO_FONT* f,	in char* text, int* bbx, int* bby, int* bbw, int* bbh);
+	bool al_init_font_addon();
 	void al_shutdown_font_addon();
 	uint al_get_allegro_font_version();
 	int al_get_font_ranges(ALLEGRO_FONT *font, int ranges_count, int* ranges);
