@@ -190,12 +190,9 @@ extern (C)
 	ALLEGRO_AUDIO_DEPTH depth,
 	ALLEGRO_CHANNEL_CONF chan_conf);
 	void al_destroy_voice(ALLEGRO_VOICE* voice);
-	bool al_attach_sample_to_voice(
-	ALLEGRO_SAMPLE_INSTANCE* stream, ALLEGRO_VOICE* voice);
-	bool al_attach_audio_stream_to_voice(
-	ALLEGRO_AUDIO_STREAM* stream, ALLEGRO_VOICE* voice );
-	bool al_attach_mixer_to_voice(ALLEGRO_MIXER* mixer,
-	ALLEGRO_VOICE* voice);
+	bool al_attach_sample_instance_to_voice(ALLEGRO_SAMPLE_INSTANCE* stream, ALLEGRO_VOICE* voice);
+	bool al_attach_audio_stream_to_voice(ALLEGRO_AUDIO_STREAM* stream, ALLEGRO_VOICE* voice);
+	bool al_attach_mixer_to_voice(ALLEGRO_MIXER* mixer, ALLEGRO_VOICE* voice);
 	void al_detach_voice(ALLEGRO_VOICE* voice);
 
 	uint al_get_voice_frequency(in ALLEGRO_VOICE* voice);
@@ -213,7 +210,7 @@ extern (C)
 	uint al_get_allegro_audio_version();
 
 	size_t al_get_channel_count(ALLEGRO_CHANNEL_CONF conf);
-	size_t al_get_depth_size(ALLEGRO_AUDIO_DEPTH conf);
+	size_t al_get_audio_depth_size(ALLEGRO_AUDIO_DEPTH conf);
 
 	/* Simple audio layer */
 	bool al_reserve_samples(int reserve_samples);
@@ -240,12 +237,4 @@ extern (C)
 	ALLEGRO_SAMPLE* al_load_sample_f(ALLEGRO_FILE* fp, in char* ident);
 	bool al_save_sample_f(ALLEGRO_FILE* fp, in char* ident, ALLEGRO_SAMPLE* spl);
 	ALLEGRO_AUDIO_STREAM * al_load_audio_stream_f(ALLEGRO_FILE* fp, in char* ident,	size_t buffer_count, uint samples);
-
-	/* WAV handlers */
-	ALLEGRO_SAMPLE* al_load_wav(in char* filename);
-	ALLEGRO_SAMPLE* al_load_wav_f(ALLEGRO_FILE* pf);
-	bool al_save_wav(in char* filename, ALLEGRO_SAMPLE* spl);
-	bool al_save_wav_f(ALLEGRO_FILE* pf, ALLEGRO_SAMPLE* spl);
-	ALLEGRO_AUDIO_STREAM* al_load_wav_audio_stream(in char* filename, size_t buffer_count, uint samples);
-	ALLEGRO_AUDIO_STREAM* al_load_wav_audio_stream_f(ALLEGRO_FILE* pf, size_t buffer_count, uint samples);
 }

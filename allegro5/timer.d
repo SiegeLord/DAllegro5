@@ -11,7 +11,7 @@ extern (C)
 	void al_destroy_timer(ALLEGRO_TIMER* timer);
 	void al_start_timer(ALLEGRO_TIMER* timer);
 	void al_stop_timer(ALLEGRO_TIMER* timer);
-	bool al_timer_is_started(in ALLEGRO_TIMER* timer);
+	bool al_get_timer_started(in ALLEGRO_TIMER* timer);
 	double al_get_timer_speed(in ALLEGRO_TIMER* timer);
 	void al_set_timer_speed(ALLEGRO_TIMER* timer, double speed_secs);
 	long al_get_timer_count(in ALLEGRO_TIMER* timer);

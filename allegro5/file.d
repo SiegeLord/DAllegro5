@@ -76,6 +76,7 @@ extern (C)
 	bool al_fseek(ALLEGRO_FILE* f, long offset, int whence);
 	bool al_feof(ALLEGRO_FILE* f);
 	bool al_ferror(ALLEGRO_FILE* f);
+	void al_fclearerr(ALLEGRO_FILE* f);
 	int al_fungetc(ALLEGRO_FILE* f, int c);
 	long al_fsize(ALLEGRO_FILE* f);
 

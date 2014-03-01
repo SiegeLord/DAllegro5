@@ -60,6 +60,7 @@ extern (C)
 	bool al_install_system(int vers, int function(void function()) atexit_ptr);
 	void al_uninstall_system();
 	bool al_is_system_installed();
+	ALLEGRO_SYSTEM* al_get_system_driver();
 	ALLEGRO_CONFIG* al_get_system_config();
 	
 	bool al_init()
@@ -79,7 +80,7 @@ extern (C)
 		ALLEGRO_LAST_PATH // must be last
 	}
 
-	ALLEGRO_PATH* get_standard_path(int id);
+	ALLEGRO_PATH* al_get_standard_path(int id);
 	void al_set_exe_name(in char* path);
 
 	void al_set_org_name(in char* orgname);
