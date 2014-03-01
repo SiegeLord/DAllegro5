@@ -20,7 +20,7 @@ extern (C)
 	struct ALLEGRO_MENU_INFO
 	{
 	   const_char* caption;
-	   int id;
+	   ushort id;
 	   int flags;
 	   ALLEGRO_BITMAP* icon;
 	}
@@ -46,7 +46,7 @@ extern (C)
 	void al_show_native_file_dialog(ALLEGRO_DISPLAY* display, ALLEGRO_FILECHOOSER* dialog);
 	int al_get_native_file_dialog_count(in ALLEGRO_FILECHOOSER* dialog);
 	ALLEGRO_PATH* al_get_native_file_dialog_path(in ALLEGRO_FILECHOOSER* dialog, size_t index);
-	void al_destroy_native_dialog(ALLEGRO_FILECHOOSER* dialog);
+	void al_destroy_native_file_dialog(ALLEGRO_FILECHOOSER* dialog);
 	
 	int al_show_native_message_box(ALLEGRO_DISPLAY* display, in char* title, in char* heading, in char* text, in char* buttons, int flags);
 
@@ -59,8 +59,8 @@ extern (C)
 	ALLEGRO_MENU* al_create_menu();;
 	ALLEGRO_MENU* al_create_popup_menu();;
 	ALLEGRO_MENU* al_build_menu(ALLEGRO_MENU_INFO* info);
-	int al_append_menu_item(ALLEGRO_MENU* parent, in char* title, int id, int flags, ALLEGRO_BITMAP* icon, ALLEGRO_MENU* submenu);
-	int al_insert_menu_item(ALLEGRO_MENU* parent, int pos, in char* title, int id, int flags, ALLEGRO_BITMAP* icon, ALLEGRO_MENU* submenu);
+	int al_append_menu_item(ALLEGRO_MENU* parent, in char* title, ushort id, int flags, ALLEGRO_BITMAP* icon, ALLEGRO_MENU* submenu);
+	int al_insert_menu_item(ALLEGRO_MENU* parent, int pos, in char* title, ushort id, int flags, ALLEGRO_BITMAP* icon, ALLEGRO_MENU* submenu);
 	bool al_remove_menu_item(ALLEGRO_MENU* menu, int pos);
 	ALLEGRO_MENU* al_clone_menu(ALLEGRO_MENU* menu);
 	ALLEGRO_MENU* al_clone_menu_for_popup(ALLEGRO_MENU* menu);
@@ -76,8 +76,8 @@ extern (C)
 	void al_set_menu_item_icon(ALLEGRO_MENU* menu, int pos, ALLEGRO_BITMAP* icon);
 	 
 	/* querying menus */
-	ALLEGRO_MENU* al_find_menu(ALLEGRO_MENU* haystack, int id);
-	bool al_find_menu_item(ALLEGRO_MENU* haystack, int id, ALLEGRO_MENU** menu, int* index);
+	ALLEGRO_MENU* al_find_menu(ALLEGRO_MENU* haystack, ushort id);
+	bool al_find_menu_item(ALLEGRO_MENU* haystack, ushort id, ALLEGRO_MENU** menu, int* index);
 	 
 	/* menu events */
 	ALLEGRO_EVENT_SOURCE* al_get_default_menu_event_source();;

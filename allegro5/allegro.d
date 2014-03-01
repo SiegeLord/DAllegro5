@@ -26,6 +26,7 @@ public {
 	import allegro5.fixed;
 	import allegro5.fshook;
 	import allegro5.fullscreen_mode;
+	import allegro5.haptic;
 	import allegro5.joystick;
 	import allegro5.keyboard;
 	import allegro5.keycodes;

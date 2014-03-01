@@ -25,7 +25,7 @@ extern (C)
 	ALLEGRO_COND* al_create_cond();
 	void al_destroy_cond(ALLEGRO_COND* cond);
 	void al_wait_cond(ALLEGRO_COND* cond, ALLEGRO_MUTEX* mutex);
-	int al_wait_cond_timed(ALLEGRO_COND* cond, ALLEGRO_MUTEX* mutex, in ALLEGRO_TIMEOUT* timeout);
+	int al_wait_cond_until(ALLEGRO_COND* cond, ALLEGRO_MUTEX* mutex, in ALLEGRO_TIMEOUT* timeout);
 	void al_broadcast_cond(ALLEGRO_COND* cond);
 	void al_signal_cond(ALLEGRO_COND* cond);
 }
