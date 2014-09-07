@@ -152,7 +152,7 @@ extern (C)
 	   bool primary;
 	}
 	
-	private struct ALLEGRO_USER_EVENT_DESCRIPTOR;
+	struct ALLEGRO_USER_EVENT_DESCRIPTOR;
 
 	struct ALLEGRO_USER_EVENT
 	{
