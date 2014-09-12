@@ -1,5 +1,5 @@
 {
-    "name": "DAllegro5",
+    "name": "allegro",
     "description": "D binding to the Allegro5 game development library",
     "authors": ["SiegeLord"],
     "homepage": "https://github.com/SiegeLord/DAllegro5",
