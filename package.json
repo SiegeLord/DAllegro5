@@ -6,6 +6,7 @@
     "license": "Zlib",
     "targetType": "library",
     "sourcePaths": ["allegro5"],
+    "importPaths": ["."],
     "targetName": "dallegro5",
     "libs": [
       "allegro",
