@@ -6,5 +6,15 @@
     "license": "Zlib",
     "targetType": "library",
     "sourcePaths": ["allegro5"],
-    "targetName": "dallegro5"
+    "targetName": "dallegro5",
+    "libs": [
+      "allegro",
+      "allegro_acodec",
+      "allegro_audio",
+      "allegro_font",
+      "allegro_ttf",
+      "allegro_image",
+      "allegro_color",
+      "allegro_primitives"
+    ]
 }
