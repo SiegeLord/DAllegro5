@@ -8,14 +8,26 @@
     "sourcePaths": ["allegro5"],
     "importPaths": ["."],
     "targetName": "dallegro5",
-    "libs": [
-      "allegro",
-      "allegro_acodec",
-      "allegro_audio",
-      "allegro_font",
-      "allegro_ttf",
-      "allegro_image",
-      "allegro_color",
-      "allegro_primitives"
+    "configurations": [
+        {
+            "name": "no-libs"
+        },
+        {
+            "name": "allegro-only",
+            "libs": ["allegro"]
+        },
+        {
+            "name": "all-addons",
+            "libs": [
+                "allegro",
+                "allegro_acodec",
+                "allegro_audio",
+                "allegro_font",
+                "allegro_ttf",
+                "allegro_image",
+                "allegro_color",
+                "allegro_primitives"
+            ]
+        }
     ]
 }
