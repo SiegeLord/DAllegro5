@@ -15,10 +15,10 @@ extern (C)
 	{
 		struct STICK
 		{
-			float axis[_AL_MAX_JOYSTICK_AXES];        /* -1.0 to 1.0 */
+			float[_AL_MAX_JOYSTICK_AXES] axis;        /* -1.0 to 1.0 */
 		};
-		STICK stick[_AL_MAX_JOYSTICK_STICKS];
-		int button[_AL_MAX_JOYSTICK_BUTTONS];        /* 0 to 32767 */
+		STICK[_AL_MAX_JOYSTICK_STICKS] stick;
+		int[_AL_MAX_JOYSTICK_BUTTONS] button;        /* 0 to 32767 */
 	};
 
 	enum ALLEGRO_JOYFLAGS
