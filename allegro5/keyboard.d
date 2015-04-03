@@ -14,7 +14,7 @@ extern (C)
 		/* public */
 		ALLEGRO_DISPLAY* display;
 		/* internal */
-		uint __key_down__internal__[(ALLEGRO_KEY_MAX + 31) / 32]; 
+		uint[(ALLEGRO_KEY_MAX + 31) / 32] __key_down__internal__;
 	}
 	
 	bool  al_is_keyboard_installed();

@@ -223,8 +223,8 @@ extern (C)
 		return cast(al_fixed)(0x00400000 - _al_fix_acos_tbl[(x+65536+127)>>8]);
 	}
 
-	
-	private const al_fixed _al_fix_cos_tbl[512] =
+
+	private const(al_fixed[512]) _al_fix_cos_tbl =
 	[
 		/* precalculated fixed point (16.16) cosines for a full circle (0-255) */
 
@@ -294,7 +294,7 @@ extern (C)
 		65220,  65294,  65358,  65413,  65457,  65492,  65516,  65531L
 	];
 
-	private const al_fixed _al_fix_tan_tbl[256] =
+	private const(al_fixed[256]) _al_fix_tan_tbl =
 	[
 		/* precalculated fixed point (16.16) tangents for a half circle (0-127) */
 
@@ -332,7 +332,7 @@ extern (C)
 		-6455,  -5644,  -4834,  -4026,  -3220,  -2414,  -1609,  -804L
 	];
 
-	private const al_fixed _al_fix_acos_tbl[513] =
+	private const(al_fixed[513]) _al_fix_acos_tbl =
 	[
 		/* precalculated fixed point (16.16) inverse cosines (-1 to 1) */
 

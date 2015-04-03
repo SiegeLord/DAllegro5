@@ -16,7 +16,7 @@ extern (C)
 		int y;
 		int z;
 		int w;
-		int more_axes[ALLEGRO_MOUSE_MAX_EXTRA_AXES];
+		int[ALLEGRO_MOUSE_MAX_EXTRA_AXES] more_axes;
 		int buttons;
 		float pressure;
 		ALLEGRO_DISPLAY* display;

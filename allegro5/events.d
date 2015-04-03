@@ -80,7 +80,7 @@ extern (C)
 {
 	struct ALLEGRO_EVENT_SOURCE
 	{
-		int __pad[32] = void;
+		int[32] __pad = void;
 	}
 	
 	struct ALLEGRO_ANY_EVENT

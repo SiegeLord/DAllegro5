@@ -19,7 +19,7 @@ extern (C)
 	
 	struct ALLEGRO_STATE
 	{
-		char _tls[1024];
+		char[1024] _tls;
 	}
 
 	void al_store_state(ALLEGRO_STATE *state, int flags);
