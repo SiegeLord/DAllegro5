@@ -16,7 +16,7 @@ extern (C)
 
 	/* Transformations*/
 	void al_use_transform(in ALLEGRO_TRANSFORM* trans);
-	void al_copy_transform(in ALLEGRO_TRANSFORM* src, ALLEGRO_TRANSFORM* dest);
+	void al_copy_transform(ALLEGRO_TRANSFORM* dest, in ALLEGRO_TRANSFORM* src);
 	void al_identity_transform(ALLEGRO_TRANSFORM* trans);
 	void al_build_transform(ALLEGRO_TRANSFORM* trans, float x, float y, float sx, float sy, float theta);
 	void al_translate_transform(ALLEGRO_TRANSFORM* trans, float x, float y);
