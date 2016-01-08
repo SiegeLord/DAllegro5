@@ -96,6 +96,8 @@ extern (C)
 	char* al_fgets(ALLEGRO_FILE* f, in char* p, size_t max);
 	ALLEGRO_USTR* al_fget_ustr(ALLEGRO_FILE* f);
 	int al_fputs(ALLEGRO_FILE* f, in char* p);
+	int al_fprintf(ALLEGRO_FILE *f, const char *format, ...);
+	int al_vfprintf(ALLEGRO_FILE *f, const char* format, va_list args);
 
 	/* Specific to stdio backend. */
 	ALLEGRO_FILE* al_fopen_fd(int fd, in char* mode);
