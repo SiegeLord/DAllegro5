@@ -112,6 +112,18 @@ extern (C)
 	
 	ALLEGRO_FILE*        al_open_fs_entry(ALLEGRO_FS_ENTRY* e, in char* mode);
 
+	enum ALLEGRO_FOR_EACH_FS_ENTRY_RESULT
+	{
+	   ALLEGRO_FOR_EACH_FS_ENTRY_ERROR = -1,
+	   ALLEGRO_FOR_EACH_FS_ENTRY_OK    =  0,
+	   ALLEGRO_FOR_EACH_FS_ENTRY_SKIP  =  1,
+	   ALLEGRO_FOR_EACH_FS_ENTRY_STOP  =  2
+	}
+
+	int al_for_each_fs_entry(ALLEGRO_FS_ENTRY *dir,
+		int function(ALLEGRO_FS_ENTRY *entry, void *extra) callback,
+		void *extra);
+
 	/* Thread-local state. */
 	ALLEGRO_FS_INTERFACE* al_get_fs_interface();
 	void al_set_fs_interface(in ALLEGRO_FS_INTERFACE* vtable);
