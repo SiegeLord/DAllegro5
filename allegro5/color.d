@@ -54,6 +54,9 @@ extern (C)
 
 	int al_get_pixel_size(int format);
 	int al_get_pixel_format_bits(int format);
+	int al_get_pixel_block_size(int format);
+	int al_get_pixel_block_width(int format);
+	int al_get_pixel_block_height(int format);
 }
 
 /*
