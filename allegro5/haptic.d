@@ -144,12 +144,14 @@ extern(C)
 
    bool al_release_haptic(ALLEGRO_HAPTIC*);
 
-   bool al_get_haptic_active(ALLEGRO_HAPTIC*);
+   bool al_is_haptic_active(ALLEGRO_HAPTIC*);
    int al_get_haptic_capabilities(ALLEGRO_HAPTIC*);
+   bool al_is_haptic_capable(ALLEGRO_HAPTIC*, int);
+
    bool al_set_haptic_gain(ALLEGRO_HAPTIC*, double gain);
    double al_get_haptic_gain(ALLEGRO_HAPTIC*);
 
-   int al_get_num_haptic_effects(ALLEGRO_HAPTIC*);
+   int al_get_max_haptic_effects(ALLEGRO_HAPTIC*);
    bool al_is_haptic_effect_ok(ALLEGRO_HAPTIC*, ALLEGRO_HAPTIC_EFFECT*);
    bool al_upload_haptic_effect(ALLEGRO_HAPTIC*, ALLEGRO_HAPTIC_EFFECT*, ALLEGRO_HAPTIC_EFFECT_ID* play_id);
    bool al_play_haptic_effect(ALLEGRO_HAPTIC_EFFECT_ID*, int loop);
@@ -157,5 +159,6 @@ extern(C)
    bool al_stop_haptic_effect(ALLEGRO_HAPTIC_EFFECT_ID*);
    bool al_is_haptic_effect_playing(ALLEGRO_HAPTIC_EFFECT_ID*);
    bool al_release_haptic_effect(ALLEGRO_HAPTIC_EFFECT_ID*);
+   double al_get_haptic_effect_duration(ALLEGRO_HAPTIC_EFFECT *);
    bool al_rumble_haptic(ALLEGRO_HAPTIC*, double intensity, double duration, ALLEGRO_HAPTIC_EFFECT_ID*);
 }
