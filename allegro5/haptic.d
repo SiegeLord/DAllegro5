@@ -116,10 +116,12 @@ struct ALLEGRO_HAPTIC_EFFECT_ID
 	ALLEGRO_HAPTIC* _haptic;
 	int _id;
 	int _handle;
+	void* _pointer;
 	double _effect_duration;
 	bool _playing;
 	double _start_time;
 	double _end_time;
+	void* driver;
 }
 
 extern(C)
