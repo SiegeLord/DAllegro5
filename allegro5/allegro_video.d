@@ -19,6 +19,13 @@ extern (C)
 
 	struct ALLEGRO_VIDEO {};
 
+	enum ALLEGRO_VIDEO_POSITION_TYPE
+	{
+		ALLEGRO_VIDEO_POSITION_ACTUAL        = 0,
+		ALLEGRO_VIDEO_POSITION_VIDEO_DECODE  = 1,
+		ALLEGRO_VIDEO_POSITION_AUDIO_DECODE  = 2
+	}
+
 	ALLEGRO_VIDEO* al_open_video(in char* filename);
 	void al_close_video(ALLEGRO_VIDEO* video);
 	void al_start_video(ALLEGRO_VIDEO* video, ALLEGRO_MIXER* mixer);
@@ -32,6 +39,7 @@ extern (C)
 	int al_get_video_width(ALLEGRO_VIDEO* video);
 	int al_get_video_height(ALLEGRO_VIDEO* video);
 	ALLEGRO_BITMAP* al_get_video_frame(ALLEGRO_VIDEO* video);
-	double al_get_video_position(ALLEGRO_VIDEO* video, int which);
+	double al_get_video_position(ALLEGRO_VIDEO* video,
+		ALLEGRO_VIDEO_POSITION_TYPE which);
 	void al_seek_video(ALLEGRO_VIDEO* video, double pos_in_seconds);
 }
