@@ -6,3 +6,7 @@ example
 *.exe
 libdallegro5*
 dub.selections.json
+
+# ignore example binaries, but not source files
+examples/ex*
+!examples/ex*.d
