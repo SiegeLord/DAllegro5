@@ -12,7 +12,7 @@ void init_platform_specific() { }
 
 void abort_example(T...)(string format, T args)
 {
-   stderr.writefln(format, args);
+   stderr.writef(format, args);
 }
 
 void open_log() { }
@@ -23,7 +23,7 @@ void close_log(bool wait_for_user) { }
 
 void log_printf(T...)(string format, T args)
 {
-   writefln(format, args);
+   writef(format, args);
 }
 
 /* vim: set sts=3 sw=3 et: */
