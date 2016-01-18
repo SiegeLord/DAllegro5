@@ -19,7 +19,7 @@ static void print_file(ALLEGRO_FS_ENTRY *entry)
    auto ctime = al_get_fs_entry_ctime(entry);
    auto mtime = al_get_fs_entry_mtime(entry);
    auto size = al_get_fs_entry_size(entry);
-   auto name = al_get_fs_entry_name(entry);
+   auto name = al_get_fs_entry_name(entry).fromStringz;
 
    with (ALLEGRO_FILE_MODE)
       log_printf("%-36s %s%s%s%s%s%s %8u %8u %8u %8u\n",
@@ -63,12 +63,12 @@ static void print_entry(ALLEGRO_FS_ENTRY *entry)
 }
 
 
-static int print_fs_entry_cb(ALLEGRO_FS_ENTRY * entry, void * extra) {
+extern(C) static int print_fs_entry_cb(ALLEGRO_FS_ENTRY * entry, void * extra) {
    print_file(entry);
    return ALLEGRO_FOR_EACH_FS_ENTRY_RESULT.ALLEGRO_FOR_EACH_FS_ENTRY_OK;
 }
 
-static int print_fs_entry_cb_norecurse(ALLEGRO_FS_ENTRY * entry, void * extra) {
+extern(C) static int print_fs_entry_cb_norecurse(ALLEGRO_FS_ENTRY * entry, void * extra) {
    print_file(entry);
    return ALLEGRO_FOR_EACH_FS_ENTRY_RESULT.ALLEGRO_FOR_EACH_FS_ENTRY_SKIP;
 }

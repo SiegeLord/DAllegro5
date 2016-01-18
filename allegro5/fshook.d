@@ -44,9 +44,6 @@ else
 	import core.stdc.time : time_t;
 }
 
-// keep the callback outside the extern (C) block so it can be a D function
-private alias al_for_each_fs_entry_cb = int function(ALLEGRO_FS_ENTRY*, void*);
-
 extern (C)
 {
 	struct ALLEGRO_FS_ENTRY 
@@ -124,7 +121,7 @@ extern (C)
 	}
 
 	int al_for_each_fs_entry(ALLEGRO_FS_ENTRY *dir,
-		al_for_each_fs_entry_cb callback,
+		int function(ALLEGRO_FS_ENTRY*, void*) callback,
 		void *extra);
 
 	/* Thread-local state. */
