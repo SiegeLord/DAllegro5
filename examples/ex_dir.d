@@ -77,14 +77,14 @@ static void print_fs_entry(ALLEGRO_FS_ENTRY * dir)
 {
    log_printf("\n------------------------------------\nExample of al_for_each_fs_entry with recursion:\n\n");
    al_for_each_fs_entry(dir, &print_fs_entry_cb,
-      al_get_fs_entry_name(dir));
+      cast(void*) al_get_fs_entry_name(dir));
 }
 
 static void print_fs_entry_norecurse(ALLEGRO_FS_ENTRY * dir)
 {
    log_printf("\n------------------------------------\nExample of al_for_each_fs_entry without recursion:\n\n");
    al_for_each_fs_entry(dir, &print_fs_entry_cb_norecurse,
-      al_get_fs_entry_name(dir));
+      cast(void*) al_get_fs_entry_name(dir));
 }
 
 int main(string[] args)

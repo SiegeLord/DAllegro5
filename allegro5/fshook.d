@@ -68,7 +68,7 @@ extern (C)
 	{
 		ALLEGRO_FS_ENTRY* function(in char* path) fs_create_entry;
 		void              function(ALLEGRO_FS_ENTRY* e) fs_destroy_entry;
-		const char *      function(ALLEGRO_FS_ENTRY* e) fs_entry_name;
+		const_char*       function(ALLEGRO_FS_ENTRY* e) fs_entry_name;
 		bool              function(ALLEGRO_FS_ENTRY* e) fs_update_entry;
 		uint              function(ALLEGRO_FS_ENTRY* e) fs_entry_mode;
 		time_t            function(ALLEGRO_FS_ENTRY* e) fs_entry_atime;
@@ -93,7 +93,7 @@ extern (C)
 
 	ALLEGRO_FS_ENTRY*    al_create_fs_entry(in char* path);
 	void                 al_destroy_fs_entry(ALLEGRO_FS_ENTRY* e);
-	ALLEGRO_PATH*        al_get_fs_entry_name(ALLEGRO_FS_ENTRY* e);
+	const_char*          al_get_fs_entry_name(ALLEGRO_FS_ENTRY* e);
 	bool                 al_update_fs_entry(ALLEGRO_FS_ENTRY* e);
 	uint                 al_get_fs_entry_mode(ALLEGRO_FS_ENTRY* e);
 	time_t               al_get_fs_entry_atime(ALLEGRO_FS_ENTRY* e);
