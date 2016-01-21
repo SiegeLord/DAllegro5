@@ -62,7 +62,7 @@ extern (C)
 /*
  * MinGW 4.5 and below has a bizzare calling convention when returning
  * structs. These wrappers take care of the differences in calling convention.
- * 
+ *
  * This issue does not exist in MSVC and maybe MinGW 4.6.
  */
 
@@ -81,3 +81,5 @@ mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgb", "ubyte r, ubyte g, ubyte
 mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgba", "ubyte r, ubyte g, ubyte b, ubyte a", "r, g, b, a"));
 mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgb_f", "float r, float g, float b", "r, g, b"));
 mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgba_f", "float r, float g, float b, float a", "r, g, b, a"));
+mixin(ColorWrapper("allegro5.color_ret.", "al_premul_rgba", "ubyte r, ubyte g, ubyte b, ubyte a", "r, g, b, a"));
+mixin(ColorWrapper("allegro5.color_ret.", "al_premul_rgba_f", "float r, float g, float b, float a", "r, g, b, a"));

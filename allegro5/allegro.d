@@ -15,8 +15,10 @@ public {
 	import allegro5.bitmap_io;
 	import allegro5.bitmap_lock;
 	import allegro5.blender;
+	import allegro5.clipboard;
 	import allegro5.color;
 	import allegro5.config;
+	import allegro5.cpu;
 	import allegro5.al_debug;
 	import allegro5.display;
 	import allegro5.drawing;

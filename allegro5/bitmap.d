@@ -55,6 +55,10 @@ extern (C)
 	ALLEGRO_BITMAP* al_create_sub_bitmap(ALLEGRO_BITMAP* parent, int x, int y, int w, int h);
 	bool al_is_sub_bitmap(ALLEGRO_BITMAP* bitmap);
 	ALLEGRO_BITMAP* al_get_parent_bitmap(ALLEGRO_BITMAP* bitmap);
+	int al_get_bitmap_x(ALLEGRO_BITMAP *bitmap);
+	int al_get_bitmap_y(ALLEGRO_BITMAP *bitmap);
+	void al_reparent_bitmap(ALLEGRO_BITMAP *bitmap,
+		ALLEGRO_BITMAP *parent, int x, int y, int w, int h);
 
 	/* Miscellaneous */
 	ALLEGRO_BITMAP* al_clone_bitmap(ALLEGRO_BITMAP* bitmap);
@@ -65,7 +69,7 @@ extern (C)
 /*
  * MinGW 4.5 and below has a bizzare calling convention when returning
  * structs. These wrappers take care of the differences in calling convention.
- * 
+ *
  * This issue does not exist in MSVC and maybe MinGW 4.6.
  */
 

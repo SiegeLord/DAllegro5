@@ -3,6 +3,7 @@ module allegro5.display;
 import allegro5.bitmap;
 import allegro5.color;
 import allegro5.events;
+import allegro5.internal.da5;
 
 extern (C)
 {
@@ -21,7 +22,8 @@ extern (C)
 		ALLEGRO_FULLSCREEN_WINDOW           = 1 << 9,
 		ALLEGRO_MINIMIZED                   = 1 << 10,
 		ALLEGRO_PROGRAMMABLE_PIPELINE       = 1 << 11,
-		ALLEGRO_GTK_TOPLEVEL_INTERNAL       = 1 << 12
+		ALLEGRO_GTK_TOPLEVEL_INTERNAL       = 1 << 12,
+		ALLEGRO_MAXIMIZED                   = 1 << 13,
 	}
 
 	enum ALLEGRO_DISPLAY_OPTIONS
@@ -90,10 +92,15 @@ extern (C)
 
 	struct ALLEGRO_DISPLAY {};
 
+	enum ALLEGRO_NEW_WINDOW_TITLE_MAX_SIZE = 255;
+
 	void al_set_new_display_refresh_rate(int refresh_rate);
 	void al_set_new_display_flags(int flags);
 	int  al_get_new_display_refresh_rate();
 	int  al_get_new_display_flags();
+
+	void al_set_new_window_title(char *title);
+	const_char* al_get_new_window_title();
 
 	int al_get_display_width(ALLEGRO_DISPLAY* display);
 	int al_get_display_height(ALLEGRO_DISPLAY* display);
