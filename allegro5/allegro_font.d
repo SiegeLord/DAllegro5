@@ -14,6 +14,7 @@ extern (C)
 	{
 		void* data;
 		int height;
+		ALLEGRO_FONT *fallback;
 		ALLEGRO_FONT_VTABLE* vtable;
 	}
 
@@ -29,15 +30,18 @@ extern (C)
 		  in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw,
 		  int* bbh, int* ascent, int* descent) get_text_dimensions;
 		int function (ALLEGRO_FONT* font, int ranges_count, int* ranges) get_font_ranges;
+		bool function(const ALLEGRO_FONT *f, int codepoint, int *bbx, int *bby, int *bbw, int *bbh) get_glyph_dimensions;
+		int function(const ALLEGRO_FONT *font, int codepoint1, int codepoint2) get_glyph_advance;
 	}
 
 	enum
 	{
+		ALLEGRO_NO_KERNING       = -1,
 		ALLEGRO_ALIGN_LEFT       = 0,
 		ALLEGRO_ALIGN_CENTRE     = 1,
 		ALLEGRO_ALIGN_CENTER     = 1,
 		ALLEGRO_ALIGN_RIGHT      = 2,
-		ALLEGRO_ALIGN_INTEGER    = 4
+		ALLEGRO_ALIGN_INTEGER    = 4,
 	}
 
 	bool al_register_font_loader(in char* ext, ALLEGRO_FONT* function(in char* filename, int size, int flags) load);
@@ -60,10 +64,16 @@ extern (C)
 	int al_get_font_ascent(in ALLEGRO_FONT* f);
 	int al_get_font_descent(in ALLEGRO_FONT* f);
 	void al_destroy_font(ALLEGRO_FONT* f);
-	void al_get_ustr_dimensions(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw, int* bbh, int* ascent, int* descent);
-	void al_get_text_dimensions(in ALLEGRO_FONT* f,	in char* text, int* bbx, int* bby, int* bbw, int* bbh, int* ascent, int* descent);
+	void al_get_ustr_dimensions(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw, int* bbh);
+	void al_get_text_dimensions(in ALLEGRO_FONT* f,	in char* text, int* bbx, int* bby, int* bbw, int* bbh);
 	void al_init_font_addon();
 	void al_shutdown_font_addon();
 	uint al_get_allegro_font_version();
 	int al_get_font_ranges(ALLEGRO_FONT *font, int ranges_count, int* ranges);
+	void al_draw_glyph(const ALLEGRO_FONT *font, ALLEGRO_COLOR color, float x, float y, int codepoint);
+	int al_get_glyph_width(const ALLEGRO_FONT *f, int codepoint);
+	bool al_get_glyph_dimensions(const ALLEGRO_FONT *f, int codepoint, int *bbx, int *bby, int *bbw, int *bbh);
+	int al_get_glyph_advance(const ALLEGRO_FONT *f, int codepoint1, int codepoint2);
+	void al_set_fallback_font(ALLEGRO_FONT *font, ALLEGRO_FONT *fallback);
+	ALLEGRO_FONT* al_get_fallback_font(ALLEGRO_FONT *font);
 }
