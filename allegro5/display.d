@@ -24,6 +24,7 @@ extern (C)
 		ALLEGRO_PROGRAMMABLE_PIPELINE       = 1 << 11,
 		ALLEGRO_GTK_TOPLEVEL_INTERNAL       = 1 << 12,
 		ALLEGRO_MAXIMIZED                   = 1 << 13,
+		ALLEGRO_OPENGL_ES_PROFILE           = 1 << 13,
 	}
 
 	enum ALLEGRO_DISPLAY_OPTIONS
@@ -61,6 +62,8 @@ extern (C)
 		ALLEGRO_SUPPORT_SEPARATE_ALPHA = 30,
 		ALLEGRO_AUTO_CONVERT_BITMAPS = 31,
 		ALLEGRO_SUPPORTED_ORIENTATIONS = 32,
+		ALLEGRO_OPENGL_MAJOR_VERSION = 33,
+		ALLEGRO_OPENGL_MINOR_VERSION = 34,
 		ALLEGRO_DISPLAY_OPTIONS_COUNT
 	}
 
@@ -99,7 +102,7 @@ extern (C)
 	int  al_get_new_display_refresh_rate();
 	int  al_get_new_display_flags();
 
-	void al_set_new_window_title(char *title);
+	void al_set_new_window_title(const_char *title);
 	const_char* al_get_new_window_title();
 
 	int al_get_display_width(ALLEGRO_DISPLAY* display);

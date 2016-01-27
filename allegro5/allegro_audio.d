@@ -240,6 +240,8 @@ extern (C)
 	bool al_play_sample(ALLEGRO_SAMPLE* data, float gain, float pan, float speed, int loop, ALLEGRO_SAMPLE_ID* ret_id);
 	void al_stop_sample(ALLEGRO_SAMPLE_ID* spl_id);
 	void al_stop_samples();
+	ALLEGRO_VOICE* al_get_default_voice();
+	void al_set_default_voice(ALLEGRO_VOICE* voice);
 
 	/* File type handlers */
 	bool al_register_sample_loader(in char* ext, ALLEGRO_SAMPLE* function(in char* filename) loader);
