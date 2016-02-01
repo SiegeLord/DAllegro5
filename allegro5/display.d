@@ -24,7 +24,7 @@ extern (C)
 		ALLEGRO_PROGRAMMABLE_PIPELINE       = 1 << 11,
 		ALLEGRO_GTK_TOPLEVEL_INTERNAL       = 1 << 12,
 		ALLEGRO_MAXIMIZED                   = 1 << 13,
-		ALLEGRO_OPENGL_ES_PROFILE           = 1 << 13,
+		ALLEGRO_OPENGL_ES_PROFILE           = 1 << 14,
 	}
 
 	enum ALLEGRO_DISPLAY_OPTIONS
