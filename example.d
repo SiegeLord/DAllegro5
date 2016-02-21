@@ -38,7 +38,28 @@ int main(char[][] args)
 {
 	return al_run_allegro(
 	{
-		al_init();
+		if (!al_init())
+		{
+			auto ver = al_get_allegro_version();
+			auto major = ver >> 24;
+			auto minor = (ver >> 16) & 255;
+			auto revision = (ver >> 8) & 255;
+			auto release = ver & 255;
+
+			version(Tango)
+			{
+				Stdout.formatln("The system Allegro version ({}.{}.{}.{}) does not match the version of this binding ({}.{}.{}.{})",
+					major, minor, revision, release,
+					ALLEGRO_VERSION, ALLEGRO_SUB_VERSION, ALLEGRO_WIP_VERSION, ALLEGRO_RELEASE_NUMBER);
+			}
+			else
+			{
+				writefln("The system Allegro version (%s.%s.%s.%s) does not match the version of this binding (%s.%s.%s.%s)",
+					major, minor, revision, release,
+					ALLEGRO_VERSION, ALLEGRO_SUB_VERSION, ALLEGRO_WIP_VERSION, ALLEGRO_RELEASE_NUMBER);
+			}
+			return 1;
+		}
 		
 		ALLEGRO_CONFIG* cfg = al_load_config_file("test.ini");
 		version(Tango)
