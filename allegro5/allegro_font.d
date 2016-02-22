@@ -66,7 +66,7 @@ extern (C)
 	void al_destroy_font(ALLEGRO_FONT* f);
 	void al_get_ustr_dimensions(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw, int* bbh);
 	void al_get_text_dimensions(in ALLEGRO_FONT* f,	in char* text, int* bbx, int* bby, int* bbw, int* bbh);
-	void al_init_font_addon();
+	bool al_init_font_addon();
 	void al_shutdown_font_addon();
 	uint al_get_allegro_font_version();
 	int al_get_font_ranges(ALLEGRO_FONT *font, int ranges_count, int* ranges);
