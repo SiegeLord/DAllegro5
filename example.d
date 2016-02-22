@@ -72,12 +72,12 @@ int main(char[][] args)
 
 		ALLEGRO_EVENT_QUEUE* queue = al_create_event_queue();
 
-		al_install_keyboard();
-		al_install_mouse();
-		al_init_image_addon();
-		al_init_font_addon();
-		al_init_ttf_addon();
-		al_init_primitives_addon();
+		if (!al_install_keyboard())      assert(0, "al_install_keyboard failed!");
+		if (!al_install_mouse())         assert(0, "al_install_mouse failed!");
+		if (!al_init_image_addon())      assert(0, "al_init_image_addon failed!");
+		if (!al_init_font_addon())       assert(0, "al_init_font_addon failed!");
+		if (!al_init_ttf_addon())        assert(0, "al_init_ttf_addon failed!");
+		if (!al_init_primitives_addon()) assert(0, "al_init_primitives_addon failed!");
 
 		al_register_event_source(queue, al_get_display_event_source(display));
 		al_register_event_source(queue, al_get_keyboard_event_source());
