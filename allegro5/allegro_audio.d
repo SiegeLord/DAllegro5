@@ -12,6 +12,16 @@ import allegro5.internal.da5;
 
 extern (C)
 {
+	/* User event type emitted when a stream fragment is ready to be
+	* refilled with more audio data.
+	* Must be in 512 <= n < 1024
+	*
+	*/
+	const int ALLEGRO_EVENT_AUDIO_STREAM_FRAGMENT		= 513;
+	const int ALLEGRO_EVENT_AUDIO_STREAM_FINISHED		= 514;
+	
+	const int ALLEGRO_EVENT_AUDIO_RECORDER_FRAGMENT		= 515;
+
 	struct ALLEGRO_AUDIO_RECORDER_EVENT
 	{
 		mixin(_AL_EVENT_HEADER("ALLEGRO_AUDIO_RECORDER"));
@@ -65,13 +75,6 @@ extern (C)
 	}
 
 	const float ALLEGRO_AUDIO_PAN_NONE = -1000.0f;
-	
-	enum ALLEGRO_AUDIO_EVENT_TYPE
-	{
-		ALLEGRO_EVENT_AUDIO_ROUTE_CHANGE       = 520,
-		ALLEGRO_EVENT_AUDIO_INTERRUPTION       = 521,
-		ALLEGRO_EVENT_AUDIO_END_INTERRUPTION   = 522
-	}
 
 	struct ALLEGRO_SAMPLE {};
 
