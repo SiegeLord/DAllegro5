@@ -21,14 +21,15 @@ extern (C)
 	struct ALLEGRO_FONT_VTABLE
 	{
 		int function(in ALLEGRO_FONT* f) font_height;
+		int function(in ALLEGRO_FONT* f) font_ascent;
+		int function(in ALLEGRO_FONT* f) font_descent;
 		int function(in ALLEGRO_FONT* f, int ch) char_length;
 		int function(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text) text_length;
-		int function(in ALLEGRO_FONT* f, int ch, int x, int y) render_char;
-		int function(in ALLEGRO_FONT* f, in ALLEGRO_USTR* text, int x, int y) render;
+		int function(in ALLEGRO_FONT* f, ALLEGRO_COLOR color, int ch, float x, float y) render_char;
+		int function(in ALLEGRO_FONT* f, ALLEGRO_COLOR color, in ALLEGRO_USTR* text, float x, float y) render;
 		void function(ALLEGRO_FONT* f) destroy;
 		void function(in ALLEGRO_FONT* f,
-		  in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw,
-		  int* bbh, int* ascent, int* descent) get_text_dimensions;
+		  in ALLEGRO_USTR* text, int* bbx, int* bby, int* bbw, int* bbh) get_text_dimensions;
 		int function (ALLEGRO_FONT* font, int ranges_count, int* ranges) get_font_ranges;
 		bool function(const ALLEGRO_FONT *f, int codepoint, int *bbx, int *bby, int *bbw, int *bbh) get_glyph_dimensions;
 		int function(const ALLEGRO_FONT *font, int codepoint1, int codepoint2) get_glyph_advance;
