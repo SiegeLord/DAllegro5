@@ -63,7 +63,7 @@ extern (C)
 	/* Miscellaneous */
 	ALLEGRO_BITMAP* al_clone_bitmap(ALLEGRO_BITMAP* bitmap);
 	void al_convert_bitmap(ALLEGRO_BITMAP* bitmap);
-	void al_convert_bitmaps();
+	void al_convert_memory_bitmaps();
 }
 
 /*

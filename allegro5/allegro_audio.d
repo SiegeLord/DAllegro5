@@ -6,20 +6,30 @@ else
 	pragma(lib, "allegro_audio");
 }
 
+version (ALLEGRO_UNSTABLE)
+	version = AllegroAudioUnstable;
+version(ALLEGRO_INTERNAL_UNSTABLE)
+	version = AllegroAudioUnstable;
+version(ALLEGRO_KCM_AUDIO_SRC)
+	version = AllegroAudioUnstable;
+
 import allegro5.allegro;
 import allegro5.events;
 import allegro5.internal.da5;
 
 extern (C)
 {
-	struct ALLEGRO_AUDIO_RECORDER_EVENT
+	version (AllegroAudioUnstable)
 	{
-		mixin(_AL_EVENT_HEADER("ALLEGRO_AUDIO_RECORDER"));
-		ALLEGRO_USER_EVENT_DESCRIPTOR* __internal__descr;
-		void* buffer;
-		uint samples;
-	};
-	
+		struct ALLEGRO_AUDIO_RECORDER_EVENT
+		{
+			mixin(_AL_EVENT_HEADER("ALLEGRO_AUDIO_RECORDER"));
+			ALLEGRO_USER_EVENT_DESCRIPTOR* __internal__descr;
+			void* buffer;
+			uint samples;
+		};
+	}
+
 	enum ALLEGRO_AUDIO_DEPTH
 	{
 		ALLEGRO_AUDIO_DEPTH_INT8      = 0x00,
@@ -88,8 +98,9 @@ extern (C)
 	struct ALLEGRO_MIXER {};
 
 	struct ALLEGRO_VOICE {};
-	
-	struct ALLEGRO_AUDIO_RECORDER {};
+
+	version (AllegroAudioUnstable)
+		struct ALLEGRO_AUDIO_RECORDER {};
 
 	ALLEGRO_SAMPLE* al_create_sample(void* buf, uint samples, uint freq, ALLEGRO_AUDIO_DEPTH depth, ALLEGRO_CHANNEL_CONF chan_conf, bool free_buf);
 	void al_destroy_sample(ALLEGRO_SAMPLE* spl);
@@ -255,17 +266,20 @@ extern (C)
 	ALLEGRO_SAMPLE* al_load_sample(in char* filename);
 	bool al_save_sample(in char* filename, ALLEGRO_SAMPLE* spl);
 	ALLEGRO_AUDIO_STREAM* al_load_audio_stream(in char* filename, size_t buffer_count, uint samples);
-	
+
 	ALLEGRO_SAMPLE* al_load_sample_f(ALLEGRO_FILE* fp, in char* ident);
 	bool al_save_sample_f(ALLEGRO_FILE* fp, in char* ident, ALLEGRO_SAMPLE* spl);
 	ALLEGRO_AUDIO_STREAM * al_load_audio_stream_f(ALLEGRO_FILE* fp, in char* ident,	size_t buffer_count, uint samples);
 
 	/* Recording functions */
-	ALLEGRO_AUDIO_RECORDER* al_create_audio_recorder(size_t fragment_count, uint samples, uint freq, ALLEGRO_AUDIO_DEPTH depth, ALLEGRO_CHANNEL_CONF chan_conf);
-	bool al_start_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
-	void al_stop_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
-	bool al_is_audio_recorder_recording(ALLEGRO_AUDIO_RECORDER* r);
-	ALLEGRO_EVENT_SOURCE* al_get_audio_recorder_event_source(ALLEGRO_AUDIO_RECORDER* r);
-	ALLEGRO_AUDIO_RECORDER_EVENT* al_get_audio_recorder_event(ALLEGRO_EVENT* event);
-	void al_destroy_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
+	version (AllegroAudioUnstable)
+	{
+		ALLEGRO_AUDIO_RECORDER* al_create_audio_recorder(size_t fragment_count, uint samples, uint freq, ALLEGRO_AUDIO_DEPTH depth, ALLEGRO_CHANNEL_CONF chan_conf);
+		bool al_start_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
+		void al_stop_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
+		bool al_is_audio_recorder_recording(ALLEGRO_AUDIO_RECORDER* r);
+		ALLEGRO_EVENT_SOURCE* al_get_audio_recorder_event_source(ALLEGRO_AUDIO_RECORDER* r);
+		ALLEGRO_AUDIO_RECORDER_EVENT* al_get_audio_recorder_event(ALLEGRO_EVENT* event);
+		void al_destroy_audio_recorder(ALLEGRO_AUDIO_RECORDER* r);
+	}
 }

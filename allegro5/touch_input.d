@@ -4,7 +4,14 @@ import allegro5.base;
 import allegro5.events;
 import allegro5.display;
 
-extern (C) 
+version (ALLEGRO_UNSTABLE)
+	version = AllegroTouchUnstable;
+version(ALLEGRO_INTERNAL_UNSTABLE)
+	version = AllegroTouchUnstable;
+version(ALLEGRO_SRC)
+	version = AllegroTouchUnstable;
+
+extern (C)
 {
 	/* Maximum number of simultaneous touches. */
 	const size_t ALLEGRO_TOUCH_INPUT_MAX_TOUCH_COUNT = 16;
@@ -31,25 +38,29 @@ extern (C)
 	   ALLEGRO_TOUCH_STATE[ALLEGRO_TOUCH_INPUT_MAX_TOUCH_COUNT] touches;
 	}
 
-	enum ALLEGRO_MOUSE_EMULATION_MODE
+	version (AllegroTouchUnstable)
 	{
-	   ALLEGRO_MOUSE_EMULATION_NONE,
-	   ALLEGRO_MOUSE_EMULATION_TRANSPARENT,
-	   ALLEGRO_MOUSE_EMULATION_INCLUSIVE,
-	   ALLEGRO_MOUSE_EMULATION_EXCLUSIVE,
-	   ALLEGRO_MOUSE_EMULATION_5_0_x
+		enum ALLEGRO_MOUSE_EMULATION_MODE
+		{
+			ALLEGRO_MOUSE_EMULATION_NONE,
+			ALLEGRO_MOUSE_EMULATION_TRANSPARENT,
+			ALLEGRO_MOUSE_EMULATION_INCLUSIVE,
+			ALLEGRO_MOUSE_EMULATION_EXCLUSIVE,
+			ALLEGRO_MOUSE_EMULATION_5_0_x
+		}
 	}
-
 
 	bool al_is_touch_input_installed();
 	bool al_install_touch_input();
 	void al_uninstall_touch_input();
 	void al_get_touch_input_state(ALLEGRO_TOUCH_INPUT_STATE* ret_state);
-
-	void al_set_mouse_emulation_mode(int mode);
-	int al_get_mouse_emulation_mode();
-
 	ALLEGRO_EVENT_SOURCE* al_get_touch_input_event_source();
-	ALLEGRO_EVENT_SOURCE* al_get_touch_input_mouse_emulation_event_source();
+
+	version (AllegroTouchUnstable)
+	{
+		void al_set_mouse_emulation_mode(int mode);
+		int al_get_mouse_emulation_mode();
+		ALLEGRO_EVENT_SOURCE* al_get_touch_input_mouse_emulation_event_source();
+	}
 }
 
