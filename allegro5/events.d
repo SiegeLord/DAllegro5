@@ -196,6 +196,7 @@ extern (C)
 
 	ALLEGRO_EVENT_QUEUE* al_create_event_queue();
 	void al_destroy_event_queue(ALLEGRO_EVENT_QUEUE*);
+	bool al_is_event_source_registered(ALLEGRO_EVENT_QUEUE *, ALLEGRO_EVENT_SOURCE *);
 	void al_register_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
 	void al_unregister_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
 	void al_pause_event_queue(ALLEGRO_EVENT_QUEUE*, bool);

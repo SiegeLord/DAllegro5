@@ -6,6 +6,13 @@ else
 	pragma(lib, "allegro_dialog");
 }
 
+version (ALLEGRO_UNSTABLE)
+	version = AllegroNativeDialogUnstable;
+version(ALLEGRO_INTERNAL_UNSTABLE)
+	version = AllegroNativeDialogUnstable;
+version(ALLEGRO_NATIVE_DIALOG_SRC)
+	version = AllegroNativeDialogUnstable;
+
 import allegro5.allegro;
 import allegro5.internal.da5;
 
@@ -71,7 +78,10 @@ extern (C)
 	void al_set_menu_item_caption(ALLEGRO_MENU* menu, int pos, in char* caption);
 	int al_get_menu_item_flags(ALLEGRO_MENU* menu, int pos);
 	void al_set_menu_item_flags(ALLEGRO_MENU* menu, int pos, int flags);
-	int al_toggle_menu_item_flags(ALLEGRO_MENU* menu, int pos, int flags);
+	version (AllegroNativeDialogUnstable)
+	{
+		int al_toggle_menu_item_flags(ALLEGRO_MENU* menu, int pos, int flags);
+	}
 	ALLEGRO_BITMAP* al_get_menu_item_icon(ALLEGRO_MENU* menu, int pos);
 	void al_set_menu_item_icon(ALLEGRO_MENU* menu, int pos, ALLEGRO_BITMAP* icon);
 	 

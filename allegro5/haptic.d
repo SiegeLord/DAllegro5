@@ -6,6 +6,14 @@ import allegro5.joystick;
 import allegro5.keyboard;
 import allegro5.touch_input;
 
+version (ALLEGRO_UNSTABLE)
+	version = AllegroHapticUnstable;
+version (ALLEGRO_INTERNAL_UNSTABLE)
+	version = AllegroHapticUnstable;
+version (ALLEGRO_SRC)
+	version = AllegroHapticUnstable;
+
+version (AllegroHapticUnstable):
 enum ALLEGRO_HAPTIC_CONSTANTS
 {
 	ALLEGRO_HAPTIC_RUMBLE = 1 << 0,
