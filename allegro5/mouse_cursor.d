@@ -1,7 +1,7 @@
 module allegro5.mouse_cursor;
 
-import allegro5.display;
 import allegro5.bitmap;
+import allegro5.display;
 
 extern(C)
 {
@@ -31,7 +31,7 @@ extern(C)
 		ALLEGRO_SYSTEM_MOUSE_CURSOR_UNAVAILABLE = 19,
 		ALLEGRO_NUM_SYSTEM_MOUSE_CURSORS
 	}
-	
+
 	ALLEGRO_MOUSE_CURSOR* al_create_mouse_cursor(ALLEGRO_BITMAP* sprite, int xfocus, int yfocus);
 	void al_destroy_mouse_cursor(ALLEGRO_MOUSE_CURSOR* cursor);
 	bool al_set_mouse_cursor(ALLEGRO_DISPLAY* display, ALLEGRO_MOUSE_CURSOR* cursor);

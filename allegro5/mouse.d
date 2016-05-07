@@ -40,4 +40,6 @@ extern (C)
 	bool al_get_mouse_cursor_position(int* ret_x, int* ret_y);
 	bool al_grab_mouse(ALLEGRO_DISPLAY* display);
 	bool al_ungrab_mouse();
+	void al_set_mouse_wheel_precision(int precision);
+	int al_get_mouse_wheel_precision();
 }

@@ -29,13 +29,19 @@ extern (C)
 		ALLEGRO_PRIM_NUM_TYPES
 	}
 
+	enum
+	{
+		ALLEGRO_PRIM_MAX_USER_ATTR = _ALLEGRO_PRIM_MAX_USER_ATTR
+	}
+
 	enum ALLEGRO_PRIM_ATTR
 	{
 		ALLEGRO_PRIM_POSITION = 1,
 		ALLEGRO_PRIM_COLOR_ATTR,
 		ALLEGRO_PRIM_TEX_COORD,
 		ALLEGRO_PRIM_TEX_COORD_PIXEL,
-		ALLEGRO_PRIM_ATTR_NUM
+		ALLEGRO_PRIM_USER_ATTR,
+		ALLEGRO_PRIM_ATTR_NUM = ALLEGRO_PRIM_USER_ATTR + ALLEGRO_PRIM_MAX_USER_ATTR
 	}
 
 	enum ALLEGRO_PRIM_STORAGE
@@ -43,6 +49,43 @@ extern (C)
 		ALLEGRO_PRIM_FLOAT_2,
 		ALLEGRO_PRIM_FLOAT_3,
 		ALLEGRO_PRIM_SHORT_2,
+		ALLEGRO_PRIM_FLOAT_1,
+		ALLEGRO_PRIM_FLOAT_4,
+		ALLEGRO_PRIM_UBYTE_4,
+		ALLEGRO_PRIM_SHORT_4,
+		ALLEGRO_PRIM_NORMALIZED_UBYTE_4,
+		ALLEGRO_PRIM_NORMALIZED_SHORT_2,
+		ALLEGRO_PRIM_NORMALIZED_SHORT_4,
+		ALLEGRO_PRIM_NORMALIZED_USHORT_2,
+		ALLEGRO_PRIM_NORMALIZED_USHORT_4,
+		ALLEGRO_PRIM_HALF_FLOAT_2,
+		ALLEGRO_PRIM_HALF_FLOAT_4
+	}
+	
+	enum ALLEGRO_LINE_JOIN
+	{
+		ALLEGRO_LINE_JOIN_NONE,
+		ALLEGRO_LINE_JOIN_BEVEL,
+		ALLEGRO_LINE_JOIN_ROUND,
+		ALLEGRO_LINE_JOIN_MITER,
+		ALLEGRO_LINE_JOIN_MITRE = ALLEGRO_LINE_JOIN_MITER
+	}
+
+	enum ALLEGRO_LINE_CAP
+	{
+		ALLEGRO_LINE_CAP_NONE,
+		ALLEGRO_LINE_CAP_SQUARE,
+		ALLEGRO_LINE_CAP_ROUND,
+		ALLEGRO_LINE_CAP_TRIANGLE,
+		ALLEGRO_LINE_CAP_CLOSED
+	}
+
+	enum ALLEGRO_PRIM_BUFFER_FLAGS
+	{
+		ALLEGRO_BUFFER_STREAM  = 0x01,
+		ALLEGRO_BUFFER_STATIC  = 0x02,
+		ALLEGRO_BUFFER_DYNAMIC = 0x04,
+		ALLEGRO_PRIM_BUFFER_READWRITE = 0x08
 	}
 
 	const int ALLEGRO_VERTEX_CACHE_SIZE = 256;
@@ -65,6 +108,10 @@ extern (C)
 		ALLEGRO_COLOR color;
 	}
 
+	struct ALLEGRO_VERTEX_BUFFER {};
+	
+	struct ALLEGRO_INDEX_BUFFER {};
+
 	uint al_get_allegro_primitives_version();
 
 	/*
@@ -74,9 +121,34 @@ extern (C)
 	void al_shutdown_primitives_addon();
 	int al_draw_prim(in void* vtxs, in ALLEGRO_VERTEX_DECL* decl, ALLEGRO_BITMAP* texture, int start, int end, int type);
 	int al_draw_indexed_prim(in void* vtxs, in ALLEGRO_VERTEX_DECL* decl, ALLEGRO_BITMAP* texture, in int* indices, int num_vtx, int type);
-
+	int al_draw_vertex_buffer(ALLEGRO_VERTEX_BUFFER* vertex_buffer, ALLEGRO_BITMAP* texture, int start, int end, int type);
+	int al_draw_indexed_buffer(ALLEGRO_VERTEX_BUFFER* vertex_buffer, ALLEGRO_BITMAP* texture, ALLEGRO_INDEX_BUFFER* index_buffer, int start, int end, int type);
+	
 	ALLEGRO_VERTEX_DECL* al_create_vertex_decl(in ALLEGRO_VERTEX_ELEMENT* elements, int stride);
 	void al_destroy_vertex_decl(ALLEGRO_VERTEX_DECL* decl);
+	
+	/*
+	* Vertex buffers
+	*/
+	ALLEGRO_VERTEX_BUFFER* al_create_vertex_buffer(ALLEGRO_VERTEX_DECL* decl, in void* initial_data, int num_vertices, int flags);
+	void al_destroy_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer);
+	void* al_lock_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer, int offset, int length, int flags);
+	void al_unlock_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer);
+	int al_get_vertex_buffer_size(ALLEGRO_VERTEX_BUFFER* buffer);
+	
+	/*
+	 * Index buffers
+	 */
+	ALLEGRO_INDEX_BUFFER* al_create_index_buffer(int index_size, in void* initial_data, int num_indices, int flags);
+	void al_destroy_index_buffer(ALLEGRO_INDEX_BUFFER* buffer);
+	void* al_lock_index_buffer(ALLEGRO_INDEX_BUFFER* buffer, int offset, int length, int flags);
+	void al_unlock_index_buffer(ALLEGRO_INDEX_BUFFER* buffer);
+	int al_get_index_buffer_size(ALLEGRO_INDEX_BUFFER* buffer);
+
+	/*
+	* Utilities for high level primitives.
+	*/
+	bool al_triangulate_polygon(in float* vertices, size_t vertex_stride, in int* vertex_counts, void function(int, int, int, void*) emit_triangle, void* userdata);
 
 	/*
 	* Custom primitives
@@ -118,4 +190,10 @@ extern (C)
 	void al_draw_filled_circle(float cx, float cy, float r, ALLEGRO_COLOR color);
 	void al_draw_filled_pieslice(float cx, float cy, float r, float start_theta, float delta_theta, ALLEGRO_COLOR color);
 	void al_draw_filled_rounded_rectangle(float x1, float y1, float x2, float y2, float rx, float ry, ALLEGRO_COLOR color);
+	
+	void al_draw_polyline(in float* vertices, int vertex_stride, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_LINE_CAP cap_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
+
+	void al_draw_polygon(in float* vertices, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
+	void al_draw_filled_polygon(in float* vertices, int vertex_count, ALLEGRO_COLOR color);
+	void al_draw_filled_polygon_with_holes(in float* vertices, in int* vertex_counts, ALLEGRO_COLOR color);
 }

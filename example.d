@@ -75,7 +75,7 @@ int main(char[][] args)
 		if (!al_install_keyboard())      assert(0, "al_install_keyboard failed!");
 		if (!al_install_mouse())         assert(0, "al_install_mouse failed!");
 		if (!al_init_image_addon())      assert(0, "al_init_image_addon failed!");
-		al_init_font_addon();
+		if (!al_init_font_addon())       assert(0, "al_init_font_addon failed!");
 		if (!al_init_ttf_addon())        assert(0, "al_init_ttf_addon failed!");
 		if (!al_init_primitives_addon()) assert(0, "al_init_primitives_addon failed!");
 

@@ -26,7 +26,8 @@
                 "allegro_ttf",
                 "allegro_image",
                 "allegro_color",
-                "allegro_primitives"
+                "allegro_primitives",
+                "allegro_video"
             ]
         }
     ]

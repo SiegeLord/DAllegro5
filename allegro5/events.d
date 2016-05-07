@@ -1,12 +1,13 @@
 module allegro5.events;
 
 import allegro5.altime;
+import allegro5.base;
 import allegro5.display;
 import allegro5.joystick;
-import allegro5.keyboard;
 import allegro5.mouse;
+import allegro5.keyboard;
 import allegro5.timer;
-import allegro5.base;
+import allegro5.touch_input;
 
 version (Tango) {
 	import tango.stdc.stdint;
@@ -46,7 +47,17 @@ extern (C)
 		ALLEGRO_EVENT_DISPLAY_FOUND               = 44,
 		ALLEGRO_EVENT_DISPLAY_SWITCH_IN           = 45,
 		ALLEGRO_EVENT_DISPLAY_SWITCH_OUT          = 46,
-		ALLEGRO_EVENT_DISPLAY_ORIENTATION         = 47
+		ALLEGRO_EVENT_DISPLAY_ORIENTATION         = 47,
+		ALLEGRO_EVENT_DISPLAY_HALT_DRAWING        = 48,
+		ALLEGRO_EVENT_DISPLAY_RESUME_DRAWING      = 49,
+
+		ALLEGRO_EVENT_TOUCH_BEGIN                 = 50,
+		ALLEGRO_EVENT_TOUCH_END                   = 51,
+		ALLEGRO_EVENT_TOUCH_MOVE                  = 52,
+		ALLEGRO_EVENT_TOUCH_CANCEL                = 53,
+
+		ALLEGRO_EVENT_DISPLAY_CONNECTED           = 60,
+		ALLEGRO_EVENT_DISPLAY_DISCONNECTED        = 61
 	}
 }
 
@@ -60,7 +71,7 @@ ALLEGRO_EVENT_TYPE ALLEGRO_GET_EVENT_TYPE(char a, char b, char c, char d)
 	return AL_ID(a, b, c, d);
 }
 
-private char[] _AL_EVENT_HEADER(in char[] src_type)
+package char[] _AL_EVENT_HEADER(in char[] src_type)
 {
 	return "ALLEGRO_EVENT_TYPE type;" ~ src_type ~ "* source; double timestamp;";
 }
@@ -126,6 +137,21 @@ extern (C)
 		double error;
 	}
 	
+	struct ALLEGRO_TOUCH_EVENT
+	{
+	   mixin(_AL_EVENT_HEADER("ALLEGRO_TOUCH_INPUT"));
+	   ALLEGRO_DISPLAY* display;
+	   /* (id) Identifier of the event, always positive number.
+		* (x, y) Touch position on the screen in 1:1 resolution.
+		* (dx, dy) Relative touch position.
+		* (primary) True, if touch is a primary one (usually first one).
+		*/
+	   int id;
+	   float x, y;
+	   float dx, dy;
+	   bool primary;
+	}
+	
 	struct ALLEGRO_USER_EVENT_DESCRIPTOR;
 
 	struct ALLEGRO_USER_EVENT
@@ -149,6 +175,7 @@ extern (C)
 		ALLEGRO_KEYBOARD_EVENT keyboard;
 		ALLEGRO_MOUSE_EVENT    mouse;
 		ALLEGRO_TIMER_EVENT    timer;
+		ALLEGRO_TOUCH_EVENT    touch;
 		ALLEGRO_USER_EVENT     user;
 	}
 	
@@ -169,8 +196,11 @@ extern (C)
 
 	ALLEGRO_EVENT_QUEUE* al_create_event_queue();
 	void al_destroy_event_queue(ALLEGRO_EVENT_QUEUE*);
+	bool al_is_event_source_registered(ALLEGRO_EVENT_QUEUE *, ALLEGRO_EVENT_SOURCE *);
 	void al_register_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
 	void al_unregister_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
+	void al_pause_event_queue(ALLEGRO_EVENT_QUEUE*, bool);
+	bool al_is_event_queue_paused(in ALLEGRO_EVENT_QUEUE*);
 	bool al_is_event_queue_empty(ALLEGRO_EVENT_QUEUE*);
 	bool al_get_next_event(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT* ret_event);
 	bool al_peek_next_event(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT* ret_event);

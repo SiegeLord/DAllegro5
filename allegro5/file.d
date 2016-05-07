@@ -39,14 +39,15 @@ extern (C)
 	struct ALLEGRO_FILE_INTERFACE
 	{
 		void*   function(in char* path, in char* mode) fi_fopen;
-		void    function(ALLEGRO_FILE* handle) fi_fclose;
+		bool    function(ALLEGRO_FILE* handle) fi_fclose;
 		size_t  function(ALLEGRO_FILE* f, void* ptr, size_t size) fi_fread;
 		size_t  function(ALLEGRO_FILE* f, in void* ptr, size_t size) fi_fwrite;
 		bool    function(ALLEGRO_FILE* f) fi_fflush;
 		long    function(ALLEGRO_FILE* f) fi_ftell;
 		bool    function(ALLEGRO_FILE* f, long offset, int whence) fi_fseek;
 		bool    function(ALLEGRO_FILE* f) fi_feof;
-		bool    function(ALLEGRO_FILE* f) fi_ferror;
+		int     function(ALLEGRO_FILE* f) fi_ferror;
+		const_char* function(ALLEGRO_FILE* f) fi_ferrmsg(ALLEGRO_FILE *f);
 		void    function(ALLEGRO_FILE* f) fi_fclearerr;
 		int     function(ALLEGRO_FILE* f, int c) fi_fungetc;
 		off_t   function(ALLEGRO_FILE* f) fi_fsize;
@@ -68,15 +69,16 @@ extern (C)
 	ALLEGRO_FILE* al_fopen(in char* path, in char* mode);
 	ALLEGRO_FILE* al_fopen_interface(in ALLEGRO_FILE_INTERFACE* vt, in char* path, in char* mode);
 	ALLEGRO_FILE* al_create_file_handle(in ALLEGRO_FILE_INTERFACE* vt, void* userdata);
-	void al_fclose(ALLEGRO_FILE* f);
+	bool al_fclose(ALLEGRO_FILE* f);
 	size_t al_fread(ALLEGRO_FILE* f, void* ptr, size_t size);
 	size_t al_fwrite(ALLEGRO_FILE* f, in void* ptr, size_t size);
 	bool al_fflush(ALLEGRO_FILE* f);
 	long al_ftell(ALLEGRO_FILE* f);
 	bool al_fseek(ALLEGRO_FILE* f, long offset, int whence);
 	bool al_feof(ALLEGRO_FILE* f);
-	bool al_ferror(ALLEGRO_FILE* f);
-	void al_fclearerr(ALLEGRO_FILE* f);
+	int al_ferror(ALLEGRO_FILE* f);
+	const_char* al_ferrmsg(ALLEGRO_FILE *f);
+	void al_fclearerr(ALLEGRO_FILE *f);
 	int al_fungetc(ALLEGRO_FILE* f, int c);
 	long al_fsize(ALLEGRO_FILE* f);
 
@@ -94,6 +96,8 @@ extern (C)
 	char* al_fgets(ALLEGRO_FILE* f, in char* p, size_t max);
 	ALLEGRO_USTR* al_fget_ustr(ALLEGRO_FILE* f);
 	int al_fputs(ALLEGRO_FILE* f, in char* p);
+	int al_fprintf(ALLEGRO_FILE *f, const char *format, ...);
+	int al_vfprintf(ALLEGRO_FILE *f, const char* format, va_list args);
 
 	/* Specific to stdio backend. */
 	ALLEGRO_FILE* al_fopen_fd(int fd, in char* mode);

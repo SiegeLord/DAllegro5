@@ -6,7 +6,7 @@ import allegro5.internal.da5;
 extern (C) 
 {
 	private const int  _AL_MAX_JOYSTICK_AXES = 3;
-	private const int  _AL_MAX_JOYSTICK_STICKS = 8;
+	private const int  _AL_MAX_JOYSTICK_STICKS = 16;
 	private const int  _AL_MAX_JOYSTICK_BUTTONS = 32;
 	
 	struct ALLEGRO_JOYSTICK {};
@@ -37,8 +37,8 @@ extern (C)
 	int               al_get_num_joysticks();
 	ALLEGRO_JOYSTICK* al_get_joystick(int joyn);
 	void              al_release_joystick(ALLEGRO_JOYSTICK* joystick);
-	const_char*       al_get_joystick_name(ALLEGRO_JOYSTICK* joystick);
 	bool              al_get_joystick_active(ALLEGRO_JOYSTICK* joystick);
+	const_char*       al_get_joystick_name(ALLEGRO_JOYSTICK* joystick);
 
 	int               al_get_joystick_num_sticks(in ALLEGRO_JOYSTICK* joystick);
 	int               al_get_joystick_stick_flags(in ALLEGRO_JOYSTICK* joystick, int stick); /* junk? */

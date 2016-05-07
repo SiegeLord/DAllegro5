@@ -10,13 +10,18 @@ else
 }
 
 const int ALLEGRO_VERSION        = 5;
-const int ALLEGRO_SUB_VERSION	 = 0;
-const int ALLEGRO_WIP_VERSION	 = 10;
-const int ALLEGRO_RELEASE_NUMBER = 1;
+const int ALLEGRO_SUB_VERSION    = 2;
+const int ALLEGRO_WIP_VERSION    = 0;
+const int ALLEGRO_RELEASE_NUMBER = 0;
 
-const char[] ALLEGRO_VERSION_STR = "5.0.10";
-const char[] ALLEGRO_DATE_STR	 = "2013";
-const int ALLEGRO_DATE         =  20130616;  /* yyyymmdd */
+const char[] ALLEGRO_VERSION_STR = "5.2.0";
+const char[] ALLEGRO_DATE_STR    = "2016";
+const int ALLEGRO_DATE           = 20160401;  /* yyyymmdd */
+
+version (ALLEGRO_UNSTABLE)
+	enum ALLEGRO_UNSTABLE_BIT = 1 << 31;
+else
+	enum ALLEGRO_UNSTABLE_BIT = 0;
 
 extern (C)
 {
@@ -25,8 +30,9 @@ extern (C)
 }
 
 const int ALLEGRO_VERSION_INT =
-	 ((ALLEGRO_VERSION << 24) | (ALLEGRO_SUB_VERSION << 16) | 
-	 (ALLEGRO_WIP_VERSION << 8) | ALLEGRO_RELEASE_NUMBER);
+	 ((ALLEGRO_VERSION << 24) | (ALLEGRO_SUB_VERSION << 16) |
+	 (ALLEGRO_WIP_VERSION << 8) | ALLEGRO_RELEASE_NUMBER |
+	 ALLEGRO_UNSTABLE_BIT);
 
 version (Tango) {
 	alias tango.math.Math.PI ALLEGRO_PI;
