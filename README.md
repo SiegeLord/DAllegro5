@@ -1,6 +1,6 @@
 This is a D1.0 and D2 binding to the Allegro 5 library: http://liballeg.org/
 
-Should work fine with Allegro 5.1 (revision f06a00bf2b889b97395500b96ae21fe44ee7fb8c aka 5.1.8). Pretty much all of the cross-platform functions are bound.
+Should work fine with Allegro 5.2. Pretty much all of the cross-platform functions are bound.
 Non cross-platform functions are absent, but they will be added eventually.
 
 Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit and DMD/Tango on Windows 32 bit (XP). See general notes below to see how to use this
@@ -68,6 +68,11 @@ example.exe
 
 It should run and not crash.
 
+Unstable API
+============
+
+If you want to use the unstable API, set the `ALLEGRO_UNSTABLE` version.
+
 General Notes
 =============
 
@@ -100,8 +105,8 @@ Windows Notes
 
     You can then use the create_import_libs.bat to create the import libraries. The script expects the Allegro DLLs to be in the same directory as the script. It also expects the implib to be callable from the command line (place it in PATH or into the directory alongside the script). E.g. if your directory had these DLL's in it:
     
-    allegro-5.1.dll
-    allegro_primitives-5.1.dll
+    allegro-5.2.dll
+    allegro_primitives-5.2.dll
     
     Running the script will produce these import libraries:
     
