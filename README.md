@@ -123,4 +123,4 @@ Windows Notes
 
 * Note that if you are using MSVC or DMC compiled DLLs you will need to set the version to ALLEGRO_MSVC when compiling your own programs as well as when building the library.
 
-* You can obtain pre-built libraries at http://www.allegro.cc/files/
+* You can obtain pre-built libraries at http://liballeg.org/download.html
