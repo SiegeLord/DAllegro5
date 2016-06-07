@@ -2,6 +2,7 @@ module allegro5.blender;
 
 import allegro5.color;
 import allegro5.internal.da5;
+static import allegro5.color_ret;
 
 extern(C)
 {

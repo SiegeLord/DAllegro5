@@ -4,6 +4,22 @@ import allegro5.internal.da5;
 import allegro5.path;
 import allegro5.utf8;
 
+version (Tango)
+{
+	import tango.core.Vararg : va_list;
+}
+else
+{
+	version(D_Version2)
+	{
+		import core.stdc.stdarg : va_list;
+	}
+	else
+	{
+		import std.c.stdarg : va_list;
+	}
+}
+
 version(Windows)
 {
 	private alias long off_t;
