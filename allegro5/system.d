@@ -24,6 +24,9 @@ else
 	}
 }
 
+extern (C) void rt_moduleTlsCtor();
+extern (C) void rt_moduleTlsDtor();
+
 int al_run_allegro(scope int delegate() user_main)
 {
 	extern(C) static int main_runner(int argc, char** argv)
@@ -31,7 +34,10 @@ int al_run_allegro(scope int delegate() user_main)
 		version(OSX)
 		{
 			version(D_Version2)
+			{
 				thread_attachThis();
+				rt_moduleTlsCtor();
+			}
 			else
 				Thread.thread_attach();
 		}
@@ -41,7 +47,10 @@ int al_run_allegro(scope int delegate() user_main)
 		version(OSX)
 		{
 			version(D_Version2)
+			{
 				thread_detachThis();
+				rt_moduleTlsDtor();
+			}
 			else
 				Thread.thread_detach();
 		}
