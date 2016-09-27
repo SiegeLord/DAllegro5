@@ -3,7 +3,7 @@ module allegro5.bitmap;
 import allegro5.color;
 import allegro5.internal.da5;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_BITMAP {};
 	

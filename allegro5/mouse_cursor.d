@@ -3,7 +3,7 @@ module allegro5.mouse_cursor;
 import allegro5.bitmap;
 import allegro5.display;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	struct ALLEGRO_MOUSE_CURSOR {};
 

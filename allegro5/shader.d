@@ -4,7 +4,7 @@ import allegro5.bitmap;
 import allegro5.transformations;
 import allegro5.internal.da5;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	struct ALLEGRO_SHADER {};
 

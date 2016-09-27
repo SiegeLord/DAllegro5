@@ -4,7 +4,7 @@ import allegro5.base;
 import allegro5.display;
 import allegro5.utf8;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	char* al_get_clipboard_text(ALLEGRO_DISPLAY *display);
 	bool al_set_clipboard_text(ALLEGRO_DISPLAY *display, const char *text);

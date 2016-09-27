@@ -2,7 +2,7 @@ module allegro5.transformations;
 
 import allegro5.display;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_TRANSFORM
 	{

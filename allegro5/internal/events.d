@@ -1,6 +1,6 @@
 module allegro5.internal.events;
 
-extern (C)
+nothrow @nogc extern (C)
 {
    struct ALLEGRO_USER_EVENT {};
    struct ALLEGRO_USER_EVENT_DESCRIPTOR

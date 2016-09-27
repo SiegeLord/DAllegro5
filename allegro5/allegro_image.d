@@ -8,7 +8,7 @@ else
 
 import allegro5.allegro;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	bool al_init_image_addon();
 	void al_shutdown_image_addon();

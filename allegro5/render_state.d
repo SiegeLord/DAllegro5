@@ -1,6 +1,6 @@
 module allegro5.render_state;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	enum ALLEGRO_RENDER_STATE
 	{

@@ -23,7 +23,7 @@ version (ALLEGRO_UNSTABLE)
 else
 	enum ALLEGRO_UNSTABLE_BIT = 0;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	uint al_get_allegro_version();
 	int al_run_main(int argc, char **argv, int function(int, char **) fn);

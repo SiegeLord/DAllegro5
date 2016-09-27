@@ -11,7 +11,7 @@ version(ALLEGRO_INTERNAL_UNSTABLE)
 version(ALLEGRO_SRC)
 	version = AllegroTouchUnstable;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	/* Maximum number of simultaneous touches. */
 	const size_t ALLEGRO_TOUCH_INPUT_MAX_TOUCH_COUNT = 16;

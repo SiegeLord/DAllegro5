@@ -20,7 +20,7 @@ else
 	}
 }
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	alias int al_fixed;
 	

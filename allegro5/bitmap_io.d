@@ -3,7 +3,7 @@ module allegro5.bitmap_io;
 import allegro5.allegro;
 import allegro5.internal.da5;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	/*
 	* Bitmap loader flag

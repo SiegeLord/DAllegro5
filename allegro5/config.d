@@ -3,7 +3,7 @@ module allegro5.config;
 import allegro5.internal.da5;
 import allegro5.file;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_CONFIG {};
 	struct ALLEGRO_CONFIG_SECTION {};

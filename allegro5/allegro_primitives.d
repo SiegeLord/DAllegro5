@@ -15,7 +15,7 @@ else {
 
 import allegro5.allegro;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	enum ALLEGRO_PRIM_TYPE
 	{

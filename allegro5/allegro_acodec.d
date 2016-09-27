@@ -6,7 +6,7 @@ else
 	pragma(lib, "allegro_acodec");
 }
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	bool al_init_acodec_addon();
 	uint al_get_allegro_acodec_version();

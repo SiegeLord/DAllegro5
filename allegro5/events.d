@@ -16,7 +16,7 @@ else {
 	import std.stdint;
 }
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	alias uint ALLEGRO_EVENT_TYPE;
 
@@ -76,7 +76,7 @@ package char[] _AL_EVENT_HEADER(in char[] src_type)
 	return "ALLEGRO_EVENT_TYPE type;" ~ src_type ~ "* source; double timestamp;";
 }
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_EVENT_SOURCE
 	{

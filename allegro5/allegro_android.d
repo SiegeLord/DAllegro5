@@ -3,7 +3,7 @@ module allegro5.allegro_android;
 import allegro5.display;
 import allegro5.internal.da5;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	void al_android_set_apk_file_interface();
 	const_char* al_android_get_os_version();

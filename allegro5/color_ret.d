@@ -3,7 +3,7 @@ module allegro5.color_ret;
 import allegro5.color;
 import allegro5.bitmap;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	ALLEGRO_COLOR al_get_pixel(ALLEGRO_BITMAP* bitmap, int x, int y);
 	ALLEGRO_COLOR al_get_blend_color();

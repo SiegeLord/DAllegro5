@@ -8,7 +8,7 @@ else
 
 import allegro5.allegro;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_FONT
 	{

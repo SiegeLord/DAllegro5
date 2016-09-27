@@ -2,7 +2,7 @@ module allegro5.threads;
 
 import allegro5.allegro;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_THREAD {};
 	struct ALLEGRO_MUTEX {};

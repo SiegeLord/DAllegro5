@@ -1,6 +1,6 @@
 module allegro5.monitor;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	struct ALLEGRO_MONITOR_INFO
 	{

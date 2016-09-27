@@ -18,7 +18,7 @@ else
 	}
 }
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct _al_tagbstring
 	{

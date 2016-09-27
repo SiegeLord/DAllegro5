@@ -4,7 +4,7 @@ import allegro5.display;
 import allegro5.events;
 import allegro5.bitmap;
 
-extern (C) 
+nothrow @nogc extern (C)
 {
 	const int ALLEGRO_MOUSE_MAX_EXTRA_AXES = 4;
 

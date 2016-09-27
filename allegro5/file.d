@@ -50,7 +50,7 @@ else
 	}
 }
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_FILE_INTERFACE
 	{

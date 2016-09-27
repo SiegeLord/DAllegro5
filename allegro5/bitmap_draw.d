@@ -3,7 +3,7 @@ module allegro5.bitmap_draw;
 import allegro5.bitmap;
 import allegro5.color;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	/* Flags for the blitting functions */
 	enum : int

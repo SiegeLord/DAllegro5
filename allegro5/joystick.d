@@ -3,7 +3,7 @@ module allegro5.joystick;
 import allegro5.events;
 import allegro5.internal.da5;
 
-extern (C) 
+nothrow @nogc extern (C)
 {
 	private const int  _AL_MAX_JOYSTICK_AXES = 3;
 	private const int  _AL_MAX_JOYSTICK_STICKS = 16;

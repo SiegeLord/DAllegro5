@@ -1,6 +1,6 @@
 module allegro5.fullscreen_mode;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	struct ALLEGRO_DISPLAY_MODE
 	{

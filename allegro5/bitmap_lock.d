@@ -2,7 +2,7 @@ module allegro5.bitmap_lock;
 
 import allegro5.bitmap;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	/*
 	 * Locking flags

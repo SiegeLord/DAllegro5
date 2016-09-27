@@ -9,7 +9,7 @@ else
 import allegro5.allegro;
 import allegro5.allegro_font;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	enum
 	{

@@ -4,7 +4,7 @@ import allegro5.color;
 import allegro5.internal.da5;
 static import allegro5.color_ret;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	enum ALLEGRO_BLEND_MODE
 	{

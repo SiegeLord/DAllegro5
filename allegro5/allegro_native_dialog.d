@@ -16,7 +16,7 @@ version(ALLEGRO_NATIVE_DIALOG_SRC)
 import allegro5.allegro;
 import allegro5.internal.da5;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	alias ALLEGRO_GTK_TOPLEVEL_INTERNAL ALLEGRO_GTK_TOPLEVEL;
 

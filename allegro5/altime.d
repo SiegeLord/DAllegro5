@@ -1,6 +1,6 @@
 module allegro5.altime;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	struct ALLEGRO_TIMEOUT
 	{

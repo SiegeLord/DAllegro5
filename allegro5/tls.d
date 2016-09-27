@@ -1,6 +1,6 @@
 module allegro5.tls;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	enum ALLEGRO_STATE_FLAGS
 	{

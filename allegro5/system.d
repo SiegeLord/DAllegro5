@@ -62,7 +62,7 @@ int al_run_allegro(scope int delegate() user_main)
 	return al_run_main(0, &fake_arg, &main_runner);
 }
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_SYSTEM {};
 

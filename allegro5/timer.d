@@ -3,7 +3,7 @@ module allegro5.timer;
 import allegro5.events;
 import allegro5.internal.da5;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_TIMER {};
 

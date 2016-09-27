@@ -132,7 +132,7 @@ struct ALLEGRO_HAPTIC_EFFECT_ID
 	void* driver;
 }
 
-extern(C)
+nothrow @nogc extern(C)
 {
    bool al_install_haptic();
    void al_uninstall_haptic();

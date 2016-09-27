@@ -2,7 +2,7 @@ module allegro5.allegro_color_ret;
 
 import allegro5.allegro;
 
-extern(C)
+nothrow @nogc extern(C)
 {
 	ALLEGRO_COLOR al_color_yuv(float y, float u, float v);
 	ALLEGRO_COLOR al_color_cmyk(float c, float m, float y, float k);

@@ -44,7 +44,7 @@ else
 	import core.stdc.time : time_t;
 }
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_FS_ENTRY 
 	{

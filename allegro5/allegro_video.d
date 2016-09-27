@@ -9,7 +9,7 @@ else
 import allegro5.allegro;
 import allegro5.allegro_audio;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	enum ALLEGRO_VIDEO_EVENT_TYPE
 	{

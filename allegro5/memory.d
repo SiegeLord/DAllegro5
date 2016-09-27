@@ -1,6 +1,6 @@
 module allegro5.memory;
 
-extern (C)
+nothrow @nogc extern (C)
 {
 	struct ALLEGRO_MEMORY_INTERFACE
 	{
