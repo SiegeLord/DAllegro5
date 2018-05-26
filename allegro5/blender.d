@@ -32,9 +32,9 @@ nothrow @nogc extern(C)
 	void al_set_blender(int op, int source, int dest);
 	void al_set_blend_color(ALLEGRO_COLOR color);
 	void al_get_blender(int* op, int* source, int* dest);
-	
+
 	void al_set_separate_blender(int op, int source, int dest, int alpha_op, int alpha_source, int alpha_dest);
 	void al_get_separate_blender(int* op, int* source, int* dest, int *alpha_op, int* alpha_src, int* alpha_dest);
-
-	mixin(ColorWrapper("allegro5.color_ret.", "al_get_blend_color", "", ""));
 }
+
+mixin(ColorWrapper("allegro5.color_ret.", "al_get_blend_color", "", ""));
