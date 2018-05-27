@@ -8,7 +8,7 @@ char[] ColorWrapper(in char[] prefix, in char[] func, in char[] arg_decls, in ch
 		auto ret = ` ~ prefix ~ func ~ `(` ~ arg_names ~ `);
 		version(ALLEGRO_SUB)
 		{
-			asm
+			asm nothrow @nogc
 			{
 				sub ESP, 4;
 			}
