@@ -59,23 +59,7 @@ nothrow @nogc extern (C)
 	int al_get_pixel_block_height(int format);
 }
 
-/*
- * MinGW 4.5 and below has a bizzare calling convention when returning
- * structs. These wrappers take care of the differences in calling convention.
- *
- * This issue does not exist in MSVC and maybe MinGW 4.6.
- */
-
 static import allegro5.color_ret;
-
-version(Windows)
-{
-	version(ALLEGRO_MSVC) {}
-	else
-	{
-		version = ALLEGRO_SUB;
-	}
-}
 
 mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgb", "ubyte r, ubyte g, ubyte b", "r, g, b"));
 mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgba", "ubyte r, ubyte g, ubyte b, ubyte a", "r, g, b, a"));
