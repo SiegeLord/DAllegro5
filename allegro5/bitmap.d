@@ -6,7 +6,7 @@ import allegro5.internal.da5;
 nothrow @nogc extern (C)
 {
 	struct ALLEGRO_BITMAP {};
-	
+
 	/*
 	 * Bitmap flags
 	 */
@@ -25,7 +25,7 @@ nothrow @nogc extern (C)
 		ALLEGRO_VIDEO_BITMAP             = 0x0400,
 		ALLEGRO_CONVERT_BITMAP           = 0x1000
 	}
-	
+
 	void al_set_new_bitmap_format(int format);
 	void al_set_new_bitmap_flags(int flags);
 	int al_get_new_bitmap_format();
@@ -66,22 +66,6 @@ nothrow @nogc extern (C)
 	void al_convert_memory_bitmaps();
 }
 
-/*
- * MinGW 4.5 and below has a bizzare calling convention when returning
- * structs. These wrappers take care of the differences in calling convention.
- *
- * This issue does not exist in MSVC and maybe MinGW 4.6.
- */
-
 static import allegro5.color_ret;
-
-version(Windows)
-{
-	version(ALLEGRO_MSVC) {}
-	else
-	{
-		version = ALLEGRO_SUB;
-	}
-}
 
 mixin(ColorWrapper("allegro5.color_ret.", "al_get_pixel", "ALLEGRO_BITMAP* bitmap, int x, int y", "bitmap, x, y"));

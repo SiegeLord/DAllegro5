@@ -26,17 +26,8 @@ nothrow @nogc extern (C)
 	void al_color_rgb_to_html(float red, float green, float blue,  char* string);
 	void al_color_html_to_rgb(in char* string, float* red, float* green, float* blue);
 }
-	
-static import allegro5.allegro_color_ret;
 
-version(Windows)
-{
-	version(ALLEGRO_MSVC) {}
-	else
-	{
-		version = ALLEGRO_SUB;
-	}
-}
+static import allegro5.allegro_color_ret;
 
 mixin(ColorWrapper("allegro5.allegro_color_ret.", "al_color_yuv", "float y, float u, float v", "y, u, v"));
 mixin(ColorWrapper("allegro5.allegro_color_ret.", "al_color_cmyk", "float c, float m, float y, float k", "c, m, y, k"));
