@@ -21,7 +21,7 @@ module allegro5.internal.da5;
 char[] ColorWrapper(
 	in char[] prefix, in char[] func, in char[] arg_decls, in char[] arg_names)
 {
-	static if (needsMinGW4CallingConvention)
+	static if (NeedsMinGW4CallingConvention)
 	{
 		// Implement a new D function to wrap Allegro's C function,
 		// fixing the calling convention (see comment for ColorWrapper above).
