@@ -11,38 +11,10 @@ version(Windows)
 }
 else
 {
-	version(Tango)
-	{
-		import tango.stdc.posix.sys.types : off_t;
-	}
-	else
-	{
-		version(D_Version2)
-		{
-			import core.sys.posix.sys.types : off_t;
-		}
-		else
-		{
-			version(linux)
-			{
-				import std.c.linux.linux : off_t;
-			}
-			else
-			{
-				import std.c.freebsd.freebsd : off_t;
-			}
-		}
-	}
+	import core.sys.posix.sys.types : off_t;
 }
 
-version (Tango)
-{
-	import tango.stdc.time : time_t;
-}
-else
-{
-	import core.stdc.time : time_t;
-}
+import core.stdc.time : time_t;
 
 nothrow @nogc extern (C)
 {
@@ -65,7 +37,7 @@ nothrow @nogc extern (C)
 	{
 		ALLEGRO_FS_ENTRY* function(in char* path) fs_create_entry;
 		void              function(ALLEGRO_FS_ENTRY* e) fs_destroy_entry;
-		const_char*       function(ALLEGRO_FS_ENTRY* e) fs_entry_name;
+		const(char)*       function(ALLEGRO_FS_ENTRY* e) fs_entry_name;
 		bool              function(ALLEGRO_FS_ENTRY* e) fs_update_entry;
 		uint              function(ALLEGRO_FS_ENTRY* e) fs_entry_mode;
 		time_t            function(ALLEGRO_FS_ENTRY* e) fs_entry_atime;
@@ -90,7 +62,7 @@ nothrow @nogc extern (C)
 
 	ALLEGRO_FS_ENTRY*    al_create_fs_entry(in char* path);
 	void                 al_destroy_fs_entry(ALLEGRO_FS_ENTRY* e);
-	const_char*          al_get_fs_entry_name(ALLEGRO_FS_ENTRY* e);
+	const(char)*          al_get_fs_entry_name(ALLEGRO_FS_ENTRY* e);
 	bool                 al_update_fs_entry(ALLEGRO_FS_ENTRY* e);
 	uint                 al_get_fs_entry_mode(ALLEGRO_FS_ENTRY* e);
 	time_t               al_get_fs_entry_atime(ALLEGRO_FS_ENTRY* e);

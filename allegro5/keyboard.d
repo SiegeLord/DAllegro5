@@ -23,7 +23,7 @@ nothrow @nogc extern (C)
 
 	bool  al_set_keyboard_leds(int leds);
 
-	const_char* al_keycode_to_name(int keycode);
+	const(char)* al_keycode_to_name(int keycode);
 
 	void  al_get_keyboard_state(ALLEGRO_KEYBOARD_STATE* ret_state);
 	bool  al_key_down          (in ALLEGRO_KEYBOARD_STATE* state, int keycode);

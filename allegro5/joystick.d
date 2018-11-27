@@ -38,17 +38,17 @@ nothrow @nogc extern (C)
 	ALLEGRO_JOYSTICK* al_get_joystick(int joyn);
 	void              al_release_joystick(ALLEGRO_JOYSTICK* joystick);
 	bool              al_get_joystick_active(ALLEGRO_JOYSTICK* joystick);
-	const_char*       al_get_joystick_name(ALLEGRO_JOYSTICK* joystick);
+	const(char)*       al_get_joystick_name(ALLEGRO_JOYSTICK* joystick);
 
 	int               al_get_joystick_num_sticks(in ALLEGRO_JOYSTICK* joystick);
 	int               al_get_joystick_stick_flags(in ALLEGRO_JOYSTICK* joystick, int stick); /* junk? */
-	const_char*       al_get_joystick_stick_name(in ALLEGRO_JOYSTICK* joystick, int stick);
+	const(char)*       al_get_joystick_stick_name(in ALLEGRO_JOYSTICK* joystick, int stick);
 
 	int               al_get_joystick_num_axes(in ALLEGRO_JOYSTICK* joystick, int stick);
-	const_char*       al_get_joystick_axis_name(in ALLEGRO_JOYSTICK* joystick, int stick, int axis);
+	const(char)*       al_get_joystick_axis_name(in ALLEGRO_JOYSTICK* joystick, int stick, int axis);
 
 	int               al_get_joystick_num_buttons(in ALLEGRO_JOYSTICK* joystick);
-	const_char*       al_get_joystick_button_name(in ALLEGRO_JOYSTICK* joystick, int buttonn);
+	const(char)*       al_get_joystick_button_name(in ALLEGRO_JOYSTICK* joystick, int buttonn);
 
 	void              al_get_joystick_state(ALLEGRO_JOYSTICK* joystick, ALLEGRO_JOYSTICK_STATE* ret_state);
 

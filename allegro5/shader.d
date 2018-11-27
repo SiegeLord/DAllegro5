@@ -31,21 +31,21 @@ nothrow @nogc extern(C)
 	const ALLEGRO_SHADER_VAR_USE_TEX_MATRIX  = "al_use_tex_matrix";
 
 	ALLEGRO_SHADER* al_create_shader(ALLEGRO_SHADER_PLATFORM platform);
-	bool al_attach_shader_source(ALLEGRO_SHADER* shader, ALLEGRO_SHADER_TYPE type, const_char* source);
-	bool al_attach_shader_source_file(ALLEGRO_SHADER* shader, ALLEGRO_SHADER_TYPE type, const_char* filename);
+	bool al_attach_shader_source(ALLEGRO_SHADER* shader, ALLEGRO_SHADER_TYPE type, const(char)* source);
+	bool al_attach_shader_source_file(ALLEGRO_SHADER* shader, ALLEGRO_SHADER_TYPE type, const(char)* filename);
 	bool al_build_shader(ALLEGRO_SHADER* shader);
-	const_char* al_get_shader_log(ALLEGRO_SHADER* shader);
+	const(char)* al_get_shader_log(ALLEGRO_SHADER* shader);
 	ALLEGRO_SHADER_PLATFORM al_get_shader_platform(ALLEGRO_SHADER* shader);
 	bool al_use_shader(ALLEGRO_SHADER* shader);
 	void al_destroy_shader(ALLEGRO_SHADER* shader);
 
-	bool al_set_shader_sampler(const_char* name, ALLEGRO_BITMAP* bitmap, int unit);
-	bool al_set_shader_matrix(const_char* name, ALLEGRO_TRANSFORM* matrix);
-	bool al_set_shader_int(const_char* name, int i);
-	bool al_set_shader_float(const_char* name, float f);
-	bool al_set_shader_int_vector(const_char* name, int num_components, int* i, int num_elems);
-	bool al_set_shader_float_vector(const_char* name, int num_components, float* f, int num_elems);
-	bool al_set_shader_bool(const_char* name, bool b);
+	bool al_set_shader_sampler(const(char)* name, ALLEGRO_BITMAP* bitmap, int unit);
+	bool al_set_shader_matrix(const(char)* name, ALLEGRO_TRANSFORM* matrix);
+	bool al_set_shader_int(const(char)* name, int i);
+	bool al_set_shader_float(const(char)* name, float f);
+	bool al_set_shader_int_vector(const(char)* name, int num_components, int* i, int num_elems);
+	bool al_set_shader_float_vector(const(char)* name, int num_components, float* f, int num_elems);
+	bool al_set_shader_bool(const(char)* name, bool b);
 
-	const_char* al_get_default_shader_source(ALLEGRO_SHADER_PLATFORM platform, ALLEGRO_SHADER_TYPE type);
+	const(char)* al_get_default_shader_source(ALLEGRO_SHADER_PLATFORM platform, ALLEGRO_SHADER_TYPE type);
 }

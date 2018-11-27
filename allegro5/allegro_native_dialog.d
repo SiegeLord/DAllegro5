@@ -26,7 +26,7 @@ nothrow @nogc extern (C)
 
 	struct ALLEGRO_MENU_INFO
 	{
-	   const_char* caption;
+	   const(char)* caption;
 	   ushort id;
 	   int flags;
 	   ALLEGRO_BITMAP* icon;
@@ -37,7 +37,7 @@ nothrow @nogc extern (C)
 		const ALLEGRO_MENU_SEPARATOR = ALLEGRO_MENU_INFO(null, -1, 0, null);
 	}
 	
-	template ALLEGRO_START_OF_MENU(const_char[] caption, int id)
+	template ALLEGRO_START_OF_MENU(const(char)[] caption, int id)
 	{
 		const ALLEGRO_START_OF_MENU = ALLEGRO_MENU_INFO(mixin(`"` ~ caption ~ `->\0"`), id, 0, NULL);
 	}
@@ -74,7 +74,7 @@ nothrow @nogc extern (C)
 	void al_destroy_menu(ALLEGRO_MENU* menu);
 
 	/* properties */
-	const_char* al_get_menu_item_caption(ALLEGRO_MENU* menu, int pos);
+	const(char)* al_get_menu_item_caption(ALLEGRO_MENU* menu, int pos);
 	void al_set_menu_item_caption(ALLEGRO_MENU* menu, int pos, in char* caption);
 	int al_get_menu_item_flags(ALLEGRO_MENU* menu, int pos);
 	void al_set_menu_item_flags(ALLEGRO_MENU* menu, int pos, int flags);

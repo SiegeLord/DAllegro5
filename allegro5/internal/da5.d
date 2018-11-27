@@ -56,9 +56,3 @@ bool NeedsMinGW4CallingConvention() pure nothrow @nogc
 		return false;
 	}
 }
-
-
-version(D_Version2)
-	mixin(`alias const(char) const_char;`);
-else
-	alias char const_char;

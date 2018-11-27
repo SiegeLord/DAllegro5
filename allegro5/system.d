@@ -5,24 +5,8 @@ import allegro5.config;
 import allegro5.path;
 import allegro5.base;
 
-version(Tango)
-{
-	import tango.core.Thread;
-	import tango.stdc.stdlib : atexit;
-}
-else
-{
-	version(D_Version2)
-	{
-		import core.thread;
-		import core.stdc.stdlib : atexit;
-	}
-	else
-	{
-		import std.c.stdlib : atexit;
-		import std.thread;
-	}
-}
+import core.thread;
+import core.stdc.stdlib : atexit;
 
 extern (C) void rt_moduleTlsCtor();
 extern (C) void rt_moduleTlsDtor();
@@ -33,26 +17,16 @@ int al_run_allegro(scope int delegate() user_main)
 	{
 		version(OSX)
 		{
-			version(D_Version2)
-			{
-				thread_attachThis();
-				rt_moduleTlsCtor();
-			}
-			else
-				Thread.thread_attach();
+			thread_attachThis();
+			rt_moduleTlsCtor();
 		}
 		
 		auto main_ret = (*cast(int delegate()*)argv[0])();
 		
 		version(OSX)
 		{
-			version(D_Version2)
-			{
-				thread_detachThis();
-				rt_moduleTlsDtor();
-			}
-			else
-				Thread.thread_detach();
+			thread_detachThis();
+			rt_moduleTlsDtor();
 		}
 		
 		return main_ret;
@@ -94,8 +68,8 @@ nothrow @nogc extern (C)
 
 	void al_set_org_name(in char* orgname);
 	void al_set_app_name(in char* appname);
-	const_char* al_get_org_name();
-	const_char* al_get_app_name();
+	const(char)* al_get_org_name();
+	const(char)* al_get_app_name();
 
 	bool al_inhibit_screensaver(bool inhibit);
 }

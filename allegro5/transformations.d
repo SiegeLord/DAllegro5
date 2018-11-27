@@ -8,11 +8,6 @@ nothrow @nogc extern (C)
 	{
 		float[4][4] m;
 	}
-	
-	version(D_Version2)
-		mixin(`alias const(ALLEGRO_TRANSFORM) const_ALLEGRO_TRANSFORM;`);
-	else
-		alias ALLEGRO_TRANSFORM const_ALLEGRO_TRANSFORM;
 
 	/* Transformations*/
 	void al_use_transform(in ALLEGRO_TRANSFORM* trans);
@@ -35,8 +30,8 @@ nothrow @nogc extern (C)
 		float *x, float *y, float *z);
 	void al_compose_transform(ALLEGRO_TRANSFORM* trans, in ALLEGRO_TRANSFORM* trans2);
 	ALLEGRO_TRANSFORM* al_get_current_transform();
-	const_ALLEGRO_TRANSFORM* al_get_current_inverse_transform();
-	const_ALLEGRO_TRANSFORM* al_get_current_projection_transform();
+	const(ALLEGRO_TRANSFORM)* al_get_current_inverse_transform();
+	const(ALLEGRO_TRANSFORM)* al_get_current_projection_transform();
 	void al_invert_transform(ALLEGRO_TRANSFORM* trans);
 	int  al_check_inverse(in ALLEGRO_TRANSFORM* trans, float tol);
 	void al_orthographic_transform(ALLEGRO_TRANSFORM* trans, float left, float right, float top, float bottom, float n, float f);

@@ -2,23 +2,7 @@ module allegro5.fixed;
 
 import allegro5.error;
 
-version (Tango)
-{
-	import tango.stdc.errno;
-}
-else 
-{
-	version(D_Version2)
-	{
-		import core.stdc.errno;
-	}
-	else
-	{
-		import std.c.stdlib;
-		// Phobos doesn't define EDOM
-		enum { EDOM = 33 }
-	}
-}
+import core.stdc.errno;
 
 nothrow @nogc extern (C)
 {

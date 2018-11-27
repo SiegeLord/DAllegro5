@@ -33,6 +33,6 @@ nothrow @nogc extern(C)
 	ALLEGRO_BITMAP* al_load_bitmap_flags_f(ALLEGRO_FILE* fp, in char* ident, int flags);
 	bool al_save_bitmap(in char* filename, ALLEGRO_BITMAP* bitmap);
 	bool al_save_bitmap_f(ALLEGRO_FILE* fp, in char* ident, ALLEGRO_BITMAP* bitmap);
-	const_char* al_identify_bitmap_f(ALLEGRO_FILE *fp);
-	const_char* al_identify_bitmap(const_char* filename);
+	const(char)* al_identify_bitmap_f(ALLEGRO_FILE *fp);
+	const(char)* al_identify_bitmap(const(char)* filename);
 }

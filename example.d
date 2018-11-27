@@ -16,16 +16,7 @@ else
 	pragma(lib, "allegro_color");
 }
 
-version(Tango)
-{
-	import tango.io.Stdout;
-	import tango.stdc.posix.stdlib;
-	import tango.stdc.stringz;
-}
-else
-{
-	import std.stdio;
-}
+import std.stdio;
 
 import allegro5.allegro;
 import allegro5.allegro_primitives;
@@ -46,18 +37,9 @@ int main(char[][] args)
 			auto revision = (ver >> 8) & 255;
 			auto release = ver & 255;
 
-			version(Tango)
-			{
-				Stdout.formatln("The system Allegro version ({}.{}.{}.{}) does not match the version of this binding ({}.{}.{}.{})",
-					major, minor, revision, release,
-					ALLEGRO_VERSION, ALLEGRO_SUB_VERSION, ALLEGRO_WIP_VERSION, ALLEGRO_RELEASE_NUMBER);
-			}
-			else
-			{
-				writefln("The system Allegro version (%s.%s.%s.%s) does not match the version of this binding (%s.%s.%s.%s)",
-					major, minor, revision, release,
-					ALLEGRO_VERSION, ALLEGRO_SUB_VERSION, ALLEGRO_WIP_VERSION, ALLEGRO_RELEASE_NUMBER);
-			}
+			writefln("The system Allegro version (%s.%s.%s.%s) does not match the version of this binding (%s.%s.%s.%s)",
+				major, minor, revision, release,
+				ALLEGRO_VERSION, ALLEGRO_SUB_VERSION, ALLEGRO_WIP_VERSION, ALLEGRO_RELEASE_NUMBER);
 			return 1;
 		}
 		

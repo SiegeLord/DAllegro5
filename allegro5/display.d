@@ -102,8 +102,8 @@ nothrow @nogc extern (C)
 	int  al_get_new_display_refresh_rate();
 	int  al_get_new_display_flags();
 
-	void al_set_new_window_title(const_char *title);
-	const_char* al_get_new_window_title();
+	void al_set_new_window_title(const(char) *title);
+	const(char)* al_get_new_window_title();
 
 	int al_get_display_width(ALLEGRO_DISPLAY* display);
 	int al_get_display_height(ALLEGRO_DISPLAY* display);

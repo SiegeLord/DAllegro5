@@ -4,21 +4,7 @@ import allegro5.internal.da5;
 import allegro5.path;
 import allegro5.utf8;
 
-version (Tango)
-{
-	import tango.core.Vararg : va_list;
-}
-else
-{
-	version(D_Version2)
-	{
-		import core.stdc.stdarg : va_list;
-	}
-	else
-	{
-		import std.c.stdarg : va_list;
-	}
-}
+import core.stdc.stdarg : va_list;
 
 version(Windows)
 {
@@ -26,28 +12,7 @@ version(Windows)
 }
 else
 {
-	version(Tango)
-	{
-		import tango.stdc.posix.sys.types : off_t;
-	}
-	else
-	{
-		version(D_Version2)
-		{
-			import core.sys.posix.sys.types : off_t;
-		}
-		else
-		{
-			version(linux)
-			{
-				import std.c.linux.linux : off_t;
-			}
-			else
-			{
-				import std.c.freebsd.freebsd : off_t;
-			}
-		}
-	}
+	import core.sys.posix.sys.types : off_t;
 }
 
 nothrow @nogc extern (C)
@@ -63,7 +28,7 @@ nothrow @nogc extern (C)
 		bool    function(ALLEGRO_FILE* f, long offset, int whence) fi_fseek;
 		bool    function(ALLEGRO_FILE* f) fi_feof;
 		int     function(ALLEGRO_FILE* f) fi_ferror;
-		const_char* function(ALLEGRO_FILE* f) fi_ferrmsg(ALLEGRO_FILE *f);
+		const(char)* function(ALLEGRO_FILE* f) fi_ferrmsg(ALLEGRO_FILE *f);
 		void    function(ALLEGRO_FILE* f) fi_fclearerr;
 		int     function(ALLEGRO_FILE* f, int c) fi_fungetc;
 		off_t   function(ALLEGRO_FILE* f) fi_fsize;
@@ -93,7 +58,7 @@ nothrow @nogc extern (C)
 	bool al_fseek(ALLEGRO_FILE* f, long offset, int whence);
 	bool al_feof(ALLEGRO_FILE* f);
 	int al_ferror(ALLEGRO_FILE* f);
-	const_char* al_ferrmsg(ALLEGRO_FILE *f);
+	const(char)* al_ferrmsg(ALLEGRO_FILE *f);
 	void al_fclearerr(ALLEGRO_FILE *f);
 	int al_fungetc(ALLEGRO_FILE* f, int c);
 	long al_fsize(ALLEGRO_FILE* f);

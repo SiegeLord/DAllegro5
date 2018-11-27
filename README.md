@@ -1,9 +1,9 @@
-This is a D1.0 and D2 binding to the Allegro 5 library: http://liballeg.org/
+This is a D binding to the Allegro 5 library: http://liballeg.org/
 
 Should work fine with Allegro 5.2. Pretty much all of the cross-platform functions are bound.
 Non cross-platform functions are absent, but they will be added eventually.
 
-Tested with LDC/Tango and DMD/Phobos compilers on Linux 64 bit and DMD/Tango on Windows 32 bit (XP). See general notes below to see how to use this
+Tested with LDC and DMD compilers on Linux 64 bit and DMD on Windows 32 bit (XP). See general notes below to see how to use this
 binding in your D program.
 
 Installation
@@ -18,11 +18,6 @@ If you have LDC:
 
 ./build_lib_ldc.sh
 ./build_example_ldc.sh
-
-If you have LDC2:
-
-./build_lib_ldc2.sh
-./build_example_ldc2.sh
 
 If you have DMD:
 

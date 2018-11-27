@@ -2,21 +2,7 @@ module allegro5.utf8;
 
 import allegro5.internal.da5;
 
-version (Tango)
-{
-	import tango.core.Vararg : va_list;
-}
-else
-{
-	version(D_Version2)
-	{
-		import core.stdc.stdarg : va_list;
-	}
-	else
-	{
-		import std.c.stdarg : va_list;
-	}
-}
+import core.stdc.stdarg : va_list;
 
 nothrow @nogc extern (C)
 {
@@ -30,28 +16,23 @@ nothrow @nogc extern (C)
 	alias _al_tagbstring ALLEGRO_USTR;
 	alias _al_tagbstring ALLEGRO_USTR_INFO;
 	
-	version(D_Version2)
-		mixin(`alias const(ALLEGRO_USTR) const_ALLEGRO_USTR;`);
-	else
-		alias ALLEGRO_USTR const_ALLEGRO_USTR;
-	
 	ALLEGRO_USTR* al_ustr_new(in char* s);
 	ALLEGRO_USTR* al_ustr_new_from_buffer(in char* s, size_t size);
 	ALLEGRO_USTR* al_ustr_newf(in char* fmt, ...);
 	void al_ustr_free(ALLEGRO_USTR* us);
-	const_char* al_cstr(in ALLEGRO_USTR* us);
+	const(char)* al_cstr(in ALLEGRO_USTR* us);
 	void al_ustr_to_buffer(in ALLEGRO_USTR* us, char* buffer, int size);
 	char* al_cstr_dup(in ALLEGRO_USTR* us);
 	ALLEGRO_USTR* al_ustr_dup(in ALLEGRO_USTR* us);
 	ALLEGRO_USTR* al_ustr_dup_substr(in ALLEGRO_USTR* us, int start_pos, int end_pos);
 	
 	/* Predefined string */
-	const_ALLEGRO_USTR* al_ustr_empty_string();
+	const(ALLEGRO_USTR)* al_ustr_empty_string();
 
 	/* Reference strings */
-	const_ALLEGRO_USTR* al_ref_cstr(ALLEGRO_USTR_INFO* info, in char* s);
-	const_ALLEGRO_USTR* al_ref_buffer(ALLEGRO_USTR_INFO* info, in char* s, size_t size);
-	const_ALLEGRO_USTR* al_ref_ustr(ALLEGRO_USTR_INFO* info, in ALLEGRO_USTR* us, int start_pos, int end_pos);
+	const(ALLEGRO_USTR)* al_ref_cstr(ALLEGRO_USTR_INFO* info, in char* s);
+	const(ALLEGRO_USTR)* al_ref_buffer(ALLEGRO_USTR_INFO* info, in char* s, size_t size);
+	const(ALLEGRO_USTR)* al_ref_ustr(ALLEGRO_USTR_INFO* info, in ALLEGRO_USTR* us, int start_pos, int end_pos);
 
 	/* Sizes and offsets */
 	size_t al_ustr_size(in ALLEGRO_USTR* us);
