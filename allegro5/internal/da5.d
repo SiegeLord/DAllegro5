@@ -45,18 +45,11 @@ char[] ColorWrapper(
 	}
 }
 
-bool needsMinGW4CallingConvention() pure nothrow @nogc
+bool NeedsMinGW4CallingConvention() pure nothrow @nogc
 {
-	version(Windows)
+	version(ALLEGRO_MINGW_4_5)
 	{
-		version(ALLEGRO_MSVC)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+		return true;
 	}
 	else
 	{

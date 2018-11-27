@@ -31,13 +31,13 @@ If you have DMD:
 
 Windows:
 
-If you have MinGW compiled libraries (< 4.6):
+If you have MinGW 4.5 (or earlier) compiled libraries:
+
+build_lib_dmd.bat -version=ALLEGRO_MINGW_4_5
+
+If you have MSVC/DMC/MinGW 4.6+ compiled DLLs:
 
 build_lib_dmd.bat
-
-If you have MSVC/DMC compiled DLLs:
-
-build_lib_dmd.bat -version=ALLEGRO_MSVC
 
 Compiling the example
 =====================
@@ -121,6 +121,6 @@ Windows Notes
     
     -L/SUBSYSTEM:CONSOLE:4.0
 
-* Note that if you are using MSVC or DMC compiled DLLs you will need to set the version to ALLEGRO_MSVC when compiling your own programs as well as when building the library.
+* Note that if you are using MinGW 4.5 (or earlier) or DMC compiled DLLs you will need to set the version to ALLEGRO_MINGW_4_5 when compiling your own programs as well as when building the library.
 
 * You can obtain pre-built libraries at http://liballeg.org/download.html
