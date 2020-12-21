@@ -108,7 +108,7 @@ int main(string[] argv)
    open_log();
 
    if (argv.length < 2) {
-      log_printf("This example needs to be run from the command line.\n"
+      log_printf("This example needs to be run from the command line.\n" ~
                  "Usage: %s [--use-frame-events] <file>\n", argv[0]);
       goto done;
    }
@@ -160,12 +160,12 @@ int main(string[] argv)
    log_printf("video FPS: %f\n", al_get_video_fps(video));
    log_printf("video audio rate: %f\n", al_get_video_audio_rate(video));
    log_printf(
-      "keys:\n"
-      "Space: Play/Pause\n"
-      "cursor right/left: seek 10 seconds\n"
-      "cursor up/down: seek one minute\n"
-      "F: toggle fullscreen\n"
-      "1: disable scaling\n"
+      "keys:\n" ~
+      "Space: Play/Pause\n" ~
+      "cursor right/left: seek 10 seconds\n" ~
+      "cursor up/down: seek one minute\n" ~
+      "F: toggle fullscreen\n" ~
+      "1: disable scaling\n" ~
       "S: scale to window\n");
 
    queue = al_create_event_queue();
