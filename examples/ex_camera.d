@@ -43,9 +43,9 @@ struct Example {
    double movement_speed;
 
    /* keyboard and mouse state */
-   int button[10];
-   int key[ALLEGRO_KEY_MAX];
-   int keystate[ALLEGRO_KEY_MAX];
+   int[10] button;
+   int[ALLEGRO_KEY_MAX] key;
+   int[ALLEGRO_KEY_MAX] keystate;
    int mouse_dx, mouse_dy;
 
    /* control scheme selection */

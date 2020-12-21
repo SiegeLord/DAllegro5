@@ -94,7 +94,7 @@ static void render()
     al_draw_line(50, y, x, y, red, 1);
     al_draw_textf(ex.f2, black, x + 10, y, 0, "(dimensions)");
 
-    al_draw_textf(ex.f3, black, 50, 200, 0, "This font has a size of 12 pixels, "
+    al_draw_textf(ex.f3, black, 50, 200, 0, "This font has a size of 12 pixels, " ~
         "the one above has 48 pixels.");
 
     al_hold_bitmap_drawing(false);
@@ -266,7 +266,7 @@ int main(string[] argv)
     ex.f5 = al_load_font(font_file, 12, ALLEGRO_TTF_MONOCHROME);
 
     {
-        int ranges[] = [0x1F40A, 0x1F40A];
+        int[] ranges = [0x1F40A, 0x1F40A];
         ALLEGRO_BITMAP *icon = al_load_bitmap("data/icon.png");
         ALLEGRO_BITMAP *glyph = al_create_bitmap(50, 50);
         al_set_target_bitmap(glyph);
