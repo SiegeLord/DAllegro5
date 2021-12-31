@@ -37,4 +37,4 @@ nothrow @nogc extern(C)
 	void al_get_separate_blender(int* op, int* source, int* dest, int *alpha_op, int* alpha_src, int* alpha_dest);
 }
 
-mixin(ColorWrapper("allegro5.color_ret.", "al_get_blend_color", "", ""));
+mixin(ColorWrapper!("allegro5.color_ret.", "al_get_blend_color", "", ""));

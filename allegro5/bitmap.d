@@ -68,4 +68,4 @@ nothrow @nogc extern (C)
 
 static import allegro5.color_ret;
 
-mixin(ColorWrapper("allegro5.color_ret.", "al_get_pixel", "ALLEGRO_BITMAP* bitmap, int x, int y", "bitmap, x, y"));
+mixin(ColorWrapper!("allegro5.color_ret.", "al_get_pixel", "ALLEGRO_BITMAP* bitmap, int x, int y", "bitmap, x, y"));
