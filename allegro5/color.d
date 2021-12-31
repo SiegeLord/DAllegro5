@@ -61,9 +61,9 @@ nothrow @nogc extern (C)
 
 static import allegro5.color_ret;
 
-mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgb", "ubyte r, ubyte g, ubyte b", "r, g, b"));
-mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgba", "ubyte r, ubyte g, ubyte b, ubyte a", "r, g, b, a"));
-mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgb_f", "float r, float g, float b", "r, g, b"));
-mixin(ColorWrapper("allegro5.color_ret.", "al_map_rgba_f", "float r, float g, float b, float a", "r, g, b, a"));
-mixin(ColorWrapper("allegro5.color_ret.", "al_premul_rgba", "ubyte r, ubyte g, ubyte b, ubyte a", "r, g, b, a"));
-mixin(ColorWrapper("allegro5.color_ret.", "al_premul_rgba_f", "float r, float g, float b, float a", "r, g, b, a"));
+mixin(ColorWrapper!("allegro5.color_ret.", "al_map_rgb", "ubyte r, ubyte g, ubyte b", "r, g, b"));
+mixin(ColorWrapper!("allegro5.color_ret.", "al_map_rgba", "ubyte r, ubyte g, ubyte b, ubyte a", "r, g, b, a"));
+mixin(ColorWrapper!("allegro5.color_ret.", "al_map_rgb_f", "float r, float g, float b", "r, g, b"));
+mixin(ColorWrapper!("allegro5.color_ret.", "al_map_rgba_f", "float r, float g, float b, float a", "r, g, b, a"));
+mixin(ColorWrapper!("allegro5.color_ret.", "al_premul_rgba", "ubyte r, ubyte g, ubyte b, ubyte a", "r, g, b, a"));
+mixin(ColorWrapper!("allegro5.color_ret.", "al_premul_rgba_f", "float r, float g, float b, float a", "r, g, b, a"));

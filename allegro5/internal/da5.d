@@ -18,8 +18,7 @@ module allegro5.internal.da5;
  * outside any "nothrow @nogc extern (C)" because ColorWrapper will
  * insert attributes itself.
  */
-char[] ColorWrapper(
-	in char[] prefix, in char[] func, in char[] arg_decls, in char[] arg_names)
+string ColorWrapper(string prefix, string func, string arg_decls, string arg_names)()
 {
 	static if (NeedsMinGW4CallingConvention)
 	{

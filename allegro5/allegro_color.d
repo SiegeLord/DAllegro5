@@ -29,10 +29,10 @@ nothrow @nogc extern (C)
 
 static import allegro5.allegro_color_ret;
 
-mixin(ColorWrapper("allegro5.allegro_color_ret.", "al_color_yuv", "float y, float u, float v", "y, u, v"));
-mixin(ColorWrapper("allegro5.allegro_color_ret.", "al_color_cmyk", "float c, float m, float y, float k", "c, m, y, k"));
-mixin(ColorWrapper("allegro5.allegro_color_ret.", "al_color_hsl", "float h, float s, float l", "h, s, l"));
-mixin(ColorWrapper("allegro5.allegro_color_ret.", "al_color_hsv", "float h, float s, float v", "h, s, v"));
-mixin(ColorWrapper("allegro5.allegro_color_ret.", "al_color_name", "in char* name", "name"));
-mixin(ColorWrapper("allegro5.allegro_color_ret.", "al_color_html", "in char* string", "string"));
+mixin(ColorWrapper!("allegro5.allegro_color_ret.", "al_color_yuv", "float y, float u, float v", "y, u, v"));
+mixin(ColorWrapper!("allegro5.allegro_color_ret.", "al_color_cmyk", "float c, float m, float y, float k", "c, m, y, k"));
+mixin(ColorWrapper!("allegro5.allegro_color_ret.", "al_color_hsl", "float h, float s, float l", "h, s, l"));
+mixin(ColorWrapper!("allegro5.allegro_color_ret.", "al_color_hsv", "float h, float s, float v", "h, s, v"));
+mixin(ColorWrapper!("allegro5.allegro_color_ret.", "al_color_name", "in char* name", "name"));
+mixin(ColorWrapper!("allegro5.allegro_color_ret.", "al_color_html", "in char* string", "string"));
 
