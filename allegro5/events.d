@@ -188,7 +188,7 @@ nothrow @nogc extern (C)
 	bool al_emit_user_event(ALLEGRO_EVENT_SOURCE *, ALLEGRO_EVENT *, void function(ALLEGRO_USER_EVENT *) dtor);
 	void al_unref_user_event(ALLEGRO_USER_EVENT *);
 	void al_set_event_source_data(ALLEGRO_EVENT_SOURCE*, intptr_t data);
-	intptr_t al_get_event_source_data(in ALLEGRO_EVENT_SOURCE*);
+	intptr_t al_get_event_source_data(const(ALLEGRO_EVENT_SOURCE)*);
 
 	/* Event queues */
 
@@ -200,7 +200,7 @@ nothrow @nogc extern (C)
 	void al_register_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
 	void al_unregister_event_source(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT_SOURCE*);
 	void al_pause_event_queue(ALLEGRO_EVENT_QUEUE*, bool);
-	bool al_is_event_queue_paused(in ALLEGRO_EVENT_QUEUE*);
+	bool al_is_event_queue_paused(const(ALLEGRO_EVENT_QUEUE)*);
 	bool al_is_event_queue_empty(ALLEGRO_EVENT_QUEUE*);
 	bool al_get_next_event(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT* ret_event);
 	bool al_peek_next_event(ALLEGRO_EVENT_QUEUE*, ALLEGRO_EVENT* ret_event);

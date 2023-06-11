@@ -32,8 +32,8 @@ nothrow @nogc extern (C)
 	bool al_set_mouse_w         (int w);
 	bool al_set_mouse_axis      (int axis, int value);
 	void al_get_mouse_state     (ALLEGRO_MOUSE_STATE* ret_state);
-	bool al_mouse_button_down   (in ALLEGRO_MOUSE_STATE* state, int button);
-	int  al_get_mouse_state_axis(in ALLEGRO_MOUSE_STATE* state, int axis);
+	bool al_mouse_button_down   (const(ALLEGRO_MOUSE_STATE)* state, int button);
+	int  al_get_mouse_state_axis(const(ALLEGRO_MOUSE_STATE)* state, int axis);
 
 	ALLEGRO_EVENT_SOURCE* al_get_mouse_event_source();
 

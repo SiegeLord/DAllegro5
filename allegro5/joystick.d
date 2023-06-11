@@ -40,15 +40,15 @@ nothrow @nogc extern (C)
 	bool              al_get_joystick_active(ALLEGRO_JOYSTICK* joystick);
 	const(char)*       al_get_joystick_name(ALLEGRO_JOYSTICK* joystick);
 
-	int               al_get_joystick_num_sticks(in ALLEGRO_JOYSTICK* joystick);
-	int               al_get_joystick_stick_flags(in ALLEGRO_JOYSTICK* joystick, int stick); /* junk? */
-	const(char)*       al_get_joystick_stick_name(in ALLEGRO_JOYSTICK* joystick, int stick);
+	int               al_get_joystick_num_sticks(const(ALLEGRO_JOYSTICK)* joystick);
+	int               al_get_joystick_stick_flags(const(ALLEGRO_JOYSTICK)* joystick, int stick); /* junk? */
+	const(char)*       al_get_joystick_stick_name(const(ALLEGRO_JOYSTICK)* joystick, int stick);
 
-	int               al_get_joystick_num_axes(in ALLEGRO_JOYSTICK* joystick, int stick);
-	const(char)*       al_get_joystick_axis_name(in ALLEGRO_JOYSTICK* joystick, int stick, int axis);
+	int               al_get_joystick_num_axes(const(ALLEGRO_JOYSTICK)* joystick, int stick);
+	const(char)*       al_get_joystick_axis_name(const(ALLEGRO_JOYSTICK)* joystick, int stick, int axis);
 
-	int               al_get_joystick_num_buttons(in ALLEGRO_JOYSTICK* joystick);
-	const(char)*       al_get_joystick_button_name(in ALLEGRO_JOYSTICK* joystick, int buttonn);
+	int               al_get_joystick_num_buttons(const(ALLEGRO_JOYSTICK)* joystick);
+	const(char)*       al_get_joystick_button_name(const(ALLEGRO_JOYSTICK)* joystick, int buttonn);
 
 	void              al_get_joystick_state(ALLEGRO_JOYSTICK* joystick, ALLEGRO_JOYSTICK_STATE* ret_state);
 

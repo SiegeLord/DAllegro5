@@ -26,7 +26,7 @@ nothrow @nogc extern (C)
 	const(char)* al_keycode_to_name(int keycode);
 
 	void  al_get_keyboard_state(ALLEGRO_KEYBOARD_STATE* ret_state);
-	bool  al_key_down          (in ALLEGRO_KEYBOARD_STATE* state, int keycode);
+	bool  al_key_down          (const(ALLEGRO_KEYBOARD_STATE)* state, int keycode);
 
 	ALLEGRO_EVENT_SOURCE* al_get_keyboard_event_source();
 }

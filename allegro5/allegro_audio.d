@@ -109,27 +109,27 @@ nothrow @nogc extern (C)
 	ALLEGRO_SAMPLE_INSTANCE* al_create_sample_instance(ALLEGRO_SAMPLE* data);
 	void al_destroy_sample_instance(ALLEGRO_SAMPLE_INSTANCE* spl);
 
-	uint al_get_sample_frequency(in ALLEGRO_SAMPLE* spl);
-	uint al_get_sample_length(in ALLEGRO_SAMPLE* spl);
-	ALLEGRO_AUDIO_DEPTH al_get_sample_depth(in ALLEGRO_SAMPLE* spl);
-	ALLEGRO_CHANNEL_CONF al_get_sample_channels(in ALLEGRO_SAMPLE* spl);
-	void* al_get_sample_data(in ALLEGRO_SAMPLE* spl);
+	uint al_get_sample_frequency(const(ALLEGRO_SAMPLE)* spl);
+	uint al_get_sample_length(const(ALLEGRO_SAMPLE)* spl);
+	ALLEGRO_AUDIO_DEPTH al_get_sample_depth(const(ALLEGRO_SAMPLE)* spl);
+	ALLEGRO_CHANNEL_CONF al_get_sample_channels(const(ALLEGRO_SAMPLE)* spl);
+	void* al_get_sample_data(const(ALLEGRO_SAMPLE)* spl);
 
-	uint al_get_sample_instance_frequency(in ALLEGRO_SAMPLE_INSTANCE* spl);
-	uint al_get_sample_instance_length(in ALLEGRO_SAMPLE_INSTANCE* spl);
-	uint al_get_sample_instance_position(in ALLEGRO_SAMPLE_INSTANCE* spl);
+	uint al_get_sample_instance_frequency(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
+	uint al_get_sample_instance_length(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
+	uint al_get_sample_instance_position(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
 
-	float al_get_sample_instance_speed(in ALLEGRO_SAMPLE_INSTANCE* spl);
-	float al_get_sample_instance_gain(in ALLEGRO_SAMPLE_INSTANCE* spl);
-	float al_get_sample_instance_pan(in ALLEGRO_SAMPLE_INSTANCE* spl);
-	float al_get_sample_instance_time(in ALLEGRO_SAMPLE_INSTANCE* spl);
+	float al_get_sample_instance_speed(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
+	float al_get_sample_instance_gain(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
+	float al_get_sample_instance_pan(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
+	float al_get_sample_instance_time(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
 
-	ALLEGRO_AUDIO_DEPTH al_get_sample_instance_depth(in ALLEGRO_SAMPLE_INSTANCE* spl);
-	ALLEGRO_CHANNEL_CONF al_get_sample_instance_channels(in ALLEGRO_SAMPLE_INSTANCE* spl);
-	ALLEGRO_PLAYMODE al_get_sample_instance_playmode(in ALLEGRO_SAMPLE_INSTANCE* spl);
+	ALLEGRO_AUDIO_DEPTH al_get_sample_instance_depth(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
+	ALLEGRO_CHANNEL_CONF al_get_sample_instance_channels(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
+	ALLEGRO_PLAYMODE al_get_sample_instance_playmode(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
 
-	bool al_get_sample_instance_playing(in ALLEGRO_SAMPLE_INSTANCE* spl);
-	bool al_get_sample_instance_attached(in ALLEGRO_SAMPLE_INSTANCE* spl);
+	bool al_get_sample_instance_playing(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
+	bool al_get_sample_instance_attached(const(ALLEGRO_SAMPLE_INSTANCE)* spl);
 
 	bool al_set_sample_instance_position(ALLEGRO_SAMPLE_INSTANCE* spl, uint val);
 	bool al_set_sample_instance_length(ALLEGRO_SAMPLE_INSTANCE* spl, uint val);
@@ -154,24 +154,24 @@ nothrow @nogc extern (C)
 	void al_destroy_audio_stream(ALLEGRO_AUDIO_STREAM* stream);
 	void al_drain_audio_stream(ALLEGRO_AUDIO_STREAM* stream);
 
-	uint al_get_audio_stream_frequency(in ALLEGRO_AUDIO_STREAM* stream);
-	uint al_get_audio_stream_length(in ALLEGRO_AUDIO_STREAM* stream);
-	uint al_get_audio_stream_fragments(in ALLEGRO_AUDIO_STREAM* stream);
-	uint al_get_available_audio_stream_fragments(in ALLEGRO_AUDIO_STREAM* stream);
+	uint al_get_audio_stream_frequency(const(ALLEGRO_AUDIO_STREAM)* stream);
+	uint al_get_audio_stream_length(const(ALLEGRO_AUDIO_STREAM)* stream);
+	uint al_get_audio_stream_fragments(const(ALLEGRO_AUDIO_STREAM)* stream);
+	uint al_get_available_audio_stream_fragments(const(ALLEGRO_AUDIO_STREAM)* stream);
 
-	float al_get_audio_stream_speed(in ALLEGRO_AUDIO_STREAM* stream);
-	float al_get_audio_stream_gain(in ALLEGRO_AUDIO_STREAM* stream);
-	float al_get_audio_stream_pan(in ALLEGRO_AUDIO_STREAM* stream);
+	float al_get_audio_stream_speed(const(ALLEGRO_AUDIO_STREAM)* stream);
+	float al_get_audio_stream_gain(const(ALLEGRO_AUDIO_STREAM)* stream);
+	float al_get_audio_stream_pan(const(ALLEGRO_AUDIO_STREAM)* stream);
 
-	ALLEGRO_CHANNEL_CONF al_get_audio_stream_channels(in ALLEGRO_AUDIO_STREAM* stream);
-	ALLEGRO_AUDIO_DEPTH al_get_audio_stream_depth(in ALLEGRO_AUDIO_STREAM* stream);
-	ALLEGRO_PLAYMODE al_get_audio_stream_playmode(in ALLEGRO_AUDIO_STREAM* stream);
+	ALLEGRO_CHANNEL_CONF al_get_audio_stream_channels(const(ALLEGRO_AUDIO_STREAM)* stream);
+	ALLEGRO_AUDIO_DEPTH al_get_audio_stream_depth(const(ALLEGRO_AUDIO_STREAM)* stream);
+	ALLEGRO_PLAYMODE al_get_audio_stream_playmode(const(ALLEGRO_AUDIO_STREAM)* stream);
 
-	bool al_get_audio_stream_playing(in ALLEGRO_AUDIO_STREAM* spl);
-	bool al_get_audio_stream_attached(in ALLEGRO_AUDIO_STREAM* spl);
-	ulong al_get_audio_stream_played_samples(in ALLEGRO_AUDIO_STREAM* stream);
+	bool al_get_audio_stream_playing(const(ALLEGRO_AUDIO_STREAM)* spl);
+	bool al_get_audio_stream_attached(const(ALLEGRO_AUDIO_STREAM)* spl);
+	ulong al_get_audio_stream_played_samples(const(ALLEGRO_AUDIO_STREAM)* stream);
 
-	void* al_get_audio_stream_fragment(in ALLEGRO_AUDIO_STREAM* stream);
+	void* al_get_audio_stream_fragment(const(ALLEGRO_AUDIO_STREAM)* stream);
 
 	bool al_set_audio_stream_speed(ALLEGRO_AUDIO_STREAM* stream, float val);
 	bool al_set_audio_stream_gain(ALLEGRO_AUDIO_STREAM* stream, float val);
@@ -200,13 +200,13 @@ nothrow @nogc extern (C)
 	bool al_attach_mixer_to_mixer(ALLEGRO_MIXER* stream, ALLEGRO_MIXER* mixer);
 	bool al_set_mixer_postprocess_callback(ALLEGRO_MIXER* mixer, void function(void* buf, uint samples, void* data) cb, void* data);
 
-	uint al_get_mixer_frequency(in ALLEGRO_MIXER* mixer);
-	ALLEGRO_CHANNEL_CONF al_get_mixer_channels(in ALLEGRO_MIXER* mixer);
-	ALLEGRO_AUDIO_DEPTH al_get_mixer_depth(in ALLEGRO_MIXER* mixer);
-	ALLEGRO_MIXER_QUALITY al_get_mixer_quality(in ALLEGRO_MIXER* mixer);
-	float al_get_mixer_gain(in ALLEGRO_MIXER *mixer);
-	bool al_get_mixer_playing(in ALLEGRO_MIXER* mixer);
-	bool al_get_mixer_attached(in ALLEGRO_MIXER* mixer);
+	uint al_get_mixer_frequency(const(ALLEGRO_MIXER)* mixer);
+	ALLEGRO_CHANNEL_CONF al_get_mixer_channels(const(ALLEGRO_MIXER)* mixer);
+	ALLEGRO_AUDIO_DEPTH al_get_mixer_depth(const(ALLEGRO_MIXER)* mixer);
+	ALLEGRO_MIXER_QUALITY al_get_mixer_quality(const(ALLEGRO_MIXER)* mixer);
+	float al_get_mixer_gain(const(ALLEGRO_MIXER)* mixer);
+	bool al_get_mixer_playing(const(ALLEGRO_MIXER)* mixer);
+	bool al_get_mixer_attached(const(ALLEGRO_MIXER)* mixer);
 	bool al_set_mixer_frequency(ALLEGRO_MIXER* mixer, uint val);
 	bool al_set_mixer_quality(ALLEGRO_MIXER* mixer, ALLEGRO_MIXER_QUALITY val);
 	bool al_set_mixer_gain(ALLEGRO_MIXER *mixer, float gain);
@@ -224,11 +224,11 @@ nothrow @nogc extern (C)
 	ALLEGRO_VOICE* voice);
 	void al_detach_voice(ALLEGRO_VOICE* voice);
 
-	uint al_get_voice_frequency(in ALLEGRO_VOICE* voice);
-	uint al_get_voice_position(in ALLEGRO_VOICE* voice);
-	ALLEGRO_CHANNEL_CONF al_get_voice_channels(in ALLEGRO_VOICE* voice);
-	ALLEGRO_AUDIO_DEPTH al_get_voice_depth(in ALLEGRO_VOICE* voice);
-	bool al_get_voice_playing(in ALLEGRO_VOICE* voice);
+	uint al_get_voice_frequency(const(ALLEGRO_VOICE)* voice);
+	uint al_get_voice_position(const(ALLEGRO_VOICE)* voice);
+	ALLEGRO_CHANNEL_CONF al_get_voice_channels(const(ALLEGRO_VOICE)* voice);
+	ALLEGRO_AUDIO_DEPTH al_get_voice_depth(const(ALLEGRO_VOICE)* voice);
+	bool al_get_voice_playing(const(ALLEGRO_VOICE)* voice);
 	bool al_set_voice_position(ALLEGRO_VOICE* voice, uint val);
 	bool al_set_voice_playing(ALLEGRO_VOICE* voice, bool val);
 
@@ -255,21 +255,21 @@ nothrow @nogc extern (C)
 	void al_set_default_voice(ALLEGRO_VOICE* voice);
 
 	/* File type handlers */
-	bool al_register_sample_loader(in char* ext, ALLEGRO_SAMPLE* function(in char* filename) loader);
-	bool al_register_sample_saver(in char* ext, bool function(in char* filename, ALLEGRO_SAMPLE* spl) saver);
-	bool al_register_audio_stream_loader(in char* ext, ALLEGRO_AUDIO_STREAM* function(in char* filename, size_t buffer_count, uint samples) stream_loader);
+	bool al_register_sample_loader(const(char)* ext, ALLEGRO_SAMPLE* function(const(char)* filename) loader);
+	bool al_register_sample_saver(const(char)* ext, bool function(const(char)* filename, ALLEGRO_SAMPLE* spl) saver);
+	bool al_register_audio_stream_loader(const(char)* ext, ALLEGRO_AUDIO_STREAM* function(const(char)* filename, size_t buffer_count, uint samples) stream_loader);
 
-	bool al_register_sample_loader_f(in char* ext, ALLEGRO_SAMPLE* function(ALLEGRO_FILE* fp) loader);
-	bool al_register_sample_saver_f(in char* ext, bool function(ALLEGRO_FILE* fp, ALLEGRO_SAMPLE* spl) saver);
-	bool al_register_audio_stream_loader_f(in char* ext, ALLEGRO_AUDIO_STREAM* function(ALLEGRO_FILE* fp, size_t buffer_count, uint samples) stream_loader);
+	bool al_register_sample_loader_f(const(char)* ext, ALLEGRO_SAMPLE* function(ALLEGRO_FILE* fp) loader);
+	bool al_register_sample_saver_f(const(char)* ext, bool function(ALLEGRO_FILE* fp, ALLEGRO_SAMPLE* spl) saver);
+	bool al_register_audio_stream_loader_f(const(char)* ext, ALLEGRO_AUDIO_STREAM* function(ALLEGRO_FILE* fp, size_t buffer_count, uint samples) stream_loader);
 
-	ALLEGRO_SAMPLE* al_load_sample(in char* filename);
-	bool al_save_sample(in char* filename, ALLEGRO_SAMPLE* spl);
-	ALLEGRO_AUDIO_STREAM* al_load_audio_stream(in char* filename, size_t buffer_count, uint samples);
+	ALLEGRO_SAMPLE* al_load_sample(const(char)* filename);
+	bool al_save_sample(const(char)* filename, ALLEGRO_SAMPLE* spl);
+	ALLEGRO_AUDIO_STREAM* al_load_audio_stream(const(char)* filename, size_t buffer_count, uint samples);
 
-	ALLEGRO_SAMPLE* al_load_sample_f(ALLEGRO_FILE* fp, in char* ident);
-	bool al_save_sample_f(ALLEGRO_FILE* fp, in char* ident, ALLEGRO_SAMPLE* spl);
-	ALLEGRO_AUDIO_STREAM * al_load_audio_stream_f(ALLEGRO_FILE* fp, in char* ident,	size_t buffer_count, uint samples);
+	ALLEGRO_SAMPLE* al_load_sample_f(ALLEGRO_FILE* fp, const(char)* ident);
+	bool al_save_sample_f(ALLEGRO_FILE* fp, const(char)* ident, ALLEGRO_SAMPLE* spl);
+	ALLEGRO_AUDIO_STREAM * al_load_audio_stream_f(ALLEGRO_FILE* fp, const(char)* ident,	size_t buffer_count, uint samples);
 
 	/* Recording functions */
 	version (AllegroAudioUnstable)

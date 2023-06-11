@@ -18,10 +18,10 @@ nothrow @nogc extern (C)
 		ALLEGRO_TTF_NO_AUTOHINT  = 4
 	}
 
-	ALLEGRO_FONT* al_load_ttf_font(in char* filename, int size, int flags);
-	ALLEGRO_FONT* al_load_ttf_font_f(ALLEGRO_FILE* file, in char* filename, int size, int flags);
-	ALLEGRO_FONT* al_load_ttf_font_stretch(in char* filename, int w, int h, int flags);
-	ALLEGRO_FONT* al_load_ttf_font_stretch_f(ALLEGRO_FILE *file, in char* filename, int w, int h, int flags);
+	ALLEGRO_FONT* al_load_ttf_font(const(char)* filename, int size, int flags);
+	ALLEGRO_FONT* al_load_ttf_font_f(ALLEGRO_FILE* file, const(char)* filename, int size, int flags);
+	ALLEGRO_FONT* al_load_ttf_font_stretch(const(char)* filename, int w, int h, int flags);
+	ALLEGRO_FONT* al_load_ttf_font_stretch_f(ALLEGRO_FILE *file, const(char)* filename, int w, int h, int flags);
 
 	bool al_init_ttf_addon();
 	void al_shutdown_ttf_addon();

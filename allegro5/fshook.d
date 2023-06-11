@@ -35,7 +35,7 @@ nothrow @nogc extern (C)
 
 	struct ALLEGRO_FS_INTERFACE
 	{
-		ALLEGRO_FS_ENTRY* function(in char* path) fs_create_entry;
+		ALLEGRO_FS_ENTRY* function(const(char)* path) fs_create_entry;
 		void              function(ALLEGRO_FS_ENTRY* e) fs_destroy_entry;
 		const(char)*       function(ALLEGRO_FS_ENTRY* e) fs_entry_name;
 		bool              function(ALLEGRO_FS_ENTRY* e) fs_update_entry;
@@ -51,16 +51,16 @@ nothrow @nogc extern (C)
 		ALLEGRO_FS_ENTRY* function(ALLEGRO_FS_ENTRY* e) fs_read_directory;
 		bool              function(ALLEGRO_FS_ENTRY* e) fs_close_directory;
 
-		bool              function(in char* path) fs_filename_exists;
-		bool              function(in char* path) fs_remove_filename;
+		bool              function(const(char)* path) fs_filename_exists;
+		bool              function(const(char)* path) fs_remove_filename;
 		ALLEGRO_PATH*     function() fs_get_current_directory;
-		bool              function(in char* path) fs_change_directory;
-		bool              function(in char* path) fs_make_directory;
+		bool              function(const(char)* path) fs_change_directory;
+		bool              function(const(char)* path) fs_make_directory;
 
-		ALLEGRO_FILE *    function(ALLEGRO_FS_ENTRY* e, in char* mode) fs_open_file;
+		ALLEGRO_FILE *    function(ALLEGRO_FS_ENTRY* e, const(char)* mode) fs_open_file;
 	}
 
-	ALLEGRO_FS_ENTRY*    al_create_fs_entry(in char* path);
+	ALLEGRO_FS_ENTRY*    al_create_fs_entry(const(char)* path);
 	void                 al_destroy_fs_entry(ALLEGRO_FS_ENTRY* e);
 	const(char)*          al_get_fs_entry_name(ALLEGRO_FS_ENTRY* e);
 	bool                 al_update_fs_entry(ALLEGRO_FS_ENTRY* e);
@@ -76,13 +76,13 @@ nothrow @nogc extern (C)
 	ALLEGRO_FS_ENTRY*    al_read_directory(ALLEGRO_FS_ENTRY* e);
 	bool                 al_close_directory(ALLEGRO_FS_ENTRY* e);
 
-	bool                 al_filename_exists(in char* path);
-	bool                 al_remove_filename(in char* path);
+	bool                 al_filename_exists(const(char)* path);
+	bool                 al_remove_filename(const(char)* path);
 	char*                al_get_current_directory();
-	bool                 al_change_directory(in char* path);
-	bool                 al_make_directory(in char* path);
+	bool                 al_change_directory(const(char)* path);
+	bool                 al_make_directory(const(char)* path);
 
-	ALLEGRO_FILE*        al_open_fs_entry(ALLEGRO_FS_ENTRY* e, in char* mode);
+	ALLEGRO_FILE*        al_open_fs_entry(ALLEGRO_FS_ENTRY* e, const(char)* mode);
 
 	enum ALLEGRO_FOR_EACH_FS_ENTRY_RESULT
 	{
@@ -98,6 +98,6 @@ nothrow @nogc extern (C)
 
 	/* Thread-local state. */
 	ALLEGRO_FS_INTERFACE* al_get_fs_interface();
-	void al_set_fs_interface(in ALLEGRO_FS_INTERFACE* vtable);
+	void al_set_fs_interface(const(ALLEGRO_FS_INTERFACE)* vtable);
 	void al_set_standard_fs_interface();
 }

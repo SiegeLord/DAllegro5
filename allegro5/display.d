@@ -144,7 +144,7 @@ nothrow @nogc extern (C)
 	bool al_set_window_constraints(ALLEGRO_DISPLAY* display, int min_w, int min_h, int max_w, int max_h);
 	bool al_get_window_constraints(ALLEGRO_DISPLAY* display, int* min_w, int* min_h, int* max_w, int* max_h);
 
-	void al_set_window_title(ALLEGRO_DISPLAY* display, in char* title);
+	void al_set_window_title(ALLEGRO_DISPLAY* display, const(char)* title);
 
 	/* Defined in display_settings.c */
 	void al_set_new_display_option(int option, int value, int importance);

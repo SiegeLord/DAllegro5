@@ -26,7 +26,7 @@ nothrow @nogc extern (C)
 		ALLEGRO_VIDEO_POSITION_AUDIO_DECODE  = 2
 	}
 
-	ALLEGRO_VIDEO* al_open_video(in char* filename);
+	ALLEGRO_VIDEO* al_open_video(const(char)* filename);
 	void al_close_video(ALLEGRO_VIDEO* video);
 	void al_start_video(ALLEGRO_VIDEO* video, ALLEGRO_MIXER* mixer);
 	void al_start_video_with_voice(ALLEGRO_VIDEO* video, ALLEGRO_VOICE* voice);

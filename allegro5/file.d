@@ -19,10 +19,10 @@ nothrow @nogc extern (C)
 {
 	struct ALLEGRO_FILE_INTERFACE
 	{
-		void*   function(in char* path, in char* mode) fi_fopen;
+		void*   function(const(char)* path, const(char)* mode) fi_fopen;
 		bool    function(ALLEGRO_FILE* handle) fi_fclose;
 		size_t  function(ALLEGRO_FILE* f, void* ptr, size_t size) fi_fread;
-		size_t  function(ALLEGRO_FILE* f, in void* ptr, size_t size) fi_fwrite;
+		size_t  function(ALLEGRO_FILE* f, const(void)* ptr, size_t size) fi_fwrite;
 		bool    function(ALLEGRO_FILE* f) fi_fflush;
 		long    function(ALLEGRO_FILE* f) fi_ftell;
 		bool    function(ALLEGRO_FILE* f, long offset, int whence) fi_fseek;
@@ -47,12 +47,12 @@ nothrow @nogc extern (C)
 
 
 	/* The basic operations. */
-	ALLEGRO_FILE* al_fopen(in char* path, in char* mode);
-	ALLEGRO_FILE* al_fopen_interface(in ALLEGRO_FILE_INTERFACE* vt, in char* path, in char* mode);
-	ALLEGRO_FILE* al_create_file_handle(in ALLEGRO_FILE_INTERFACE* vt, void* userdata);
+	ALLEGRO_FILE* al_fopen(const(char)* path, const(char)* mode);
+	ALLEGRO_FILE* al_fopen_interface(const(ALLEGRO_FILE_INTERFACE)* vt, const(char)* path, const(char)* mode);
+	ALLEGRO_FILE* al_create_file_handle(const(ALLEGRO_FILE_INTERFACE)* vt, void* userdata);
 	bool al_fclose(ALLEGRO_FILE* f);
 	size_t al_fread(ALLEGRO_FILE* f, void* ptr, size_t size);
-	size_t al_fwrite(ALLEGRO_FILE* f, in void* ptr, size_t size);
+	size_t al_fwrite(ALLEGRO_FILE* f, const(void)* ptr, size_t size);
 	bool al_fflush(ALLEGRO_FILE* f);
 	long al_ftell(ALLEGRO_FILE* f);
 	bool al_fseek(ALLEGRO_FILE* f, long offset, int whence);
@@ -74,22 +74,22 @@ nothrow @nogc extern (C)
 	int al_fread32be(ALLEGRO_FILE* f);
 	size_t al_fwrite32le(ALLEGRO_FILE* f, int l);
 	size_t al_fwrite32be(ALLEGRO_FILE* f, int l);
-	char* al_fgets(ALLEGRO_FILE* f, in char* p, size_t max);
+	char* al_fgets(ALLEGRO_FILE* f, const(char)* p, size_t max);
 	ALLEGRO_USTR* al_fget_ustr(ALLEGRO_FILE* f);
-	int al_fputs(ALLEGRO_FILE* f, in char* p);
+	int al_fputs(ALLEGRO_FILE* f, const(char)* p);
 	int al_fprintf(ALLEGRO_FILE *f, const char *format, ...);
 	int al_vfprintf(ALLEGRO_FILE *f, const char* format, va_list args);
 
 	/* Specific to stdio backend. */
-	ALLEGRO_FILE* al_fopen_fd(int fd, in char* mode);
-	ALLEGRO_FILE* al_make_temp_file(in char* tmpl,	ALLEGRO_PATH **ret_path);
+	ALLEGRO_FILE* al_fopen_fd(int fd, const(char)* mode);
+	ALLEGRO_FILE* al_make_temp_file(const(char)* tmpl,	ALLEGRO_PATH **ret_path);
 
 	/* Specific to slices. */
-	ALLEGRO_FILE* al_fopen_slice(ALLEGRO_FILE* fp, size_t initial_size, in char *mode);
+	ALLEGRO_FILE* al_fopen_slice(ALLEGRO_FILE* fp, size_t initial_size, const(char)* mode);
 
 	/* Thread-local state. */
 	ALLEGRO_FILE_INTERFACE* al_get_new_file_interface();
-	void al_set_new_file_interface(in ALLEGRO_FILE_INTERFACE* file_interface);
+	void al_set_new_file_interface(const(ALLEGRO_FILE_INTERFACE)* file_interface);
 	void al_set_standard_file_interface();
 	void* al_get_file_userdata(ALLEGRO_FILE *f);
 }
