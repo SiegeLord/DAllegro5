@@ -10,6 +10,6 @@ import allegro5.allegro;
 
 nothrow @nogc extern (C)
 {
-	ALLEGRO_FILE* al_open_memfile(void* mem, long size, in char* mode);
+	ALLEGRO_FILE* al_open_memfile(void* mem, long size, const(char)* mode);
 	uint al_get_allegro_memfile_version();
 }

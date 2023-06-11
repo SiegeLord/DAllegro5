@@ -119,18 +119,18 @@ nothrow @nogc extern (C)
 	*/
 	bool al_init_primitives_addon();
 	void al_shutdown_primitives_addon();
-	int al_draw_prim(in void* vtxs, in ALLEGRO_VERTEX_DECL* decl, ALLEGRO_BITMAP* texture, int start, int end, int type);
-	int al_draw_indexed_prim(in void* vtxs, in ALLEGRO_VERTEX_DECL* decl, ALLEGRO_BITMAP* texture, in int* indices, int num_vtx, int type);
+	int al_draw_prim(const(void)* vtxs, const(ALLEGRO_VERTEX_DECL)* decl, ALLEGRO_BITMAP* texture, int start, int end, int type);
+	int al_draw_indexed_prim(const(void)* vtxs, const(ALLEGRO_VERTEX_DECL)* decl, ALLEGRO_BITMAP* texture, const(int)* indices, int num_vtx, int type);
 	int al_draw_vertex_buffer(ALLEGRO_VERTEX_BUFFER* vertex_buffer, ALLEGRO_BITMAP* texture, int start, int end, int type);
 	int al_draw_indexed_buffer(ALLEGRO_VERTEX_BUFFER* vertex_buffer, ALLEGRO_BITMAP* texture, ALLEGRO_INDEX_BUFFER* index_buffer, int start, int end, int type);
 
-	ALLEGRO_VERTEX_DECL* al_create_vertex_decl(in ALLEGRO_VERTEX_ELEMENT* elements, int stride);
+	ALLEGRO_VERTEX_DECL* al_create_vertex_decl(const(ALLEGRO_VERTEX_ELEMENT)* elements, int stride);
 	void al_destroy_vertex_decl(ALLEGRO_VERTEX_DECL* decl);
 
 	/*
 	* Vertex buffers
 	*/
-	ALLEGRO_VERTEX_BUFFER* al_create_vertex_buffer(ALLEGRO_VERTEX_DECL* decl, in void* initial_data, int num_vertices, int flags);
+	ALLEGRO_VERTEX_BUFFER* al_create_vertex_buffer(ALLEGRO_VERTEX_DECL* decl, const(void)* initial_data, int num_vertices, int flags);
 	void al_destroy_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer);
 	void* al_lock_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer, int offset, int length, int flags);
 	void al_unlock_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer);
@@ -139,7 +139,7 @@ nothrow @nogc extern (C)
 	/*
 	 * Index buffers
 	 */
-	ALLEGRO_INDEX_BUFFER* al_create_index_buffer(int index_size, in void* initial_data, int num_indices, int flags);
+	ALLEGRO_INDEX_BUFFER* al_create_index_buffer(int index_size, const(void)* initial_data, int num_indices, int flags);
 	void al_destroy_index_buffer(ALLEGRO_INDEX_BUFFER* buffer);
 	void* al_lock_index_buffer(ALLEGRO_INDEX_BUFFER* buffer, int offset, int length, int flags);
 	void al_unlock_index_buffer(ALLEGRO_INDEX_BUFFER* buffer);
@@ -148,7 +148,7 @@ nothrow @nogc extern (C)
 	/*
 	* Utilities for high level primitives.
 	*/
-	bool al_triangulate_polygon(in float* vertices, size_t vertex_stride, in int* vertex_counts, void function(int, int, int, void*) emit_triangle, void* userdata);
+	bool al_triangulate_polygon(const(float)* vertices, size_t vertex_stride, const(int)* vertex_counts, void function(int, int, int, void*) emit_triangle, void* userdata);
 
 	/*
 	* Custom primitives
@@ -181,8 +181,8 @@ nothrow @nogc extern (C)
 	void al_calculate_spline(float* dest, int stride, float[8] points, float thickness, int num_segments);
 	void al_draw_spline(float[8] points, ALLEGRO_COLOR color, float thickness);
 
-	void al_calculate_ribbon(float* dest, int dest_stride, in float *points, int points_stride, float thickness, int num_segments);
-	void al_draw_ribbon(in float *points, int points_stride, ALLEGRO_COLOR color, float thickness, int num_segments);
+	void al_calculate_ribbon(float* dest, int dest_stride, const(float)* points, int points_stride, float thickness, int num_segments);
+	void al_draw_ribbon(const(float)* points, int points_stride, ALLEGRO_COLOR color, float thickness, int num_segments);
 
 	void al_draw_filled_triangle(float x1, float y1, float x2, float y2, float x3, float y3, ALLEGRO_COLOR color);
 	void al_draw_filled_rectangle(float x1, float y1, float x2, float y2, ALLEGRO_COLOR color);
@@ -191,9 +191,9 @@ nothrow @nogc extern (C)
 	void al_draw_filled_pieslice(float cx, float cy, float r, float start_theta, float delta_theta, ALLEGRO_COLOR color);
 	void al_draw_filled_rounded_rectangle(float x1, float y1, float x2, float y2, float rx, float ry, ALLEGRO_COLOR color);
 
-	void al_draw_polyline(in float* vertices, int vertex_stride, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_LINE_CAP cap_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
+	void al_draw_polyline(const(float)* vertices, int vertex_stride, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_LINE_CAP cap_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
 
-	void al_draw_polygon(in float* vertices, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
-	void al_draw_filled_polygon(in float* vertices, int vertex_count, ALLEGRO_COLOR color);
-	void al_draw_filled_polygon_with_holes(in float* vertices, in int* vertex_counts, ALLEGRO_COLOR color);
+	void al_draw_polygon(const(float)* vertices, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
+	void al_draw_filled_polygon(const(float)* vertices, int vertex_count, ALLEGRO_COLOR color);
+	void al_draw_filled_polygon_with_holes(const(float)* vertices, const(int)* vertex_counts, ALLEGRO_COLOR color);
 }

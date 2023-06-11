@@ -49,25 +49,25 @@ nothrow @nogc extern (C)
 
 	bool al_init_native_dialog_addon();
 	void al_shutdown_native_dialog_addon();
-	ALLEGRO_FILECHOOSER* al_create_native_file_dialog(in ALLEGRO_PATH* initial_path, in char* title, in char* patterns, int mode);
+	ALLEGRO_FILECHOOSER* al_create_native_file_dialog(const(ALLEGRO_PATH)* initial_path, const(char)* title, const(char)* patterns, int mode);
 	void al_show_native_file_dialog(ALLEGRO_DISPLAY* display, ALLEGRO_FILECHOOSER* dialog);
-	int al_get_native_file_dialog_count(in ALLEGRO_FILECHOOSER* dialog);
-	ALLEGRO_PATH* al_get_native_file_dialog_path(in ALLEGRO_FILECHOOSER* dialog, size_t index);
+	int al_get_native_file_dialog_count(const(ALLEGRO_FILECHOOSER)* dialog);
+	ALLEGRO_PATH* al_get_native_file_dialog_path(const(ALLEGRO_FILECHOOSER)* dialog, size_t index);
 	void al_destroy_native_file_dialog(ALLEGRO_FILECHOOSER* dialog);
 
-	int al_show_native_message_box(ALLEGRO_DISPLAY* display, in char* title, in char* heading, in char* text, in char* buttons, int flags);
+	int al_show_native_message_box(ALLEGRO_DISPLAY* display, const(char)* title, const(char)* heading, const(char)* text, const(char)* buttons, int flags);
 
-	ALLEGRO_TEXTLOG* al_open_native_text_log(in char* title, int flags);
+	ALLEGRO_TEXTLOG* al_open_native_text_log(const(char)* title, int flags);
 	void al_close_native_text_log(ALLEGRO_TEXTLOG* textlog);
-	void al_append_native_text_log(ALLEGRO_TEXTLOG* textlog, in char* format, ...);
+	void al_append_native_text_log(ALLEGRO_TEXTLOG* textlog, const(char)* format, ...);
 	ALLEGRO_EVENT_SOURCE* al_get_native_text_log_event_source(ALLEGRO_TEXTLOG* textlog);
 
 	/* creating/modifying menus */
 	ALLEGRO_MENU* al_create_menu();;
 	ALLEGRO_MENU* al_create_popup_menu();;
 	ALLEGRO_MENU* al_build_menu(ALLEGRO_MENU_INFO* info);
-	int al_append_menu_item(ALLEGRO_MENU* parent, in char* title, ushort id, int flags, ALLEGRO_BITMAP* icon, ALLEGRO_MENU* submenu);
-	int al_insert_menu_item(ALLEGRO_MENU* parent, int pos, in char* title, ushort id, int flags, ALLEGRO_BITMAP* icon, ALLEGRO_MENU* submenu);
+	int al_append_menu_item(ALLEGRO_MENU* parent, const(char)* title, ushort id, int flags, ALLEGRO_BITMAP* icon, ALLEGRO_MENU* submenu);
+	int al_insert_menu_item(ALLEGRO_MENU* parent, int pos, const(char)* title, ushort id, int flags, ALLEGRO_BITMAP* icon, ALLEGRO_MENU* submenu);
 	bool al_remove_menu_item(ALLEGRO_MENU* menu, int pos);
 	ALLEGRO_MENU* al_clone_menu(ALLEGRO_MENU* menu);
 	ALLEGRO_MENU* al_clone_menu_for_popup(ALLEGRO_MENU* menu);
@@ -75,7 +75,7 @@ nothrow @nogc extern (C)
 
 	/* properties */
 	const(char)* al_get_menu_item_caption(ALLEGRO_MENU* menu, int pos);
-	void al_set_menu_item_caption(ALLEGRO_MENU* menu, int pos, in char* caption);
+	void al_set_menu_item_caption(ALLEGRO_MENU* menu, int pos, const(char)* caption);
 	int al_get_menu_item_flags(ALLEGRO_MENU* menu, int pos);
 	void al_set_menu_item_flags(ALLEGRO_MENU* menu, int pos, int flags);
 	version (AllegroNativeDialogUnstable)

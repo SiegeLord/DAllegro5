@@ -24,5 +24,5 @@ nothrow @nogc extern (C)
 	}
 
 	void al_store_state(ALLEGRO_STATE *state, int flags);
-	void al_restore_state(in ALLEGRO_STATE *state);
+	void al_restore_state(const(ALLEGRO_STATE)* state);
 }

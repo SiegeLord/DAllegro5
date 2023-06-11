@@ -64,10 +64,10 @@ nothrow @nogc extern (C)
 	}
 
 	ALLEGRO_PATH* al_get_standard_path(int id);
-	void al_set_exe_name(in char* path);
+	void al_set_exe_name(const(char)* path);
 
-	void al_set_org_name(in char* orgname);
-	void al_set_app_name(in char* appname);
+	void al_set_org_name(const(char)* orgname);
+	void al_set_app_name(const(char)* appname);
 	const(char)* al_get_org_name();
 	const(char)* al_get_app_name();
 
