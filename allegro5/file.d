@@ -33,11 +33,11 @@ nothrow @nogc extern (C)
 		int     function(ALLEGRO_FILE* f, int c) fi_fungetc;
 		off_t   function(ALLEGRO_FILE* f) fi_fsize;
 	}
-	
+
 	struct ALLEGRO_FILE
 	{
 	}
-	
+
 	enum ALLEGRO_SEEK
 	{
 		ALLEGRO_SEEK_SET = 0,
@@ -83,7 +83,7 @@ nothrow @nogc extern (C)
 	/* Specific to stdio backend. */
 	ALLEGRO_FILE* al_fopen_fd(int fd, in char* mode);
 	ALLEGRO_FILE* al_make_temp_file(in char* tmpl,	ALLEGRO_PATH **ret_path);
-	
+
 	/* Specific to slices. */
 	ALLEGRO_FILE* al_fopen_slice(ALLEGRO_FILE* fp, size_t initial_size, in char *mode);
 

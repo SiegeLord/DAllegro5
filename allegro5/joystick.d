@@ -8,7 +8,7 @@ nothrow @nogc extern (C)
 	private const int  _AL_MAX_JOYSTICK_AXES = 3;
 	private const int  _AL_MAX_JOYSTICK_STICKS = 16;
 	private const int  _AL_MAX_JOYSTICK_BUTTONS = 32;
-	
+
 	struct ALLEGRO_JOYSTICK {};
 
 	struct ALLEGRO_JOYSTICK_STATE

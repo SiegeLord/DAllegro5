@@ -12,10 +12,10 @@ nothrow @nogc extern (C)
 		int slen;
 		char* data;
 	}
-	
+
 	alias _al_tagbstring ALLEGRO_USTR;
 	alias _al_tagbstring ALLEGRO_USTR_INFO;
-	
+
 	ALLEGRO_USTR* al_ustr_new(in char* s);
 	ALLEGRO_USTR* al_ustr_new_from_buffer(in char* s, size_t size);
 	ALLEGRO_USTR* al_ustr_newf(in char* fmt, ...);
@@ -25,7 +25,7 @@ nothrow @nogc extern (C)
 	char* al_cstr_dup(in ALLEGRO_USTR* us);
 	ALLEGRO_USTR* al_ustr_dup(in ALLEGRO_USTR* us);
 	ALLEGRO_USTR* al_ustr_dup_substr(in ALLEGRO_USTR* us, int start_pos, int end_pos);
-	
+
 	/* Predefined string */
 	const(ALLEGRO_USTR)* al_ustr_empty_string();
 

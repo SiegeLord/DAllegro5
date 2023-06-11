@@ -17,7 +17,7 @@ nothrow @nogc extern (C)
 	const size_t ALLEGRO_TOUCH_INPUT_MAX_TOUCH_COUNT = 16;
 
 	struct ALLEGRO_TOUCH_INPUT {};
-	
+
 	struct ALLEGRO_TOUCH_STATE
 	{
 	   /* (id) An identifier of touch. If touch is valid this number is positive.

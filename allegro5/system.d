@@ -20,15 +20,15 @@ int al_run_allegro(scope int delegate() user_main)
 			thread_attachThis();
 			rt_moduleTlsCtor();
 		}
-		
+
 		auto main_ret = (*cast(int delegate()*)argv[0])();
-		
+
 		version(OSX)
 		{
 			thread_detachThis();
 			rt_moduleTlsDtor();
 		}
-		
+
 		return main_ret;
 	}
 
@@ -45,13 +45,13 @@ nothrow @nogc extern (C)
 	bool al_is_system_installed();
 	ALLEGRO_SYSTEM* al_get_system_driver();
 	ALLEGRO_CONFIG* al_get_system_config();
-	
+
 	bool al_init()
 	{
 		return al_install_system(ALLEGRO_VERSION_INT, &atexit);
 	}
 
-	enum 
+	enum
 	{
 		ALLEGRO_RESOURCES_PATH = 0,
 		ALLEGRO_TEMP_PATH,

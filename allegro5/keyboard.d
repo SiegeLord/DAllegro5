@@ -16,7 +16,7 @@ nothrow @nogc extern (C)
 		/* internal */
 		uint[(ALLEGRO_KEY_MAX + 31) / 32] __key_down__internal__;
 	}
-	
+
 	bool  al_is_keyboard_installed();
 	bool  al_install_keyboard();
 	void  al_uninstall_keyboard();

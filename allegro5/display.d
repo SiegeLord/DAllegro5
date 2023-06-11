@@ -73,7 +73,7 @@ nothrow @nogc extern (C)
 		ALLEGRO_REQUIRE,
 		ALLEGRO_SUGGEST
 	}
-	
+
 	enum ALLEGRO_DISPLAY_ORIENTATION
 	{
 		ALLEGRO_DISPLAY_ORIENTATION_UNKNOWN = 0,
@@ -152,11 +152,11 @@ nothrow @nogc extern (C)
 	void al_reset_new_display_options();
 	void al_set_display_option(ALLEGRO_DISPLAY* display, int option, int value);
 	int al_get_display_option(ALLEGRO_DISPLAY* display, int option);
-	
+
 	/*Deferred drawing*/
 	void al_hold_bitmap_drawing(bool hold);
 	bool al_is_bitmap_drawing_held();
-	
+
 	void al_acknowledge_drawing_halt(ALLEGRO_DISPLAY* display);
 	void al_acknowledge_drawing_resume(ALLEGRO_DISPLAY *display);
 }

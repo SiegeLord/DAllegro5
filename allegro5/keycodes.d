@@ -117,7 +117,7 @@ enum
 	ALLEGRO_KEY_BACKQUOTE   = 104,   /* MacOS X */
 	ALLEGRO_KEY_SEMICOLON2   = 105,   /* MacOS X -- TODO: ask lillo what this should be */
 	ALLEGRO_KEY_COMMAND   = 106,   /* MacOS X */
-	
+
 	ALLEGRO_KEY_BACK = 107,        /* Android back key */
 	ALLEGRO_KEY_VOLUME_UP = 108,
 	ALLEGRO_KEY_VOLUME_DOWN = 109,

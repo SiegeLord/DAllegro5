@@ -17,7 +17,7 @@ nothrow @nogc extern (C)
 
 		ALLEGRO_STATE_ALL                    = 0xffff
 	}
-	
+
 	struct ALLEGRO_STATE
 	{
 		char[1024] _tls;
