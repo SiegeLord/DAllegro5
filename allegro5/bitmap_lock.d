@@ -14,7 +14,7 @@ nothrow @nogc extern(C)
 		ALLEGRO_LOCK_WRITEONLY  = 2
 	}
 
-	struct ALLEGRO_LOCKED_REGION 
+	struct ALLEGRO_LOCKED_REGION
 	{
 		void* data;
 		int format;

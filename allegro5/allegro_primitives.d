@@ -61,7 +61,7 @@ nothrow @nogc extern (C)
 		ALLEGRO_PRIM_HALF_FLOAT_2,
 		ALLEGRO_PRIM_HALF_FLOAT_4
 	}
-	
+
 	enum ALLEGRO_LINE_JOIN
 	{
 		ALLEGRO_LINE_JOIN_NONE,
@@ -92,7 +92,7 @@ nothrow @nogc extern (C)
 
 	const int ALLEGRO_PRIM_QUALITY = 10;
 
-	struct ALLEGRO_VERTEX_ELEMENT 
+	struct ALLEGRO_VERTEX_ELEMENT
 	{
 		int attribute;
 		int storage;
@@ -109,7 +109,7 @@ nothrow @nogc extern (C)
 	}
 
 	struct ALLEGRO_VERTEX_BUFFER {};
-	
+
 	struct ALLEGRO_INDEX_BUFFER {};
 
 	uint al_get_allegro_primitives_version();
@@ -123,10 +123,10 @@ nothrow @nogc extern (C)
 	int al_draw_indexed_prim(in void* vtxs, in ALLEGRO_VERTEX_DECL* decl, ALLEGRO_BITMAP* texture, in int* indices, int num_vtx, int type);
 	int al_draw_vertex_buffer(ALLEGRO_VERTEX_BUFFER* vertex_buffer, ALLEGRO_BITMAP* texture, int start, int end, int type);
 	int al_draw_indexed_buffer(ALLEGRO_VERTEX_BUFFER* vertex_buffer, ALLEGRO_BITMAP* texture, ALLEGRO_INDEX_BUFFER* index_buffer, int start, int end, int type);
-	
+
 	ALLEGRO_VERTEX_DECL* al_create_vertex_decl(in ALLEGRO_VERTEX_ELEMENT* elements, int stride);
 	void al_destroy_vertex_decl(ALLEGRO_VERTEX_DECL* decl);
-	
+
 	/*
 	* Vertex buffers
 	*/
@@ -135,7 +135,7 @@ nothrow @nogc extern (C)
 	void* al_lock_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer, int offset, int length, int flags);
 	void al_unlock_vertex_buffer(ALLEGRO_VERTEX_BUFFER* buffer);
 	int al_get_vertex_buffer_size(ALLEGRO_VERTEX_BUFFER* buffer);
-	
+
 	/*
 	 * Index buffers
 	 */
@@ -156,11 +156,11 @@ nothrow @nogc extern (C)
 	void al_draw_soft_triangle(ALLEGRO_VERTEX* v1, ALLEGRO_VERTEX* v2, ALLEGRO_VERTEX* v3, uintptr_t state,
 	                                           void function(uintptr_t, ALLEGRO_VERTEX*, ALLEGRO_VERTEX*, ALLEGRO_VERTEX*) init,
 	                                           void function(uintptr_t, int, int, int, int) first,
-	                                           void function(uintptr_t, int) step, 
+	                                           void function(uintptr_t, int) step,
 	                                           void function(uintptr_t, int, int, int) draw);
 	void al_draw_soft_line(ALLEGRO_VERTEX* v1, ALLEGRO_VERTEX* v2, uintptr_t state,
 	                                           void function(uintptr_t, int, int, ALLEGRO_VERTEX*, ALLEGRO_VERTEX*) first,
-	                                           void function(uintptr_t, int) step, 
+	                                           void function(uintptr_t, int) step,
 	                                           void function(uintptr_t, int, int) draw);
 
 	/*
@@ -190,7 +190,7 @@ nothrow @nogc extern (C)
 	void al_draw_filled_circle(float cx, float cy, float r, ALLEGRO_COLOR color);
 	void al_draw_filled_pieslice(float cx, float cy, float r, float start_theta, float delta_theta, ALLEGRO_COLOR color);
 	void al_draw_filled_rounded_rectangle(float x1, float y1, float x2, float y2, float rx, float ry, ALLEGRO_COLOR color);
-	
+
 	void al_draw_polyline(in float* vertices, int vertex_stride, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_LINE_CAP cap_style, ALLEGRO_COLOR color, float thickness, float miter_limit);
 
 	void al_draw_polygon(in float* vertices, int vertex_count, ALLEGRO_LINE_JOIN join_style, ALLEGRO_COLOR color, float thickness, float miter_limit);

@@ -7,10 +7,10 @@ import core.stdc.errno;
 nothrow @nogc extern (C)
 {
 	alias int al_fixed;
-	
+
 	const al_fixed al_fixtorad_r = cast(al_fixed)1608;
 	const al_fixed al_radtofix_r = cast(al_fixed)2670177;
-	
+
 	al_fixed al_fixsqrt(al_fixed x);
 	al_fixed al_fixhypot(al_fixed x, al_fixed y);
 	al_fixed al_fixatan(al_fixed x);
@@ -32,12 +32,12 @@ nothrow @nogc extern (C)
 
 		return cast(al_fixed)(x * 65536.0 + (x < 0 ? -0.5 : 0.5));
 	}
-	
+
 	double al_fixtof(al_fixed x)
 	{
 		return cast(double)x / 65536.0;
 	}
-	
+
 	al_fixed al_fixadd(al_fixed x, al_fixed y)
 	{
 		al_fixed result = x + y;
@@ -78,9 +78,9 @@ nothrow @nogc extern (C)
 			else
 				return result;
 		}
-		else 
+		else
 		{
-			if ((x > 0) && (y < 0)) 
+			if ((x > 0) && (y < 0))
 			{
 				al_set_errno(ERANGE);
 				return 0x7FFFFFFF;
@@ -96,7 +96,7 @@ nothrow @nogc extern (C)
 		long ly = y;
 		long lres = (lx*ly);
 
-		if (lres > 0x7FFFFFFF0000L) 
+		if (lres > 0x7FFFFFFF0000L)
 		{
 			al_set_errno(ERANGE);
 			return 0x7FFFFFFF;
@@ -133,7 +133,7 @@ nothrow @nogc extern (C)
 			al_set_errno(ERANGE);
 			return 0x80000000;
 		}
-		else 
+		else
 		{
 			return cast(al_fixed)(lres);
 		}

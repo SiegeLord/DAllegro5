@@ -55,7 +55,7 @@ nothrow @nogc extern (C)
 		ALLEGRO_CHANNEL_CONF_6_1 = 0x61,
 		ALLEGRO_CHANNEL_CONF_7_1 = 0x71
 	}
-	
+
 	const ALLEGRO_MAX_CHANNELS = 8;
 
 	enum ALLEGRO_PLAYMODE
@@ -75,7 +75,7 @@ nothrow @nogc extern (C)
 	}
 
 	const float ALLEGRO_AUDIO_PAN_NONE = -1000.0f;
-	
+
 	enum ALLEGRO_AUDIO_EVENT_TYPE
 	{
 		ALLEGRO_EVENT_AUDIO_ROUTE_CHANGE       = 520,
@@ -92,9 +92,9 @@ nothrow @nogc extern (C)
 	}
 
 	struct ALLEGRO_SAMPLE_INSTANCE {};
-	
+
 	struct ALLEGRO_AUDIO_STREAM {};
-	
+
 	struct ALLEGRO_MIXER {};
 
 	struct ALLEGRO_VOICE {};

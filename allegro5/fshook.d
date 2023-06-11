@@ -18,7 +18,7 @@ import core.stdc.time : time_t;
 
 nothrow @nogc extern (C)
 {
-	struct ALLEGRO_FS_ENTRY 
+	struct ALLEGRO_FS_ENTRY
 	{
 		const ALLEGRO_FS_INTERFACE* vtable;
 	}
@@ -32,7 +32,7 @@ nothrow @nogc extern (C)
 		ALLEGRO_FILEMODE_ISFILE  = 1 << 4,
 		ALLEGRO_FILEMODE_ISDIR   = 1 << 5,
 	}
-	
+
 	struct ALLEGRO_FS_INTERFACE
 	{
 		ALLEGRO_FS_ENTRY* function(in char* path) fs_create_entry;
@@ -56,7 +56,7 @@ nothrow @nogc extern (C)
 		ALLEGRO_PATH*     function() fs_get_current_directory;
 		bool              function(in char* path) fs_change_directory;
 		bool              function(in char* path) fs_make_directory;
-		
+
 		ALLEGRO_FILE *    function(ALLEGRO_FS_ENTRY* e, in char* mode) fs_open_file;
 	}
 
@@ -81,7 +81,7 @@ nothrow @nogc extern (C)
 	char*                al_get_current_directory();
 	bool                 al_change_directory(in char* path);
 	bool                 al_make_directory(in char* path);
-	
+
 	ALLEGRO_FILE*        al_open_fs_entry(ALLEGRO_FS_ENTRY* e, in char* mode);
 
 	enum ALLEGRO_FOR_EACH_FS_ENTRY_RESULT

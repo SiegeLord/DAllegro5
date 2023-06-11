@@ -14,7 +14,7 @@ nothrow @nogc extern (C)
 		const char ALLEGRO_NATIVE_PATH_SEP = '/';
 		const char ALLEGRO_NATIVE_DRIVE_SEP = '\0';
 	}
-	
+
 	struct ALLEGRO_PATH {};
 
 	ALLEGRO_PATH* al_create_path(in char* str);

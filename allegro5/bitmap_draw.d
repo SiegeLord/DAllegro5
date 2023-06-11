@@ -11,7 +11,7 @@ nothrow @nogc extern(C)
 		ALLEGRO_FLIP_HORIZONTAL = 0x00001,
 		ALLEGRO_FLIP_VERTICAL   = 0x00002
 	}
-	
+
 	/* Blitting */
 	void al_draw_bitmap(ALLEGRO_BITMAP* bitmap, float dx, float dy, int flags);
 	void al_draw_bitmap_region(ALLEGRO_BITMAP* bitmap, float sx, float sy, float sw, float sh, float dx, float dy, int flags);

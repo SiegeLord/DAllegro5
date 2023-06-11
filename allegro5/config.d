@@ -8,7 +8,7 @@ nothrow @nogc extern (C)
 	struct ALLEGRO_CONFIG {};
 	struct ALLEGRO_CONFIG_SECTION {};
 	struct ALLEGRO_CONFIG_ENTRY {};
-	
+
 	ALLEGRO_CONFIG* al_create_config();
 	void al_add_config_section(ALLEGRO_CONFIG* config, in char* name);
 	void al_set_config_value(ALLEGRO_CONFIG* config, in char* section, in char* key, in char* value);

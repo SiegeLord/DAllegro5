@@ -82,12 +82,12 @@ nothrow @nogc extern (C)
 	{
 		int[32] __pad = void;
 	}
-	
+
 	struct ALLEGRO_ANY_EVENT
 	{
 		mixin(_AL_EVENT_HEADER!("ALLEGRO_EVENT_SOURCE"));
 	}
-	
+
 	struct ALLEGRO_DISPLAY_EVENT
 	{
 		mixin(_AL_EVENT_HEADER!("ALLEGRO_DISPLAY"));
@@ -136,7 +136,7 @@ nothrow @nogc extern (C)
 		long count;
 		double error;
 	}
-	
+
 	struct ALLEGRO_TOUCH_EVENT
 	{
 	   mixin(_AL_EVENT_HEADER!("ALLEGRO_TOUCH_INPUT"));
@@ -151,7 +151,7 @@ nothrow @nogc extern (C)
 	   float dx, dy;
 	   bool primary;
 	}
-	
+
 	struct ALLEGRO_USER_EVENT_DESCRIPTOR;
 
 	struct ALLEGRO_USER_EVENT
@@ -163,12 +163,12 @@ nothrow @nogc extern (C)
 		intptr_t data3;
 		intptr_t data4;
 	}
-	
+
 	union ALLEGRO_EVENT
 	{
 		/* This must be the same as the first field of _AL_EVENT_HEADER.  */
 		ALLEGRO_EVENT_TYPE type;
-		
+
 		ALLEGRO_ANY_EVENT      any;
 		ALLEGRO_DISPLAY_EVENT  display;
 		ALLEGRO_JOYSTICK_EVENT joystick;
@@ -178,7 +178,7 @@ nothrow @nogc extern (C)
 		ALLEGRO_TOUCH_EVENT    touch;
 		ALLEGRO_USER_EVENT     user;
 	}
-	
+
 	/* Event sources */
 	void al_init_user_event_source(ALLEGRO_EVENT_SOURCE* src);
 	void al_destroy_user_event_source(ALLEGRO_EVENT_SOURCE* src);

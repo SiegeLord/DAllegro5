@@ -14,7 +14,7 @@ nothrow @nogc extern(C)
 		ALLEGRO_NO_PREMULTIPLIED_ALPHA   = 0x0200,   /* was a bitmap flag in 5.0 */
 		ALLEGRO_KEEP_INDEX               = 0x0800
 	}
-	
+
 	alias ALLEGRO_BITMAP* function(in char* filename) ALLEGRO_IIO_LOADER_FUNCTION;
 	alias ALLEGRO_BITMAP* function(ALLEGRO_FILE* fp) ALLEGRO_IIO_FS_LOADER_FUNCTION;
 	alias bool function(in char* filename, ALLEGRO_BITMAP* bitmap) ALLEGRO_IIO_SAVER_FUNCTION;
