@@ -13,6 +13,8 @@ extern (C) void rt_moduleTlsDtor();
 
 int al_run_allegro(scope int delegate() user_main)
 {
+	__gshared int delegate() user_main_inner;
+	user_main_inner = user_main;
 	extern(C) static int main_runner(int argc, char** argv)
 	{
 		version(OSX)
@@ -21,7 +23,7 @@ int al_run_allegro(scope int delegate() user_main)
 			rt_moduleTlsCtor();
 		}
 
-		auto main_ret = (*cast(int delegate()*)argv[0])();
+		auto main_ret = user_main_inner();
 
 		version(OSX)
 		{
@@ -32,8 +34,7 @@ int al_run_allegro(scope int delegate() user_main)
 		return main_ret;
 	}
 
-	char* fake_arg = cast(char*)&user_main;
-	return al_run_main(0, &fake_arg, &main_runner);
+	return al_run_main(0, null, &main_runner);
 }
 
 nothrow @nogc extern (C)
